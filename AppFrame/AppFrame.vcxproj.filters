@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Application">
+      <UniqueIdentifier>{4ca63305-d083-453b-88a9-706f0a1ac180}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CFile">
+      <UniqueIdentifier>{8fbd5843-f112-4047-a7f8-83460621436b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{ec7580b2-0476-4287-a4d5-af9896a8b16c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{9ee1388b-c70f-45d4-93f6-09e64a54f401}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{6cbf5279-3510-41ab-a7a8-3d4939a2d0fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utillity">
+      <UniqueIdentifier>{eb9927ef-d4b7-4ca0-a36e-44dd263f6d5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\ImageServer">
+      <UniqueIdentifier>{3cd2180c-f6a9-4a9d-aca4-e88d88551649}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\ModelServer">
+      <UniqueIdentifier>{50c64edb-d85f-49c5-9eb7-56d54a7e6513}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\ObjectServer">
+      <UniqueIdentifier>{c7368be9-6a6a-4829-959a-a87974c3e264}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\ObjectBase">
+      <UniqueIdentifier>{fe46a850-67d1-49b1-b241-beb33af923b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component">
+      <UniqueIdentifier>{721276cd-7724-48d5-a3d0-02d892293439}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\MV1Component">
+      <UniqueIdentifier>{3c8324ae-e3b8-47be-a858-4d4f32656056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\2DAABBComponent">
+      <UniqueIdentifier>{04194e5c-9704-4a49-8482-39deb06586dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\CollisionComponent">
+      <UniqueIdentifier>{95ccf118-fbed-42d6-921f-e9db2acdb242}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utillity\CharacterCodeConvert">
+      <UniqueIdentifier>{a6216631-7a4e-47e7-b635-98faaad0eeb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utillity\ShiftJISChecker">
+      <UniqueIdentifier>{19040c9e-599a-4930-af6f-10cd4c04e024}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\FontServer">
+      <UniqueIdentifier>{d22d91e7-9f7d-41b6-9bdf-f9ba14cf1424}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\SoundServer">
+      <UniqueIdentifier>{373b541e-5052-4618-bfac-20d49fafa1e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utillity\Easing">
+      <UniqueIdentifier>{3a3ac061-685c-4e4f-8354-6057ae64608f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\TimelineComponent">
+      <UniqueIdentifier>{80a76770-8471-4473-9b44-849028985c47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utillity\Random">
+      <UniqueIdentifier>{3902418c-3164-4461-8ba1-946a77ee80d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utillity\ChangeScreen">
+      <UniqueIdentifier>{36dc531c-9181-4a17-acdf-dd4b6834f536}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InputManager">
+      <UniqueIdentifier>{e0207075-559e-4ed2-bc98-76824f23b563}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mode">
+      <UniqueIdentifier>{0956dce0-03a6-436b-97de-aebc18ca73fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mode\ModeServer">
+      <UniqueIdentifier>{f65d1d8e-b785-4c0b-a849-085fd92b4b60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mode\ModeBase">
+      <UniqueIdentifier>{9985990d-1c64-4863-a326-e66ecebee5a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Message">
+      <UniqueIdentifier>{4373c737-67f9-4398-9c12-26e86c7e7546}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utillity\Color">
+      <UniqueIdentifier>{68901b62-7481-46c4-9062-526aae6e3e15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math\2DAABB">
+      <UniqueIdentifier>{c7cf2569-7cf9-43c5-b5af-03a368fc6b5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utillity\Vibration">
+      <UniqueIdentifier>{9d9ddf24-3cd1-471c-a324-b9940b4b5344}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blur">
+      <UniqueIdentifier>{26afaf07-4b0a-4bb7-b2a0-79812f9131c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utillity\CheckCollision">
+      <UniqueIdentifier>{03f6ac1f-5af7-43f2-bc5d-8920c21f04b4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\Application\ApplicationBase.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Mode\ModeServer.cpp">
+      <Filter>Mode\ModeServer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CFile\CFile.cpp">
+      <Filter>CFile</Filter>
+    </ClCompile>
+    <ClCompile Include="source\AppFrameMath.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Object\ObjectBase.cpp">
+      <Filter>Object\ObjectBase</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Resource\ImageServer.cpp">
+      <Filter>Resource\ImageServer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Resource\ModelServer.cpp">
+      <Filter>Resource\ModelServer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Utility\AABB2D.cpp">
+      <Filter>Math\2DAABB</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Object\ObjectServer.cpp">
+      <Filter>Object\ObjectServer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Object\ComponentBase.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Object\MV1Component.cpp">
+      <Filter>Component\MV1Component</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Object\AABB2DComponent.cpp">
+      <Filter>Component\2DAABBComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Mode\ModeBase.cpp">
+      <Filter>Mode\ModeBase</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Object\SphereCollisionComponent.cpp">
+      <Filter>Component\CollisionComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Utility\CharacterCodeConvert.cpp">
+      <Filter>Utillity\CharacterCodeConvert</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Utility\ShiftJISChecker.cpp">
+      <Filter>Utillity\ShiftJISChecker</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Resource\FontServer.cpp">
+      <Filter>Resource\FontServer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Resource\SoundServer.cpp">
+      <Filter>Resource\SoundServer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Object\MessageList.cpp">
+      <Filter>Message</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Utility\Easing.cpp">
+      <Filter>Utillity\Easing</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Object\TimelineComponent.cpp">
+      <Filter>Component\TimelineComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PostProccess\BlurRenderer.cpp">
+      <Filter>Blur</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Utility\ChangeScreen.cpp">
+      <Filter>Utillity\ChangeScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Utility\Random.cpp">
+      <Filter>Utillity\Random</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Application\WinMain.cpp" />
+    <ClCompile Include="source\Input\InputManager.cpp">
+      <Filter>InputManager</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Utility\Color.cpp">
+      <Filter>Utillity\Color</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Utility\Vibration.cpp">
+      <Filter>Utillity\Vibration</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Object\AABBCollisionComponent.cpp">
+      <Filter>Component\CollisionComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Utility\CheckCollision.cpp">
+      <Filter>Utillity\CheckCollision</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\Application\ApplicationBase.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Application\UtilMacro.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="source\appframe.h" />
+    <ClInclude Include="source\Mode\ModeServer.h">
+      <Filter>Mode\ModeServer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\CFile\CFile.h">
+      <Filter>CFile</Filter>
+    </ClInclude>
+    <ClInclude Include="source\AppFrameMath.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Object\ObjectBase.h">
+      <Filter>Object\ObjectBase</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Resource\ImageServer.h">
+      <Filter>Resource\ImageServer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Resource\ModelServer.h">
+      <Filter>Resource\ModelServer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Utility\AABB2D.h">
+      <Filter>Math\2DAABB</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Object\ObjectServer.h">
+      <Filter>Object\ObjectServer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Object\ComponentBase.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Object\MV1Component.h">
+      <Filter>Component\MV1Component</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Object\AABB2DComponent.h">
+      <Filter>Component\2DAABBComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Mode\ModeBase.h">
+      <Filter>Mode\ModeBase</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Object\SphereCollisionComponent.h">
+      <Filter>Component\CollisionComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Utility\CharacterCodeConvert.h">
+      <Filter>Utillity\CharacterCodeConvert</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Utility\ShiftJISChecker.h">
+      <Filter>Utillity\ShiftJISChecker</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Resource\FontServer.h">
+      <Filter>Resource\FontServer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Resource\SoundServer.h">
+      <Filter>Resource\SoundServer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Object\MessageList.h">
+      <Filter>Message</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Utility\Easing.h">
+      <Filter>Utillity\Easing</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Object\TimelineComponent.h">
+      <Filter>Component\TimelineComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PostProccess\BlurRenderer.h">
+      <Filter>Blur</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Utility\ChangeScreen.h">
+      <Filter>Utillity\ChangeScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Utility\Random.h">
+      <Filter>Utillity\Random</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Input\InputManager.h">
+      <Filter>InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Utility\Color.h">
+      <Filter>Utillity\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Utility\Vibration.h">
+      <Filter>Utillity\Vibration</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Object\AABBCollisionComponent.h">
+      <Filter>Component\CollisionComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Utility\CheckCollision.h">
+      <Filter>Utillity\CheckCollision</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

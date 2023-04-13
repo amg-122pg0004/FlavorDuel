@@ -1,0 +1,32 @@
+#pragma once
+
+#pragma comment(lib,"AppFrame.lib")
+
+#include "DxLib.h"
+#include "Application/ApplicationBase.h"
+#include "CFile/CFile.h"
+#include "Input/InputManager.h"
+#include "AppFrameMath.h"
+#include "Object/ObjectBase.h"
+#include "Object/ComponentBase.h"
+#include "Object/MV1Component.h"
+#include "Object/AABB2DComponent.h"
+#include "Object/SphereCollisionComponent.h"
+#include "Object/AABBCollisionComponent.h"
+#include "Object/TimeLineComponent.h"
+#include "Object/ObjectServer.h"
+#include "Resource/ImageServer.h"
+#include "Resource/ModelServer.h"
+#include "Resource/FontServer.h"
+#include "Resource/SoundServer.h"
+#include "Utility/AABB2D.h"
+#include "Utility/CharacterCodeConvert.h"
+#include "Utility/ShiftJISChecker.h"
+#include "Utility/ChangeScreen.h"
+#include "Utility/Color.h"
+#include "Utility/CheckCollision.h"
+#include "PostProccess/BlurRenderer.h"
+#include "Utility/Random.h"
+#include "Utility/Vibration.h"
+#include "Mode/ModeServer.h"
+

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Application">
+      <UniqueIdentifier>{35f22c41-6ce1-4cd8-a222-18590bac9e4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mode">
+      <UniqueIdentifier>{85bb0d9d-d35c-4021-aceb-0ddb91d9543e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{29535b59-92e6-42aa-93b5-7ef8c6b2a347}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataStruct">
+      <UniqueIdentifier>{fabaa9d7-7f5a-4d92-9e38-9c9920cdf3c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Curl">
+      <UniqueIdentifier>{e2850b02-8591-4f22-a3a8-a57daae58079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Card">
+      <UniqueIdentifier>{69be2f4f-2e81-4a9c-a4c7-dd9c56b5578e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Factory">
+      <UniqueIdentifier>{1e86c06f-9ca7-4da8-b8ca-bf6c820f0e55}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\ApplicationMain.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ModeTest.cpp">
+      <Filter>Mode</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CardDataStruct.cpp">
+      <Filter>DataStruct</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Curl.cpp">
+      <Filter>Curl</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CardObject.cpp">
+      <Filter>Object\Card</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\ApplicationMain.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ModeTest.h">
+      <Filter>Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="source\CardDataStruct.h">
+      <Filter>DataStruct</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Curl.h">
+      <Filter>Curl</Filter>
+    </ClInclude>
+    <ClInclude Include="source\CardObject.h">
+      <Filter>Object\Card</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
