@@ -2,7 +2,9 @@
 #include <sstream>
 #include <picojson.h>
 #include <codecvt>
+#include <memory>
 #include "Curl.h"
+#include "testUI.h"
 
 namespace {
 	constexpr auto TestURL = "http://localhost:9000";
@@ -17,10 +19,8 @@ Flavor::ModeTest::ModeTest()
 bool Flavor::ModeTest::Initialize()
 {
 	ModeBase::Initialize();
-	_testCard.name = "ƒ€ƒLƒ€ƒL‚ÌlŠÔ";
-	_testCard.flavorText = "ƒ{ƒƒ{ƒ‚Ì•z‚ð“Z‚Á‚Ä‚¢‚é";
-	_testCard.power = -1;
-	_testCard.tips = "";
+	_testCard.name = "|“S‚Ì‹T";
+	_testCard.flavorText = "d‚¢b—…‚Í‚Ç‚ñ‚ÈUŒ‚‚à‚Í‚¶‚­B";
 
 	picojson::object jsonObject;
 	auto nameUTF8 = AppFrame::CharacterCodeConvert::ConvertShiftJISToUTF8(_testCard.name);
@@ -30,22 +30,26 @@ bool Flavor::ModeTest::Initialize()
 	picojson::value value(jsonObject);
 	std::string jsonString = value.serialize();
 
-	Curl* curl = new Curl();
+	//Curl* curl = new Curl();
+	//
+	//curl->post(TestURL, jsonString, [](std::string error, std::string body) {
+	//	if (error != "") {
+	//		std::cerr << "ERROR: " << error << std::endl;
+	//	}
+	//	else {
+	//		std::cout << "POST Response body:" << std::endl;
+	//		std::cout << body << std::endl;
+	//	}
+	//});
+	//
+	//auto wide = AppFrame::CharacterCodeConvert::ConvertUTF8ToWide(curl->GetBody());
+	//auto shiftJisText = AppFrame::CharacterCodeConvert::ConvertWideToShiftJIS(wide);
+	//_testCard.tips = shiftJisText;
 
-	curl->post(TestURL, jsonString, [](std::string error, std::string body) {
-		if (error != "") {
-			std::cerr << "ERROR: " << error << std::endl;
-		}
-		else {
-			std::cout << "POST Response body:" << std::endl;
-			std::cout << body << std::endl;
-		}
-	});
+	auto test = std::make_unique<testUI>();
+	this->GetUICanvasServer()->Add(std::move(test));
 
-	auto wide = AppFrame::CharacterCodeConvert::ConvertUTF8ToWide(curl->GetBody());
-	auto shiftJisText = AppFrame::CharacterCodeConvert::ConvertWideToShiftJIS(wide);
-	_testCard.tips = shiftJisText;
-return false;
+	return false;
 }
 
 bool Flavor::ModeTest::Terminate()
@@ -55,6 +59,7 @@ bool Flavor::ModeTest::Terminate()
 
 bool Flavor::ModeTest::Update(InputManager& input)
 {
+	ModeBase::Update(input);
 	return false;
 }
 
@@ -63,12 +68,13 @@ bool Flavor::ModeTest::Render()
 	std::stringstream ss;
 	ss << _testCard.name << "\n";
 	ss << _testCard.flavorText << "\n";
-	ss << _testCard.tips << "\n";
 	DrawString(0, 0, ss.str().c_str(), AppFrame::Color::White);
+	ModeBase::Render();
 	return false;
 }
 
 bool Flavor::ModeTest::Debug()
 {
+	ModeBase::Debug();
 	return false;
 }

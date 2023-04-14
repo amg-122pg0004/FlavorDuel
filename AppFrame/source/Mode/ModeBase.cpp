@@ -7,12 +7,13 @@
  *********************************************************************/
 #include "ModeBase.h"
 #include "ObjectServer.h"
+#include "UICanvasServer.h"
 #include "BlurRenderer.h"
 namespace AppFrame {
 
 
     ModeBase::ModeBase() {
-        _szName = "";
+        _name = "";
         _uid = 1;
         _layer = 0;
 
@@ -40,6 +41,7 @@ namespace AppFrame {
     bool	ModeBase::Initialize() {
 
         _objectServer.reset(new ObjectServer(*this));
+        _uiCanvasServer.reset(new UICanvasServer(*this));
         _blurRenderer.reset(new BlurRenderer);
         return true;
     }
@@ -56,6 +58,8 @@ namespace AppFrame {
     // --------------------------------------------------------------------------
     bool	ModeBase::Update(InputManager& input)
     {
+        _objectServer->Update(input);
+        _uiCanvasServer->Update(input);
         return	true;
     }
 
@@ -65,11 +69,14 @@ namespace AppFrame {
     bool	ModeBase::Render()
     {
         _blurRenderer->ClearAllScreen();
+        _objectServer->Render();
+        _uiCanvasServer->Render();
         return	true;
     }
 
     bool	ModeBase::Debug()
     {
+        _objectServer->Debug();
         return	true;
     }
 

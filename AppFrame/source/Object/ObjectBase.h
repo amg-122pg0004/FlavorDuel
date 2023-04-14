@@ -16,7 +16,7 @@
 #include <typeindex>
 
 #include "MessageList.h"
-#include "../AppFrameMath.h"
+#include "Math/VECTOR2.h"
 
 namespace AppFrame {
 
@@ -57,7 +57,7 @@ namespace AppFrame {
         void SetLayer(int value) { _layer = value; }
         int GetID()const { return _id; }
         void SetID(int value) { _id = value; }
-        std::string_view GetName()const { return _name; }
+        std::string GetName()const { return _name; }
         void SetName(std::string string) { _name = string; }
         ModeBase* GetMode()const { return _mode; }
         void SetMode(ModeBase* mode) { _mode = mode; }
@@ -92,21 +92,7 @@ namespace AppFrame {
             return false;
         }
 
-        /**
-         * \brief オブジェクト間で通信を行いたい場合に使える汎用的な関数です。例:object->MessageEvent(*this,"damage");
-         * \param messenger メッセージの発信元
-         * \param message メッセージの内容
-         * \return 正しく処理を行えたらTrueを返す
-         */
-        virtual bool MessageEvent(ObjectBase* const messenger, const MessageContainer& message) {
-            return false;
-        }
-        /**  \brief 全てのオブジェクトへメッセージを送信*/
-        bool SendMessageAllObjects(const MessageContainer& message);
-        /**  \brief オブジェクトへメッセージを送信*/
-        bool SendMessageOneObject(ObjectBase* const destination, const MessageContainer& message);
-
-    protected:
+    private:
         bool _visible;//Renderで描画するかの判定に使用
 
         std::string		_name;//オブジェクトに名前を付けて検索が可能

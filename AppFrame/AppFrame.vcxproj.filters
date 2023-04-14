@@ -37,9 +37,6 @@
     <Filter Include="Component\MV1Component">
       <UniqueIdentifier>{3c8324ae-e3b8-47be-a858-4d4f32656056}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Component\2DAABBComponent">
-      <UniqueIdentifier>{04194e5c-9704-4a49-8482-39deb06586dc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Component\CollisionComponent">
       <UniqueIdentifier>{95ccf118-fbed-42d6-921f-e9db2acdb242}</UniqueIdentifier>
     </Filter>
@@ -85,9 +82,6 @@
     <Filter Include="Utillity\Color">
       <UniqueIdentifier>{68901b62-7481-46c4-9062-526aae6e3e15}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Math\2DAABB">
-      <UniqueIdentifier>{c7cf2569-7cf9-43c5-b5af-03a368fc6b5d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Utillity\Vibration">
       <UniqueIdentifier>{9d9ddf24-3cd1-471c-a324-b9940b4b5344}</UniqueIdentifier>
     </Filter>
@@ -96,6 +90,39 @@
     </Filter>
     <Filter Include="Utillity\CheckCollision">
       <UniqueIdentifier>{03f6ac1f-5af7-43f2-bc5d-8920c21f04b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math\VECTOR2">
+      <UniqueIdentifier>{ff16b2c6-4172-4641-993e-88c940a461e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{7f5e3e57-f024-47c3-a7c1-3eb57c34f7e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\UIObject">
+      <UniqueIdentifier>{67f768f9-2d39-4715-9de5-c93292e1b2f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\UICanvas">
+      <UniqueIdentifier>{6f072a2e-1966-4452-808d-060d4a307c57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\UIObject\UIButton">
+      <UniqueIdentifier>{837624d1-5797-4924-ad99-203535388bc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\UIObject\UITextBox">
+      <UniqueIdentifier>{39d286c6-d5c6-4217-8a2a-2e7ea9e0cdaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\UIObject\UIImage">
+      <UniqueIdentifier>{91c6e15f-5219-4dd5-8b14-65fd6d875e98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math\AABB2D">
+      <UniqueIdentifier>{c7cf2569-7cf9-43c5-b5af-03a368fc6b5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\UICanvasServer">
+      <UniqueIdentifier>{819fa83f-a4c9-4360-a22f-91c64c866952}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\UIObject\UIEditableTextBox">
+      <UniqueIdentifier>{c8ba2d77-6321-448f-9f9f-afda1b1ff039}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\UICanvasExport">
+      <UniqueIdentifier>{8d433bfa-e417-48b2-85ae-ce375e700947}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -108,9 +135,6 @@
     <ClCompile Include="source\CFile\CFile.cpp">
       <Filter>CFile</Filter>
     </ClCompile>
-    <ClCompile Include="source\AppFrameMath.cpp">
-      <Filter>Math</Filter>
-    </ClCompile>
     <ClCompile Include="source\Object\ObjectBase.cpp">
       <Filter>Object\ObjectBase</Filter>
     </ClCompile>
@@ -120,23 +144,11 @@
     <ClCompile Include="source\Resource\ModelServer.cpp">
       <Filter>Resource\ModelServer</Filter>
     </ClCompile>
-    <ClCompile Include="source\Utility\AABB2D.cpp">
-      <Filter>Math\2DAABB</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Object\ObjectServer.cpp">
-      <Filter>Object\ObjectServer</Filter>
-    </ClCompile>
     <ClCompile Include="source\Object\ComponentBase.cpp">
       <Filter>Component</Filter>
     </ClCompile>
     <ClCompile Include="source\Object\MV1Component.cpp">
       <Filter>Component\MV1Component</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Object\AABB2DComponent.cpp">
-      <Filter>Component\2DAABBComponent</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Mode\ModeBase.cpp">
-      <Filter>Mode\ModeBase</Filter>
     </ClCompile>
     <ClCompile Include="source\Object\SphereCollisionComponent.cpp">
       <Filter>Component\CollisionComponent</Filter>
@@ -156,12 +168,6 @@
     <ClCompile Include="source\Object\MessageList.cpp">
       <Filter>Message</Filter>
     </ClCompile>
-    <ClCompile Include="source\Utility\Easing.cpp">
-      <Filter>Utillity\Easing</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Object\TimelineComponent.cpp">
-      <Filter>Component\TimelineComponent</Filter>
-    </ClCompile>
     <ClCompile Include="source\PostProccess\BlurRenderer.cpp">
       <Filter>Blur</Filter>
     </ClCompile>
@@ -172,9 +178,6 @@
       <Filter>Utillity\Random</Filter>
     </ClCompile>
     <ClCompile Include="source\Application\WinMain.cpp" />
-    <ClCompile Include="source\Input\InputManager.cpp">
-      <Filter>InputManager</Filter>
-    </ClCompile>
     <ClCompile Include="source\Utility\Color.cpp">
       <Filter>Utillity\Color</Filter>
     </ClCompile>
@@ -186,6 +189,51 @@
     </ClCompile>
     <ClCompile Include="source\Utility\CheckCollision.cpp">
       <Filter>Utillity\CheckCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Math\VECTOR2.cpp">
+      <Filter>Math\VECTOR2</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Math\AABB2D.cpp">
+      <Filter>Math\AABB2D</Filter>
+    </ClCompile>
+    <ClCompile Include="source\UI\UICanvas.cpp">
+      <Filter>UI\UICanvas</Filter>
+    </ClCompile>
+    <ClCompile Include="source\UI\UIObjectBase.cpp">
+      <Filter>UI\UIObject</Filter>
+    </ClCompile>
+    <ClCompile Include="source\UI\UIButton.cpp">
+      <Filter>UI\UIObject\UIButton</Filter>
+    </ClCompile>
+    <ClCompile Include="source\UI\UICanvasServer.cpp">
+      <Filter>UI\UICanvasServer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Mode\ModeBase.cpp">
+      <Filter>Mode\ModeBase</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Object\ObjectServer.cpp">
+      <Filter>Object\ObjectServer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Math\AppFrameMath.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Input\InputManager.cpp">
+      <Filter>InputManager</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Utility\Easing.cpp">
+      <Filter>Utillity\Easing</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Object\TimelineComponent.cpp">
+      <Filter>Component\TimelineComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="source\UI\UIImage.cpp">
+      <Filter>UI\UIObject\UIImage</Filter>
+    </ClCompile>
+    <ClCompile Include="UITextBox.cpp">
+      <Filter>UI\UIObject\UITextBox</Filter>
+    </ClCompile>
+    <ClCompile Include="source\UI\UIEditableTextBox.cpp">
+      <Filter>UI\UIObject\UIEditableTextBox</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -202,9 +250,6 @@
     <ClInclude Include="source\CFile\CFile.h">
       <Filter>CFile</Filter>
     </ClInclude>
-    <ClInclude Include="source\AppFrameMath.h">
-      <Filter>Math</Filter>
-    </ClInclude>
     <ClInclude Include="source\Object\ObjectBase.h">
       <Filter>Object\ObjectBase</Filter>
     </ClInclude>
@@ -214,23 +259,11 @@
     <ClInclude Include="source\Resource\ModelServer.h">
       <Filter>Resource\ModelServer</Filter>
     </ClInclude>
-    <ClInclude Include="source\Utility\AABB2D.h">
-      <Filter>Math\2DAABB</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Object\ObjectServer.h">
-      <Filter>Object\ObjectServer</Filter>
-    </ClInclude>
     <ClInclude Include="source\Object\ComponentBase.h">
       <Filter>Component</Filter>
     </ClInclude>
     <ClInclude Include="source\Object\MV1Component.h">
       <Filter>Component\MV1Component</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Object\AABB2DComponent.h">
-      <Filter>Component\2DAABBComponent</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Mode\ModeBase.h">
-      <Filter>Mode\ModeBase</Filter>
     </ClInclude>
     <ClInclude Include="source\Object\SphereCollisionComponent.h">
       <Filter>Component\CollisionComponent</Filter>
@@ -250,12 +283,6 @@
     <ClInclude Include="source\Object\MessageList.h">
       <Filter>Message</Filter>
     </ClInclude>
-    <ClInclude Include="source\Utility\Easing.h">
-      <Filter>Utillity\Easing</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Object\TimelineComponent.h">
-      <Filter>Component\TimelineComponent</Filter>
-    </ClInclude>
     <ClInclude Include="source\PostProccess\BlurRenderer.h">
       <Filter>Blur</Filter>
     </ClInclude>
@@ -264,9 +291,6 @@
     </ClInclude>
     <ClInclude Include="source\Utility\Random.h">
       <Filter>Utillity\Random</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Input\InputManager.h">
-      <Filter>InputManager</Filter>
     </ClInclude>
     <ClInclude Include="source\Utility\Color.h">
       <Filter>Utillity\Color</Filter>
@@ -279,6 +303,51 @@
     </ClInclude>
     <ClInclude Include="source\Utility\CheckCollision.h">
       <Filter>Utillity\CheckCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Math\VECTOR2.h">
+      <Filter>Math\VECTOR2</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Math\AABB2D.h">
+      <Filter>Math\AABB2D</Filter>
+    </ClInclude>
+    <ClInclude Include="source\UI\UICanvas.h">
+      <Filter>UI\UICanvas</Filter>
+    </ClInclude>
+    <ClInclude Include="source\UI\UIObjectBase.h">
+      <Filter>UI\UIObject</Filter>
+    </ClInclude>
+    <ClInclude Include="source\UI\UIButton.h">
+      <Filter>UI\UIObject\UIButton</Filter>
+    </ClInclude>
+    <ClInclude Include="source\UI\UICanvasServer.h">
+      <Filter>UI\UICanvasServer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Mode\ModeBase.h">
+      <Filter>Mode\ModeBase</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Object\ObjectServer.h">
+      <Filter>Object\ObjectServer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Math\AppFrameMath.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Input\InputManager.h">
+      <Filter>InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Utility\Easing.h">
+      <Filter>Utillity\Easing</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Object\TimelineComponent.h">
+      <Filter>Component\TimelineComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="source\UI\UIImage.h">
+      <Filter>UI\UIObject\UIImage</Filter>
+    </ClInclude>
+    <ClInclude Include="source\UI\UITextBox.h">
+      <Filter>UI\UIObject\UITextBox</Filter>
+    </ClInclude>
+    <ClInclude Include="source\UI\UIEditableTextBox.h">
+      <Filter>UI\UIObject\UIEditableTextBox</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

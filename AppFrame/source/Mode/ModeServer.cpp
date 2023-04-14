@@ -46,11 +46,9 @@ namespace AppFrame {
 
 
     // 登録はするが、一度メインを回さないといけない
-    int ModeServer::Add(std::unique_ptr<ModeBase> mode, int layer, const char* name) {
+    int ModeServer::Add(std::unique_ptr<ModeBase> mode) {
         mode->SetUID(_uid_count);
         _uid_count++;
-        mode->SetLayer(layer);
-        mode->SetSZName(name);
         auto uid = mode->GetUID();
         _vModeAdd.push_back(std::move(mode));		// 登録予約
         return uid;
@@ -148,11 +146,11 @@ namespace AppFrame {
         // 登録中のもの、登録予約中のものから検索する
 
         for (auto&& mode : _vMode) {
-            if (!IsDelRegist(mode.get()) && mode->GetSZName() == name) { return mode.get(); }
+            if (!IsDelRegist(mode.get()) && mode->GetName() == name) { return mode.get(); }
         }
 
         for (auto&& mode : _vModeAdd) {
-            if (!IsDelRegist(mode.get()) && mode->GetSZName() == name) { return mode.get(); }
+            if (!IsDelRegist(mode.get()) && mode->GetName() == name) { return mode.get(); }
         }
 
         return nullptr;
@@ -173,7 +171,7 @@ namespace AppFrame {
     // 名前取得
     const std::string ModeServer::GetName(ModeBase* mode) {
         if (IsAdd(mode)) {
-            return mode->GetSZName();
+            return mode->GetName();
         }
 
         return "";

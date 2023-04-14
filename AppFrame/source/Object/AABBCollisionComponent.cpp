@@ -5,23 +5,26 @@
  * \author ìyãèè´ëæòY
  * \date   April 2023
  *********************************************************************/
+#pragma once
 #include "AABBCollisionComponent.h"
+#include <array>
+#include "AppFrameMath.h"
 #include "MV1Component.h"
 #include "ObjectBase.h"
 #include "Color.h"
 namespace AppFrame {
 
 
-    bool AppFrame::AABBCollisionComponent::Init()
+    bool AABBCollisionComponent::Init()
     {
         return false;
     }
 
-    void AppFrame::AABBCollisionComponent::Update(InputManager& input)
+    void AABBCollisionComponent::Update(InputManager& input)
     {
     }
 
-    void AppFrame::AABBCollisionComponent::Render()
+    void AABBCollisionComponent::Render()
     {
     }
 
@@ -29,7 +32,7 @@ namespace AppFrame {
         VECTOR min = VSub(GetPosition(), _size);
         VECTOR max = VAdd(GetPosition(), _size);
 
-        std::array<VECTOR, 8> boxVertex = { 0.0f, 0.0f, 0.0f };
+        std::array<VECTOR, 8> boxVertex;
         boxVertex[0] = { min.x, min.y, min.z };
         boxVertex[1] = { min.x, max.y, min.z };
         boxVertex[2] = { min.x, min.y, max.z };

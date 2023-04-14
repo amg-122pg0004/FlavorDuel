@@ -13,7 +13,7 @@ class MessageContainer {
 public:
     MessageContainer() { ; }
     virtual ~MessageContainer() { ; }
-    virtual std::string_view GetTitle()const = 0;
+    virtual std::string GetTitle()const = 0;
     virtual float GetValue()const = 0;
-    virtual std::string_view GetText()const = 0;
+    virtual std::string GetText()const = 0;
 };

@@ -101,7 +101,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(ProjectDir)/source/Input/;$(ProjectDir)/source/Utility/;$(ProjectDir)/source/PostProccess/;$(ProjectDir)/source/Application/;$(ProjectDir)/source/Resource/;$(ProjectDir)/source/Object/;$(ProjectDir)/source/Mode/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\AppFrame\source\Input\;$(SolutionDir)..\AppFrame\source\Utility\;$(SolutionDir)..\AppFrame\source\PostProccess\;$(SolutionDir)..\AppFrame\source\Application\;$(SolutionDir)..\AppFrame\source\Resource\;$(SolutionDir)..\AppFrame\source\Object\;$(SolutionDir)..\AppFrame\source\UI\;$(SolutionDir)..\AppFrame\source\Mode\;$(SolutionDir)..\AppFrame\source\Math\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -120,7 +120,7 @@
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)/source/Input/;$(ProjectDir)/source/Utility/;$(ProjectDir)/source/PostProccess/;$(ProjectDir)/source/Application/;$(ProjectDir)/source/Resource/;$(ProjectDir)/source/Object/;$(ProjectDir)/source/Mode/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\AppFrame\source\Input\;$(SolutionDir)..\AppFrame\source\Utility\;$(SolutionDir)..\AppFrame\source\PostProccess\;$(SolutionDir)..\AppFrame\source\Application\;$(SolutionDir)..\AppFrame\source\Resource\;$(SolutionDir)..\AppFrame\source\Object\;$(SolutionDir)..\AppFrame\source\UI\;$(SolutionDir)..\AppFrame\source\Mode\;$(SolutionDir)..\AppFrame\source\Math\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -137,7 +137,7 @@
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(ProjectDir)/source/Input/;$(ProjectDir)/source/Utility/;$(ProjectDir)/source/PostProccess/;$(ProjectDir)/source/Application/;$(ProjectDir)/source/Resource/;$(ProjectDir)/source/Object/;$(ProjectDir)/source/Mode/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\AppFrame\source\Input\;$(SolutionDir)..\AppFrame\source\Utility\;$(SolutionDir)..\AppFrame\source\PostProccess\;$(SolutionDir)..\AppFrame\source\Application\;$(SolutionDir)..\AppFrame\source\Resource\;$(SolutionDir)..\AppFrame\source\Object\;$(SolutionDir)..\AppFrame\source\UI\;$(SolutionDir)..\AppFrame\source\Mode\;$(SolutionDir)..\AppFrame\source\Math\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -158,7 +158,7 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)/source/Input/;$(ProjectDir)/source/Utility/;$(ProjectDir)/source/PostProccess/;$(ProjectDir)/source/Application/;$(ProjectDir)/source/Resource/;$(ProjectDir)/source/Object/;$(ProjectDir)/source/Mode/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\AppFrame\source\Input\;$(SolutionDir)..\AppFrame\source\Utility\;$(SolutionDir)..\AppFrame\source\PostProccess\;$(SolutionDir)..\AppFrame\source\Application\;$(SolutionDir)..\AppFrame\source\Resource\;$(SolutionDir)..\AppFrame\source\Object\;$(SolutionDir)..\AppFrame\source\UI\;$(SolutionDir)..\AppFrame\source\Mode\;$(SolutionDir)..\AppFrame\source\Math\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -172,11 +172,12 @@
     <ClCompile Include="source\Application\ApplicationBase.cpp" />
     <ClCompile Include="source\Application\WinMain.cpp" />
     <ClCompile Include="source\CFile\CFile.cpp" />
-    <ClCompile Include="source\AppFrameMath.cpp" />
     <ClCompile Include="source\Input\InputManager.cpp" />
+    <ClCompile Include="source\Math\AABB2D.cpp" />
+    <ClCompile Include="source\Math\AppFrameMath.cpp" />
+    <ClCompile Include="source\Math\VECTOR2.cpp" />
     <ClCompile Include="source\Mode\ModeBase.cpp" />
     <ClCompile Include="source\Mode\ModeServer.cpp" />
-    <ClCompile Include="source\Object\AABB2DComponent.cpp" />
     <ClCompile Include="source\Object\AABBCollisionComponent.cpp" />
     <ClCompile Include="source\Object\ComponentBase.cpp" />
     <ClCompile Include="source\Object\MessageList.cpp" />
@@ -190,7 +191,12 @@
     <ClCompile Include="source\Resource\ImageServer.cpp" />
     <ClCompile Include="source\Resource\ModelServer.cpp" />
     <ClCompile Include="source\Resource\SoundServer.cpp" />
-    <ClCompile Include="source\Utility\AABB2D.cpp" />
+    <ClCompile Include="source\UI\UIButton.cpp" />
+    <ClCompile Include="source\UI\UICanvas.cpp" />
+    <ClCompile Include="source\UI\UICanvasServer.cpp" />
+    <ClCompile Include="source\UI\UIEditableTextBox.cpp" />
+    <ClCompile Include="source\UI\UIImage.cpp" />
+    <ClCompile Include="source\UI\UIObjectBase.cpp" />
     <ClCompile Include="source\Utility\ChangeScreen.cpp" />
     <ClCompile Include="source\Utility\CharacterCodeConvert.cpp" />
     <ClCompile Include="source\Utility\CheckCollision.cpp" />
@@ -199,17 +205,19 @@
     <ClCompile Include="source\Utility\Random.cpp" />
     <ClCompile Include="source\Utility\ShiftJISChecker.cpp" />
     <ClCompile Include="source\Utility\Vibration.cpp" />
+    <ClCompile Include="UITextBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\appframe.h" />
     <ClInclude Include="source\Application\ApplicationBase.h" />
     <ClInclude Include="source\Application\UtilMacro.h" />
     <ClInclude Include="source\CFile\CFile.h" />
-    <ClInclude Include="source\AppFrameMath.h" />
     <ClInclude Include="source\Input\InputManager.h" />
+    <ClInclude Include="source\Math\AABB2D.h" />
+    <ClInclude Include="source\Math\AppFrameMath.h" />
+    <ClInclude Include="source\Math\VECTOR2.h" />
     <ClInclude Include="source\Mode\ModeBase.h" />
     <ClInclude Include="source\Mode\ModeServer.h" />
-    <ClInclude Include="source\Object\AABB2DComponent.h" />
     <ClInclude Include="source\Object\AABBCollisionComponent.h" />
     <ClInclude Include="source\Object\ComponentBase.h" />
     <ClInclude Include="source\Object\MessageList.h" />
@@ -223,7 +231,13 @@
     <ClInclude Include="source\Resource\ImageServer.h" />
     <ClInclude Include="source\Resource\ModelServer.h" />
     <ClInclude Include="source\Resource\SoundServer.h" />
-    <ClInclude Include="source\Utility\AABB2D.h" />
+    <ClInclude Include="source\UI\UIButton.h" />
+    <ClInclude Include="source\UI\UICanvas.h" />
+    <ClInclude Include="source\UI\UICanvasServer.h" />
+    <ClInclude Include="source\UI\UIEditableTextBox.h" />
+    <ClInclude Include="source\UI\UIImage.h" />
+    <ClInclude Include="source\UI\UIObjectBase.h" />
+    <ClInclude Include="source\UI\UITextBox.h" />
     <ClInclude Include="source\Utility\ChangeScreen.h" />
     <ClInclude Include="source\Utility\CharacterCodeConvert.h" />
     <ClInclude Include="source\Utility\CheckCollision.h" />

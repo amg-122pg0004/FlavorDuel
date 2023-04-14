@@ -8,12 +8,12 @@
 #pragma once
 #include <memory>
 #include <string>
-#include "../Object/ObjectServer.h"
 namespace AppFrame {
     class InputManager;
     class BlurRenderer;
-
     class ModeServer;
+    class ObjectServer;
+    class UICanvasServer;
 
     class ModeBase
     {
@@ -46,8 +46,8 @@ namespace AppFrame {
         void SetLayer(int value) { _layer = value; }
         int GetUID() { return _uid; }
         void SetUID(int value) { _uid = value; }
-        std::string GetSZName() { return _szName; }
-        void SetSZName(std::string string) { _szName = string; }
+        std::string GetName() { return _name; }
+        void SetName(std::string string) { _name = string; }
 
         // 時間経過をさせる
         void StepTime(unsigned long tmNow, float slowRate);
@@ -59,9 +59,11 @@ namespace AppFrame {
         //ブラーを使用するか
         bool GetBlurFlag() { return _blurActivate; }
 
+        std::unique_ptr<UICanvasServer>& GetUICanvasServer() { return _uiCanvasServer; }
+
     private:
         // ModeServer用
-        std::string		_szName;
+        std::string		_name;
         int				_uid;
         int				_layer;
 
@@ -77,8 +79,8 @@ namespace AppFrame {
         // CallPerFrame / CallOfCount用
         int		_callPerFrame, _callPerFrame_cnt;
         int		_callOfCount;
-    protected:
         std::unique_ptr<ObjectServer> _objectServer;
+        std::unique_ptr<UICanvasServer> _uiCanvasServer;
         std::unique_ptr<BlurRenderer> _blurRenderer;
         bool _blurActivate;
     };

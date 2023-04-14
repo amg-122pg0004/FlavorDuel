@@ -22,6 +22,63 @@
     <Filter Include="Factory">
       <UniqueIdentifier>{1e86c06f-9ca7-4da8-b8ca-bf6c820f0e55}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{9562da29-a7cd-48b7-bed6-4ce534efe672}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\test">
+      <UniqueIdentifier>{457afd77-c99b-41f6-9352-f0961e6d65e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Judge">
+      <UniqueIdentifier>{51023afb-f560-43cc-a4b6-fef596a61665}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mode\ModeInGame">
+      <UniqueIdentifier>{439e7c91-922d-4974-91c1-475ae715ecb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Deck">
+      <UniqueIdentifier>{6a4ecfd6-cf3f-470e-b0cc-b63bc79b9770}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Hand">
+      <UniqueIdentifier>{1eba6b97-edef-403d-8d7d-27cc667d531d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Factory\CardBuilder">
+      <UniqueIdentifier>{0c0ff6fc-fb03-4509-9003-c36d8e21a486}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{872d5d09-acac-40d6-83e4-17c7090e4d40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\ISequenceObserver">
+      <UniqueIdentifier>{fb06a5c8-d917-44b4-8c47-4507b1e5bb5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\ISequenceSubjest">
+      <UniqueIdentifier>{ea2bacdf-1dd6-403a-ba10-e1b374f26e65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enum">
+      <UniqueIdentifier>{2550c0d8-ffe3-4837-aac2-23f9d4ab7ab6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enum\SequenceMessages">
+      <UniqueIdentifier>{3af1adc7-fa5c-4a7a-b598-6a7e1e475da0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\BattleField">
+      <UniqueIdentifier>{31074956-93e7-44a4-adfe-896cf5316e6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{a1b1cc77-095d-4eca-8cb0-2341cbed9c18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\PostData">
+      <UniqueIdentifier>{ff8734f7-fda0-4580-8740-121fac09dde0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\MessageLog">
+      <UniqueIdentifier>{1944d760-303c-4ebb-926b-e072ac7367db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\MessageWindow">
+      <UniqueIdentifier>{df6a52c9-c7ca-4290-a67d-895e5a10f1ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\NewFilter1">
+      <UniqueIdentifier>{f06950df-d9dd-4a5d-85ff-8e211bf91ab7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Thread">
+      <UniqueIdentifier>{dc6c4e98-2c60-4c35-8d69-a423f13e5d13}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\ApplicationMain.cpp">
@@ -30,14 +87,44 @@
     <ClCompile Include="source\ModeTest.cpp">
       <Filter>Mode</Filter>
     </ClCompile>
-    <ClCompile Include="source\CardDataStruct.cpp">
-      <Filter>DataStruct</Filter>
-    </ClCompile>
     <ClCompile Include="source\Curl.cpp">
       <Filter>Curl</Filter>
     </ClCompile>
+    <ClCompile Include="source\testUI.cpp">
+      <Filter>UI\test</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CardJudge.cpp">
+      <Filter>Judge</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ModeInGame.cpp">
+      <Filter>Mode\ModeInGame</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Deck.cpp">
+      <Filter>Object\Deck</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Hand.cpp">
+      <Filter>Object\Hand</Filter>
+    </ClCompile>
     <ClCompile Include="source\CardObject.cpp">
       <Filter>Object\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CardFactory.cpp">
+      <Filter>Factory\CardBuilder</Filter>
+    </ClCompile>
+    <ClCompile Include="source\BattleField.cpp">
+      <Filter>Object\BattleField</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PostData.cpp">
+      <Filter>Network\PostData</Filter>
+    </ClCompile>
+    <ClCompile Include="source\MessageLog.cpp">
+      <Filter>UI\MessageLog</Filter>
+    </ClCompile>
+    <ClCompile Include="source\MessageWindow.cpp">
+      <Filter>UI\MessageWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ThreadBase.cpp">
+      <Filter>Thread</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -53,8 +140,50 @@
     <ClInclude Include="source\Curl.h">
       <Filter>Curl</Filter>
     </ClInclude>
+    <ClInclude Include="source\testUI.h">
+      <Filter>UI\test</Filter>
+    </ClInclude>
+    <ClInclude Include="source\CardJudge.h">
+      <Filter>Judge</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ModeInGame.h">
+      <Filter>Mode\ModeInGame</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Deck.h">
+      <Filter>Object\Deck</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Hand.h">
+      <Filter>Object\Hand</Filter>
+    </ClInclude>
     <ClInclude Include="source\CardObject.h">
       <Filter>Object\Card</Filter>
+    </ClInclude>
+    <ClInclude Include="source\CardFactory.h">
+      <Filter>Factory\CardBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="source\IObserverSequence.h">
+      <Filter>Interface\ISequenceObserver</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ISubjectSequence.h">
+      <Filter>Interface\ISequenceSubjest</Filter>
+    </ClInclude>
+    <ClInclude Include="source\SequenceMessages.h">
+      <Filter>Enum\SequenceMessages</Filter>
+    </ClInclude>
+    <ClInclude Include="source\BattleField.h">
+      <Filter>Object\BattleField</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PostData.h">
+      <Filter>Network\PostData</Filter>
+    </ClInclude>
+    <ClInclude Include="source\MessageLog.h">
+      <Filter>UI\MessageLog</Filter>
+    </ClInclude>
+    <ClInclude Include="source\MessageWindow.h">
+      <Filter>UI\MessageWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ThreadBase.h">
+      <Filter>Thread</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

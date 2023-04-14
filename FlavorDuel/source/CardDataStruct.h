@@ -1,17 +1,16 @@
 #pragma once
 #include <string>
+#include <vector>
 namespace Flavor {
-	struct CardDataPassive
+	struct CardData
 	{
 		std::string name;
 		std::string flavorText;
 	};
 
-	struct CardDataActive
+	struct DeckData
 	{
 		std::string name;
-		std::string flavorText;
-		int power;
-		std::string tips;
+		std::vector<CardData> cards;
 	};
 }

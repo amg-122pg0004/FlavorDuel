@@ -12,6 +12,7 @@
 #include "ApplicationBase.h"
 #include "BlurRenderer.h"
 #include "ChangeScreen.h"
+#include "UICanvasServer.h"
 
 namespace AppFrame {
 
@@ -136,7 +137,7 @@ namespace AppFrame {
         return nullptr;
     }
 
-    ObjectBase* ObjectServer::Get(std::string_view name)
+    ObjectBase* ObjectServer::Get(std::string name)
     {
         for (auto&& object : _objects) {
             if (object->GetName() == name) {
@@ -145,52 +146,6 @@ namespace AppFrame {
         }
 
         return nullptr;
-    }
-
-    bool ObjectServer::SendMessageAllObjects(ObjectBase* const messenger, const MessageContainer& message)
-    {
-        bool flag{ false };
-
-        for (auto&& object : _objects) {
-            if (object->MessageEvent(messenger, message)) {
-                flag = true;
-            }
-        }
-
-        return flag;
-    }
-
-    bool ObjectServer::SendMessageAllObjects(ObjectBase* const messenger, const MessageContainer& message, std::string_view name)
-    {
-        bool flag{ false };
-
-        for (auto&& object : _objects) {
-            if (object->GetName() == name) {
-                if (object->MessageEvent(messenger, message)) {
-                    flag = true;
-                }
-            }
-        }
-
-        return flag;
-    }
-
-    bool ObjectServer::SendMessageOneObject(ObjectBase* const messenger, const MessageContainer& message, ObjectBase* const destination)
-    {
-        if (destination == nullptr) {
-            return false;
-        }
-
-        return destination->MessageEvent(messenger, message);
-    }
-
-    bool ObjectServer::SendMessageOneObject(ObjectBase* const messenger, const MessageContainer& message, const int id)
-    {
-        if (Get(id) == nullptr) {
-            return false;
-        }
-
-        return Get(id)->MessageEvent(messenger, message);
     }
 
     void ObjectServer::AddPendingObject()

@@ -9,6 +9,8 @@ namespace Flavor {
 		bool Update();
 		bool Render();
 		bool Debug();
+		virtual int DispSizeW() { return 1280; }
+		virtual int DispSizeH() { return 720; }
 	private:
 		bool _debug;
 	};

@@ -12,7 +12,6 @@
 #include "ModeServer.h"
 #include "InputManager.h"
 #include "Vibration.h"
-#include "../Utility/Vibration.h"
 #include "SoundServer.h"
 
 namespace AppFrame {

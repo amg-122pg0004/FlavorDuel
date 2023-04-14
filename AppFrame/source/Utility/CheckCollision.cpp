@@ -6,8 +6,10 @@
  * \date   April 2023
  *********************************************************************/
 #include "CheckCollision.h"
+#include "AppFrameMath.h"
 #include "SphereCollisionComponent.h"
 #include "AABBCollisionComponent.h"
+#include "AABB2D.h"
 
 namespace AppFrame {
 
@@ -23,7 +25,6 @@ namespace AppFrame {
         VECTOR aabbMax = VAdd(aabb->GetPosition(), VScale(aabb->GetSize(), 0.5f));
         VECTOR sphereToAABB = VSub(aabb->GetPosition(), sphere->GetPosition());
         float lengthSphereToAABB = VSize(sphereToAABB);
-
         auto nearestPointOnSphere = VAdd(sphere->GetPosition(), VScale(sphereToAABB, Math::Min(lengthSphereToAABB, sphere->GetRadius())));
         return (nearestPointOnSphere.x >= aabbMin.x && nearestPointOnSphere.x <= aabbMax.x) &&
                (nearestPointOnSphere.y >= aabbMin.y && nearestPointOnSphere.y <= aabbMax.y) &&
@@ -58,4 +59,11 @@ namespace AppFrame {
         return Intersect(right, modelHandle);
     }
 
+    bool CheckCollision::Within(const AABB2D<int>& aabb, VECTOR2<int> mousePosition)
+    {
+        return (aabb.min.x <= mousePosition.x
+            && aabb.max.x >= mousePosition.x
+            && aabb.min.y <= mousePosition.y
+            && aabb.max.y >= mousePosition.y);
+    }
 }

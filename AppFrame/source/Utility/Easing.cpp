@@ -6,7 +6,7 @@
  * \date   February 2023
  *********************************************************************/
 #include "Easing.h"
-#include "../AppFrameMath.h"
+#include "AppFrameMath.h"
 namespace AppFrame {
 
     /**

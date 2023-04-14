@@ -20,17 +20,59 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\ApplicationMain.h" />
+    <ClInclude Include="source\BattleField.h" />
+    <ClInclude Include="source\CardFactory.h" />
     <ClInclude Include="source\CardDataStruct.h" />
-    <ClInclude Include="source\CardObject.h" />
+    <ClInclude Include="source\CardJudge.h" />
+    <ClInclude Include="source\CardObject.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="source\Curl.h" />
+    <ClInclude Include="source\Deck.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="source\Hand.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="source\IObserverSequence.h" />
+    <ClInclude Include="source\ISubjectSequence.h" />
+    <ClInclude Include="source\MessageLog.h" />
+    <ClInclude Include="source\MessageWindow.h" />
+    <ClInclude Include="source\ModeInGame.h" />
     <ClInclude Include="source\ModeTest.h" />
+    <ClInclude Include="source\PostData.h" />
+    <ClInclude Include="source\SequenceMessages.h" />
+    <ClInclude Include="source\testUI.h" />
+    <ClInclude Include="source\ThreadBase.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\ApplicationMain.cpp" />
-    <ClCompile Include="source\CardDataStruct.cpp" />
-    <ClCompile Include="source\CardObject.cpp" />
+    <ClCompile Include="source\BattleField.cpp" />
+    <ClCompile Include="source\CardFactory.cpp" />
+    <ClCompile Include="source\CardJudge.cpp" />
+    <ClCompile Include="source\CardObject.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="source\Curl.cpp" />
+    <ClCompile Include="source\Deck.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="source\Hand.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="source\MessageLog.cpp" />
+    <ClCompile Include="source\MessageWindow.cpp" />
+    <ClCompile Include="source\ModeInGame.cpp" />
     <ClCompile Include="source\ModeTest.cpp" />
+    <ClCompile Include="source\PostData.cpp" />
+    <ClCompile Include="source\testUI.cpp" />
+    <ClCompile Include="source\ThreadBase.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

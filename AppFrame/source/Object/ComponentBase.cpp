@@ -8,6 +8,7 @@
  * \date   December 2022
  *********************************************************************/
 #include "ComponentBase.h"
+#include "InputManager.h"
 namespace AppFrame {
     ComponentBase::ComponentBase()
         :_parent{ nullptr }

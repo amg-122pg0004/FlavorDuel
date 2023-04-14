@@ -24,7 +24,7 @@ namespace AppFrame {
         virtual	~ModeServer();
         static ModeServer* GetInstance() { return _lpInstance; }
 
-        int Add(std::unique_ptr<ModeBase> mode, int layer, const char* name);		// “o˜^‚Í‚·‚é‚ªAˆê“xƒƒCƒ“‚ğ‰ñ‚³‚È‚¢‚Æ‚¢‚¯‚È‚¢
+        int Add(std::unique_ptr<ModeBase> mode);		// “o˜^‚Í‚·‚é‚ªAˆê“xƒƒCƒ“‚ğ‰ñ‚³‚È‚¢‚Æ‚¢‚¯‚È‚¢
         int Del(ModeBase* mode, int delayFrame = 0);		// íœ—\–ñ
         ModeBase* Get(int uid);
         ModeBase* Get(const std::string name);

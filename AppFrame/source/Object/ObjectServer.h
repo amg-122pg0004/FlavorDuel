@@ -14,8 +14,6 @@
 #include <string>
 #include "MessageList.h"
 namespace AppFrame {
-
-
     class ObjectBase;
     class InputManager;
     class ModeBase;
@@ -39,16 +37,7 @@ namespace AppFrame {
         void Debug();
 
         ObjectBase* Get(const int id);
-        ObjectBase* Get(std::string_view name);
-
-        /**  \brief 全てのオブジェクトへメッセージを送信*/
-        virtual bool SendMessageAllObjects(ObjectBase* const messenger, const MessageContainer& message);
-        /**  \brief 指定の名前を持つオブジェクト全てへメッセージを送信*/
-        virtual bool SendMessageAllObjects(ObjectBase* const messenger, const MessageContainer& message, std::string_view name);
-        /**  \brief 特定のオブジェクトへメッセージを送信*/
-        virtual bool SendMessageOneObject(ObjectBase* const messenger, const MessageContainer& message, ObjectBase* const destination);
-        /**  \brief 指定のIDを持つオブジェクトへメッセージを送信*/
-        virtual bool SendMessageOneObject(ObjectBase* const messenger, const MessageContainer& message, const int id);
+        ObjectBase* Get(std::string name);
 
     private:
         std::vector<std::unique_ptr<ObjectBase>> _objects;

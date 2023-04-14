@@ -79,21 +79,4 @@ namespace AppFrame {
             _components[ {typeid(*component), id}] = (std::move(component));
         }
     }
-
-    bool ObjectBase::SendMessageAllObjects(const MessageContainer& message)
-    {
-        bool result{ false };
-
-        if (_mode->GetObjectServer()->SendMessageAllObjects(this, message)) {
-            result = true;
-        }
-
-        return result;
-    }
-
-    bool ObjectBase::SendMessageOneObject(ObjectBase* const destination, const MessageContainer& message)
-    {
-        return _mode->GetObjectServer()->SendMessageOneObject(this, message, destination);
-    }
-
 }

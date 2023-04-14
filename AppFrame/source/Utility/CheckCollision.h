@@ -6,9 +6,12 @@
  * \date   April 2023
  *********************************************************************/
 #pragma once
+#include "Math/VECTOR2.h"
 namespace AppFrame {
     class SphereCollisionComponent;
     class AABBCollisionComponent;
+    template<typename T>
+    class AABB2D;
     class CheckCollision
     {
     public:
@@ -54,5 +57,13 @@ namespace AppFrame {
          * \return 交差していたらtrue
          */
         static bool Intersect(int modelHandle, SphereCollisionComponent* right);
+
+        /**
+        * \brief 交差判定
+        * \param modelHandle 3Dモデルハンドル
+        * \param sphere 球状コリジョン
+        * \return 交差していたらtrue
+        */
+        static bool Within(const AABB2D<int>& aabb ,VECTOR2<int> mousePosition );
     };
 }

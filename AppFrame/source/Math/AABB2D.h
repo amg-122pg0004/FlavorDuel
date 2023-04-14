@@ -7,10 +7,10 @@
  *********************************************************************/
 #pragma once
 #include <DxLib.h>
-#include "../AppFrameMath.h"
+#include "Math/VECTOR2.h"
 namespace AppFrame {
     template<typename T>
-    class AABB {
+    class AABB2D {
     public:
         VECTOR2<T> min;//<コリジョン矩形の左上座標
         VECTOR2<T> max;//<コリジョン矩形の右下座標
@@ -24,7 +24,7 @@ namespace AppFrame {
     * \return 交差していたらTrue
     */
     template<typename T>
-    bool Intersect(const AABB<T>& r1, const AABB<T>& r2);
+    bool Intersect(const AABB2D<T>& r1, const AABB2D<T>& r2);
 
     /**
     * \brief 2つのAABBの交差判定
@@ -34,7 +34,7 @@ namespace AppFrame {
     * \return 1個目の中に2個目が完全に収まっていればTrue
     */
     template<typename T>
-    bool Within(const AABB<T>& r1, const AABB<T>& r2);
+    bool Within(const AABB2D<T>& r1, const AABB2D<T>& r2);
 
     /**
     * \brief 1つのAABBと1つの点の交差判定
@@ -44,10 +44,10 @@ namespace AppFrame {
     * \return 1個目の中に2個目が収まっていればTrue
     */
     template<typename T>
-    bool Within(const AABB<T>& r1, const VECTOR2<T>& r2);
+    bool Within(const AABB2D<T>& r1, const VECTOR2<T>& r2);
 
     template<typename T>
-    bool Intersect(const AABB<T>& r1, const AABB<T>& r2)
+    bool Intersect(const AABB2D<T>& r1, const AABB2D<T>& r2)
     {
         if (r1.max.x < r2.min.x) {
             return false;
@@ -68,7 +68,7 @@ namespace AppFrame {
         return true;
     }
     template<typename T>
-    bool Within(const AABB<T>& r1, const AABB<T>& r2)
+    bool Within(const AABB2D<T>& r1, const AABB2D<T>& r2)
     {
         if (r1.max.x < r2.max.x) {
             return false;
@@ -89,7 +89,7 @@ namespace AppFrame {
         return true;
     }
     template<typename T>
-    bool Within(const AABB<T>& r1, const VECTOR2<T>& r2)
+    bool Within(const AABB2D<T>& r1, const VECTOR2<T>& r2)
     {
         if (r1.max.x < r2.x) {
             return false;
@@ -111,7 +111,7 @@ namespace AppFrame {
     }
 
     template<typename T, typename U>
-    bool Within(const AABB<T>& r1, const VECTOR2<U>& r2)
+    bool Within(const AABB2D<T>& r1, const VECTOR2<U>& r2)
     {
         if (r1.max.x < r2.x) {
             return false;

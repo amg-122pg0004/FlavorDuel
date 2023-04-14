@@ -53,8 +53,6 @@ namespace AppFrame {
         MV1SetTextureAddressMode(_renderModel, 0, DX_TEXADDRESS_CLAMP, DX_TEXADDRESS_CLAMP);
         MV1SetTextureAddressMode(_renderModel, 1, DX_TEXADDRESS_CLAMP, DX_TEXADDRESS_CLAMP);
         MV1SetTextureAddressMode(_renderModel, 2, DX_TEXADDRESS_CLAMP, DX_TEXADDRESS_CLAMP);
-
-        Import();
     }
 
     BlurRenderer::~BlurRenderer()

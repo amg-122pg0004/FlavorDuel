@@ -13,6 +13,6 @@ namespace Flavor {
 		bool Render();
 		bool Debug();
 	private:
-		CardDataActive _testCard;
+		CardData _testCard;
 	};
 }

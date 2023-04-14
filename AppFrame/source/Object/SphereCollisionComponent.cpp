@@ -7,6 +7,7 @@
  *********************************************************************/
 
 #include "SphereCollisionComponent.h"
+#include "AppFrameMath.h"
 #include "ObjectBase.h"
 #include "MV1Component.h"
 #include "Color.h"

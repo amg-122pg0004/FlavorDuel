@@ -1,0 +1,45 @@
+namespace AppFrame;
+
+enum Anchor:byte { UpperLeft, Center }
+
+struct Vec2 {
+  x:int;
+  y:int;
+}
+
+table UICanvas {
+  name:string;
+  rootPosition:Vec2; // Struct
+  size:Vec2; // Struct.
+  anchor:Anchor;
+  uiObjects:[uiObjectBase];
+}
+
+union Option { Button,Image,TextBox,EditableTextBox } // Optionally add more tables.
+
+table UIObjectBase {
+  name:string;
+  needUpdatePerFrame:bool;
+  position:Vec2; // Struct.
+  size:Vec2; // Struct.
+  anchor:Anchor;
+  option:Option;
+}
+
+table Button {
+
+}
+
+table Image {
+
+}
+
+table TextBox {
+
+}
+
+table EditableTextBox {
+
+}
+
+root_type Monster;

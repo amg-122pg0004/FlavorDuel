@@ -7,7 +7,7 @@
  *********************************************************************/
 #include "DxLib.h"
 #include "SoundServer.h"
-#include "../AppFrameMath.h"
+#include "AppFrameMath.h"
 namespace AppFrame {
     std::unordered_map<std::string, int> SoundServer::_mapBGM;
     std::unordered_map<std::string, int> SoundServer::_mapSE;

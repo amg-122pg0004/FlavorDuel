@@ -7,6 +7,7 @@
  *********************************************************************/
 #pragma once
 #include "ComponentBase.h"
+#include <DxLib.h>
 namespace AppFrame {
     class AABBCollisionComponent :public ComponentBase
     {

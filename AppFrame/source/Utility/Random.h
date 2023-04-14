@@ -27,6 +27,8 @@ namespace AppFrame {
          * \return ƒ‰ƒ“ƒ_ƒ€‚Èfloat’l
          */
         static float GetBetween0to1() { return static_cast<float>(GetBtetweenNumbers(1, 1000) * 0.001f); }
+
+        static std::mt19937 GetSeed() { return  std::mt19937(seedGenerator()); }
     private:
         static std::random_device seedGenerator;
     };

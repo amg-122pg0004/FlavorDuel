@@ -9,10 +9,9 @@
  *********************************************************************/
 #pragma once
 #include <DxLib.h>
-#include <Input/InputManager.h>
 namespace AppFrame {
     class ObjectBase;
-
+    class InputManager;
     class ComponentBase {
     public:
         ComponentBase();

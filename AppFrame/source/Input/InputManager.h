@@ -11,7 +11,8 @@
 #include <array>
 #include <map>
 #include <vector>
-#include "AppFrameMath.h"
+#include "../Math/VECTOR2.h"
+
 namespace AppFrame {
     //キーの入力状態　押しているか、押した瞬間か、離した瞬間か
     enum class InputState {

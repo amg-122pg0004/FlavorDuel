@@ -7,10 +7,11 @@
  * \date   February 2023
  *********************************************************************/
 #include "TimelineComponent.h"
-#include "ObjectBase.h"
-#include "../Mode/ModeBase.h"
-#include "Color.h"
 #include <sstream>
+#include <algorithm>
+#include "ObjectBase.h"
+#include "ModeBase.h"
+#include "Color.h"
 namespace AppFrame {
     TimelineComponent::TimelineComponent()
         :_stop{ false }
