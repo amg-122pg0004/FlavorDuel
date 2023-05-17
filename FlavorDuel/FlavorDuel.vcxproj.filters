@@ -73,9 +73,6 @@
     <Filter Include="UI\MessageWindow">
       <UniqueIdentifier>{df6a52c9-c7ca-4290-a67d-895e5a10f1ed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Interface\NewFilter1">
-      <UniqueIdentifier>{f06950df-d9dd-4a5d-85ff-8e211bf91ab7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Thread">
       <UniqueIdentifier>{dc6c4e98-2c60-4c35-8d69-a423f13e5d13}</UniqueIdentifier>
     </Filter>
@@ -153,6 +150,9 @@
     <ClCompile Include="source\ModeMatching.cpp">
       <Filter>Mode\ModeMatching</Filter>
     </ClCompile>
+    <ClCompile Include="source\TitleUI.cpp">
+      <Filter>UI\TitleUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\ApplicationMain.h">
@@ -223,6 +223,9 @@
     </ClInclude>
     <ClInclude Include="source\ModeMatching.h">
       <Filter>Mode\ModeMatching</Filter>
+    </ClInclude>
+    <ClInclude Include="source\TitleUI.h">
+      <Filter>UI\TitleUI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

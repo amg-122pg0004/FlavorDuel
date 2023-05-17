@@ -21,9 +21,9 @@ namespace Flavor {
 		bool Render();
 		bool Debug();
 
-		bool Login(std::string userName, std::string password);
-		bool Register(std::string userName, std::string password);
-		bool QuitGame();
+		void Login(std::string userName, std::string password);
+		void Register(std::string userName, std::string password);
+		void QuitGame();
 	private:
 
 	};

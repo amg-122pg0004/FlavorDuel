@@ -51,6 +51,7 @@
     <ClInclude Include="source\SequenceMessages.h" />
     <ClInclude Include="source\testUI.h" />
     <ClInclude Include="source\ThreadBase.h" />
+    <ClInclude Include="source\TitleUI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\ApplicationMain.cpp" />
@@ -81,6 +82,7 @@
     <ClCompile Include="source\PostData.cpp" />
     <ClCompile Include="source\testUI.cpp" />
     <ClCompile Include="source\ThreadBase.cpp" />
+    <ClCompile Include="source\TitleUI.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

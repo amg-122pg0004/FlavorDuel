@@ -29,17 +29,17 @@ bool ModeTitle::Debug()
     return false;
 }
 
-bool ModeTitle::Login(std::string userName, std::string password)
+void ModeTitle::Login(std::string userName, std::string password)
 {
     return false;
 }
 
-bool ModeTitle::Register(std::string userName, std::string password)
+void ModeTitle::Register(std::string userName, std::string password)
 {
     return false;
 }
 
-bool ModeTitle::QuitGame()
+void ModeTitle::QuitGame()
 {
     return false;
 }
