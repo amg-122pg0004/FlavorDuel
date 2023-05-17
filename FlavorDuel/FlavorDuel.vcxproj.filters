@@ -79,6 +79,18 @@
     <Filter Include="Thread">
       <UniqueIdentifier>{dc6c4e98-2c60-4c35-8d69-a423f13e5d13}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Mode\ModeTitle">
+      <UniqueIdentifier>{11d199d8-a15a-4037-b800-936f4ca31fba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mode\ModeShop">
+      <UniqueIdentifier>{4c469196-adc9-4646-955b-8911b625ab52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mode\ModeDeckEdit">
+      <UniqueIdentifier>{e24b04c4-4ea3-440c-9990-029401d4bd26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mode\ModeMatching">
+      <UniqueIdentifier>{13be78d4-0250-453a-a703-11cc501f50d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\ApplicationMain.cpp">
@@ -125,6 +137,18 @@
     </ClCompile>
     <ClCompile Include="source\ThreadBase.cpp">
       <Filter>Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ModeShop.cpp">
+      <Filter>Mode\ModeShop</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ModeTitle.cpp">
+      <Filter>Mode\ModeTitle</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ModeDeckEdit.cpp">
+      <Filter>Mode\ModeDeckEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ModeMatching.cpp">
+      <Filter>Mode\ModeMatching</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +208,18 @@
     </ClInclude>
     <ClInclude Include="source\ThreadBase.h">
       <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ModeShop.h">
+      <Filter>Mode\ModeShop</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ModeTitle.h">
+      <Filter>Mode\ModeTitle</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ModeDeckEdit.h">
+      <Filter>Mode\ModeDeckEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ModeMatching.h">
+      <Filter>Mode\ModeMatching</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

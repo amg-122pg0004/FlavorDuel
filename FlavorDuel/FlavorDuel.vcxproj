@@ -41,8 +41,12 @@
     <ClInclude Include="source\ISubjectSequence.h" />
     <ClInclude Include="source\MessageLog.h" />
     <ClInclude Include="source\MessageWindow.h" />
+    <ClInclude Include="source\ModeDeckEdit.h" />
     <ClInclude Include="source\ModeInGame.h" />
+    <ClInclude Include="source\ModeMatching.h" />
+    <ClInclude Include="source\ModeShop.h" />
     <ClInclude Include="source\ModeTest.h" />
+    <ClInclude Include="source\ModeTitle.h" />
     <ClInclude Include="source\PostData.h" />
     <ClInclude Include="source\SequenceMessages.h" />
     <ClInclude Include="source\testUI.h" />
@@ -68,8 +72,12 @@
     </ClCompile>
     <ClCompile Include="source\MessageLog.cpp" />
     <ClCompile Include="source\MessageWindow.cpp" />
+    <ClCompile Include="source\ModeDeckEdit.cpp" />
     <ClCompile Include="source\ModeInGame.cpp" />
+    <ClCompile Include="source\ModeMatching.cpp" />
+    <ClCompile Include="source\ModeShop.cpp" />
     <ClCompile Include="source\ModeTest.cpp" />
+    <ClCompile Include="source\ModeTitle.cpp" />
     <ClCompile Include="source\PostData.cpp" />
     <ClCompile Include="source\testUI.cpp" />
     <ClCompile Include="source\ThreadBase.cpp" />

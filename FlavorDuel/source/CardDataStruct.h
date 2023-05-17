@@ -6,6 +6,7 @@ namespace Flavor {
 	{
 		std::string name;
 		std::string flavorText;
+		int image;
 	};
 
 	struct DeckData
