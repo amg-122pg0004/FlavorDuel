@@ -91,6 +91,9 @@
     <Filter Include="Mode\ModeMatching">
       <UniqueIdentifier>{13be78d4-0250-453a-a703-11cc501f50d1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UI\TitleUI">
+      <UniqueIdentifier>{f589d2e1-a24e-445a-9b93-52be32e4e752}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\ApplicationMain.cpp">

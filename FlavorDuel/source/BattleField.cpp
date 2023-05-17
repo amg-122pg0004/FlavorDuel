@@ -41,7 +41,7 @@ void BattleField::Update(InputManager& input)
 	if (_threadHolder != nullptr) {
 		if (!_threadHolder->IsThreadExec()) {
 			auto messageLogPtr = _modeInGame.GetMessageLog();
-			messageLogPtr->AddChildCanvas(std::make_unique<MessageWindow>(_myCard->GetTips()));
+			messageLogPtr->AddChildCanvas(std::make_unique<MessageWindow>(_threadHolder->GetCard()->GetTips()));
 			_threadHolder.release();
 		}
 	}

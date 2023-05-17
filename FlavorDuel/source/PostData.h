@@ -9,6 +9,7 @@ namespace Flavor {
 	public:
 		PostThread(CardObject* card);
 		bool ThreadProc()override;
+		CardObject* GetCard() { return _card; }
 	private:
 		CardObject* _card;
 	};

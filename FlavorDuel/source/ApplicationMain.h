@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   ApplicationMain.h
+ * \brief  WinMain‚©‚çŒÄ‚Î‚ê‚éƒNƒ‰ƒX
+ * 
+ * \author “y‹«‘¾˜Y
+ * \date   May 2023
+ *********************************************************************/
 #pragma once
 #include "appframe.h"
 namespace Flavor {
