@@ -52,6 +52,7 @@
     <ClInclude Include="source\testUI.h" />
     <ClInclude Include="source\ThreadBase.h" />
     <ClInclude Include="source\TitleUI.h" />
+    <ClInclude Include="source\UserDataStruct.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\ApplicationMain.cpp" />

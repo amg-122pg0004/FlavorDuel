@@ -7,10 +7,14 @@
  *********************************************************************/
 #pragma once
 #include "appframe.h"
+#include "UserDataStruct.h"
 
 namespace Flavor {
 	using AppFrame::InputManager;
 	class ModeTitle;
+	class LoginThread;
+	enum class LoginState{ Idle,Success,Fail };
+
 	class TitleUI : public AppFrame::UICanvas
 	{
 	public:
@@ -21,6 +25,10 @@ namespace Flavor {
 		void Update(InputManager& input, float deltaSeconds);
 		void Render();
 	private:
-
+		std::unique_ptr<LoginThread> _loginThread;
+		AppFrame::UI::EditableTextBox* _name;
+		AppFrame::UI::EditableTextBox* _password;
+		LoginState _loginState;
+		UserData _data;
 	};
 }

@@ -227,5 +227,8 @@
     <ClInclude Include="source\TitleUI.h">
       <Filter>UI\TitleUI</Filter>
     </ClInclude>
+    <ClInclude Include="source\UserDataStruct.h">
+      <Filter>DataStruct</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

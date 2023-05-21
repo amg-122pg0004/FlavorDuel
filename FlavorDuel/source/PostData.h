@@ -2,6 +2,8 @@
 #include "appframe.h"
 #include "Curl.h"
 #include "ThreadBase.h"
+#include "UserDataStruct.h"
+
 namespace Flavor {
 	class CardObject;
 
@@ -14,10 +16,17 @@ namespace Flavor {
 		CardObject* _card;
 	};
 
-	class PostData
-	{
+	class LoginThread : public ThreadBase {
 	public:
-		static bool PostCardData(CardObject* card);
+		LoginThread(std::string id,std::string password);
+		bool ThreadProc()override;
+		UserData GetUserData() { return _data; }
+		bool GetSuccess() { return _success; }
+	private:
+		std::string _id;
+		std::string _password;
+		bool _success;
+		UserData _data;
 	};
 }
 
