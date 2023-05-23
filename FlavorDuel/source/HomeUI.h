@@ -9,6 +9,7 @@
 #include "appframe.h"
 namespace Flavor {
 	using AppFrame::InputManager;
+	class MatchingThread;
 	class HomeUI :public AppFrame::UICanvas
 	{
 	public:
@@ -18,5 +19,7 @@ namespace Flavor {
 		void Terminate();
 		void Update(InputManager& input, float deltaSeconds);
 		void Render();
+	private:
+		std::unique_ptr<MatchingThread> _matchingThread;
 	};
 }

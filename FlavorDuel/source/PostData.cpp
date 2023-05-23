@@ -9,6 +9,7 @@ namespace {
 	constexpr auto TestURL = "http://localhost:9000";
 	constexpr auto LoginURL = "http://localhost:9000/login";
 	constexpr auto RegisterURL = "http://localhost:9000/register";
+	constexpr auto matchingURL = "http://localhost:9000/matching";
 }
 
 PostThread::PostThread(CardObject* card)
@@ -144,5 +145,36 @@ bool Flavor::RegisterThread::ThreadProc()
 	}
 	_success = true;
 	return true;
-	return false;
+}
+
+Flavor::MatchingThread::MatchingThread(std::string id)
+	:_id{ id }, _success{ false }
+{
+}
+
+bool Flavor::MatchingThread::ThreadProc()
+{
+	Curl* curl = new Curl();
+	picojson::object jsonObject;
+	jsonObject.insert(std::make_pair("type", picojson::value("StartMatching")));
+	jsonObject.insert(std::make_pair("id", picojson::value(_id)));
+	picojson::value value(jsonObject);
+	std::string jsonString = value.serialize();
+
+	std::string error{""};
+	std::string body{""};
+	curl->Post(matchingURL, jsonString, error, body);
+	if (error != "") {
+		return false;
+	}
+
+	std::string recieveString = body;
+	picojson::value responseValue;
+	picojson::parse(responseValue, recieveString);
+	picojson::object response = responseValue.get<picojson::object>();
+	if (response["message"].is<std::string>()) {
+		_message = response["message"].get<std::string>();
+	}
+	_success = true;
+	return true;
 }

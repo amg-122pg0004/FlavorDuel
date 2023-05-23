@@ -48,6 +48,18 @@ namespace Flavor {
 		bool _success;
 		UserData _data;
 	};
+
+	class MatchingThread : public ThreadBase {
+	public:
+		MatchingThread(std::string id);
+		bool ThreadProc()override;
+		bool GetSuccess() { return _success; }
+		std::string GetMessage() { return _message; }
+	private:
+		std::string _id;
+		bool _success;
+		std::string _message;
+	};
 }
 
 

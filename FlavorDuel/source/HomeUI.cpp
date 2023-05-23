@@ -1,4 +1,6 @@
 #include "HomeUI.h"
+#include "PostData.h"
+#include "UserDataStruct.h"
 
 namespace {
 	using namespace Flavor;
@@ -19,8 +21,10 @@ HomeUI::HomeUI()
 	casualBattleButton->SetPosition(casualBattleButtonPosition);
 	auto casualText = std::make_unique<AppFrame::UI::TextBox>("ƒJƒWƒ…ƒAƒ‹");
 	casualBattleButton->SetTextBox(std::move(casualText));
-	auto casualMatching = []() {
-
+	auto casualMatching = [&]() {
+		auto app = AppFrame::ApplicationBase::GetInstance();
+		_matchingThread.reset(new MatchingThread(app->GetAppData()->GetData<UserData>().id));
+		_matchingThread->ThreadStart();
 	};
 	casualBattleButton->SetFunction(std::move(casualMatching));
 	this->AddUIObject(std::move(casualBattleButton));
