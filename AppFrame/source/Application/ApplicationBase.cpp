@@ -24,6 +24,7 @@ namespace AppFrame {
         _modeServer = nullptr;
         _inputManager = nullptr;
         _appEnd = false;
+        _appData = nullptr;
     }
 
     ApplicationBase::~ApplicationBase() {
@@ -56,8 +57,7 @@ namespace AppFrame {
         //インプットマネージャーの初期化
         _inputManager.reset(new InputManager);
         _vibration.reset(new Vibration);
-
-
+        _appData.reset(new DataHolder);
 
         return true;
     }

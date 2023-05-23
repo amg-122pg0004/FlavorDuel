@@ -12,11 +12,12 @@
 namespace AppFrame {
 
 	UICanvas::UICanvas(VECTOR2<int> size)
-		:_screen{ -1 }
+		:_activate{ true }
+		, _screen{ -1 }
 		, _size{ size }
 		, _rootPosition{ 0,0 }
 		, _needUpdate{ false }
-		,_name {""}
+		, _name{ "" }
 	{
 	}
 
@@ -57,6 +58,9 @@ namespace AppFrame {
 
 	void UICanvas::Update(InputManager& input, float deltaSeconds)
 	{
+		if (!_activate) {
+			return;
+		}
 		if (!_needUpdate) {
 			return;
 		}
@@ -72,6 +76,9 @@ namespace AppFrame {
 
 	void UICanvas::Render()
 	{
+		if (!_activate) {
+			return;
+		}
 		DrawGraph(_rootPosition.x, _rootPosition.y, _screen, true);
 		if (!_needUpdate) {
 			return;

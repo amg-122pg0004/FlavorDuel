@@ -37,21 +37,27 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="source\HomeUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="source\IObserverSequence.h" />
     <ClInclude Include="source\ISubjectSequence.h" />
     <ClInclude Include="source\MessageLog.h" />
     <ClInclude Include="source\MessageWindow.h" />
     <ClInclude Include="source\ModeDeckEdit.h" />
+    <ClInclude Include="source\ModeHome.h" />
     <ClInclude Include="source\ModeInGame.h" />
     <ClInclude Include="source\ModeMatching.h" />
     <ClInclude Include="source\ModeShop.h" />
     <ClInclude Include="source\ModeTest.h" />
     <ClInclude Include="source\ModeTitle.h" />
     <ClInclude Include="source\PostData.h" />
+    <ClInclude Include="source\RegisterUI.h" />
     <ClInclude Include="source\SequenceMessages.h" />
     <ClInclude Include="source\testUI.h" />
     <ClInclude Include="source\ThreadBase.h" />
-    <ClInclude Include="source\TitleUI.h" />
+    <ClInclude Include="source\LoginUI.h" />
     <ClInclude Include="source\UserDataStruct.h" />
   </ItemGroup>
   <ItemGroup>
@@ -72,18 +78,24 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="source\HomeUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="source\MessageLog.cpp" />
     <ClCompile Include="source\MessageWindow.cpp" />
     <ClCompile Include="source\ModeDeckEdit.cpp" />
+    <ClCompile Include="source\ModeHome.cpp" />
     <ClCompile Include="source\ModeInGame.cpp" />
     <ClCompile Include="source\ModeMatching.cpp" />
     <ClCompile Include="source\ModeShop.cpp" />
     <ClCompile Include="source\ModeTest.cpp" />
     <ClCompile Include="source\ModeTitle.cpp" />
     <ClCompile Include="source\PostData.cpp" />
+    <ClCompile Include="source\RegisterUI.cpp" />
     <ClCompile Include="source\testUI.cpp" />
     <ClCompile Include="source\ThreadBase.cpp" />
-    <ClCompile Include="source\TitleUI.cpp" />
+    <ClCompile Include="source\LoginUI.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

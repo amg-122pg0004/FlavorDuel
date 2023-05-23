@@ -8,6 +8,7 @@ namespace AppFrame {
 			, _textColor{ Color::Red }
 			, _drawBox{ false }
 			, _boxColor{ Color::White }
+			, _bind{ nullptr }
 		{
 
 		}
@@ -18,6 +19,9 @@ namespace AppFrame {
 
 		void TextBox::Update(InputManager& input, float deltaSecond)
 		{
+			if (_bind) {
+				_text = _bind();
+			}
 		}
 
 		void TextBox::Render()
@@ -43,6 +47,11 @@ namespace AppFrame {
 			else {
 				DrawStringToHandle(aabb.min.x, aabb.min.y, _text.c_str(), _textColor, _font);
 			}
+		}
+		void TextBox::SetBindFunction(std::function<std::string()> function)
+		{
+			this->SetNeedUpdate(true);
+			_bind = function;
 		}
 	}
 }

@@ -88,8 +88,17 @@
     <Filter Include="Mode\ModeMatching">
       <UniqueIdentifier>{13be78d4-0250-453a-a703-11cc501f50d1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UI\TitleUI">
+    <Filter Include="UI\RegisterUI">
+      <UniqueIdentifier>{4f1fb4ef-caf1-46b7-b360-68e5fd232017}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\LoginUI">
       <UniqueIdentifier>{f589d2e1-a24e-445a-9b93-52be32e4e752}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mode\ModeHome">
+      <UniqueIdentifier>{95604793-0d84-4f3a-93b6-867407dee839}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\HomeUI">
+      <UniqueIdentifier>{493093e4-2bb4-4f19-88cd-c43d87217e1f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -150,8 +159,17 @@
     <ClCompile Include="source\ModeMatching.cpp">
       <Filter>Mode\ModeMatching</Filter>
     </ClCompile>
-    <ClCompile Include="source\TitleUI.cpp">
-      <Filter>UI\TitleUI</Filter>
+    <ClCompile Include="source\LoginUI.cpp">
+      <Filter>UI\LoginUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\RegisterUI.cpp">
+      <Filter>UI\RegisterUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ModeHome.cpp">
+      <Filter>Mode\ModeHome</Filter>
+    </ClCompile>
+    <ClCompile Include="source\HomeUI.cpp">
+      <Filter>UI\HomeUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -224,11 +242,20 @@
     <ClInclude Include="source\ModeMatching.h">
       <Filter>Mode\ModeMatching</Filter>
     </ClInclude>
-    <ClInclude Include="source\TitleUI.h">
-      <Filter>UI\TitleUI</Filter>
+    <ClInclude Include="source\LoginUI.h">
+      <Filter>UI\LoginUI</Filter>
     </ClInclude>
     <ClInclude Include="source\UserDataStruct.h">
       <Filter>DataStruct</Filter>
+    </ClInclude>
+    <ClInclude Include="source\RegisterUI.h">
+      <Filter>UI\RegisterUI</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ModeHome.h">
+      <Filter>Mode\ModeHome</Filter>
+    </ClInclude>
+    <ClInclude Include="source\HomeUI.h">
+      <Filter>UI\HomeUI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

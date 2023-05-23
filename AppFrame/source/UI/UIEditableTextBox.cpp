@@ -37,6 +37,21 @@ EditableTextBox::EditableTextBox(std::string text)
 	_inputHandle = MakeKeyInput(MaxStrLength, CancelValidFlag, SingleCharOnlyFlag, NumCharOnlyFlag);
 }
 
+AppFrame::UI::EditableTextBox::EditableTextBox(std::string text, int maxStrLength, int cancelValidFlag, int singleCharOnlyFlag, int numCharOnlyFlag)
+	:_defaultText{ DefaultText }
+	, _defaultTextColor{ Color::Gray }
+	, _text{ text }
+	, _font{ -1 }
+	, _textColor{ Color::Red }
+	, _drawBox{ false }
+	, _boxColor{ Color::White }
+	, _activate{ false }
+	, _secret{ false }
+{
+	this->SetNeedUpdate(true);
+	_inputHandle = MakeKeyInput(maxStrLength, cancelValidFlag, singleCharOnlyFlag, numCharOnlyFlag);
+}
+
 EditableTextBox::~EditableTextBox()
 {
 	DeleteKeyInput(_inputHandle);

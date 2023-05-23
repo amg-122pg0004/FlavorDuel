@@ -11,6 +11,7 @@ namespace Flavor {
 	class ApplicationMain :public AppFrame::ApplicationBase
 	{
 	public:
+		ApplicationMain();
 		bool Initialize(HINSTANCE hInstance);
 		bool Input();
 		bool Update();

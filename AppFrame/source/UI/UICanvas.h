@@ -41,7 +41,11 @@ namespace AppFrame {
 
 		std::string GetName() { return _name; }
 		void SetName(std::string name) { _name = name; }
+
+		bool getActivate() { return _activate; }
+		void SetActivate(bool flag) { _activate = flag; }
 	private:
+		bool _activate;
 		std::string _name;
 		int _screen;//スクリーンハンドル
 		VECTOR2<int> _size;//スクリーンサイズ

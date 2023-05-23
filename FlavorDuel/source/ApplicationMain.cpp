@@ -1,6 +1,8 @@
 #include "ApplicationMain.h"
 #include "ModeInGame.h"
 #include "ModeTitle.h"
+#include "ModeHome.h"
+#include "UserDataStruct.h"
 #include "CardDataStruct.h"
 namespace {
 	Flavor::DeckData TestDeck = {
@@ -20,12 +22,20 @@ namespace {
 namespace Flavor {
 	ApplicationMain g_oApplicationMain;
 
+	ApplicationMain::ApplicationMain() :_debug{ false }
+	{
+	}
+
 	bool ApplicationMain::Initialize(HINSTANCE hInstance)
 	{
 		if (!ApplicationBase::Initialize(hInstance)) { return false; }
+		UserData data;
+		this->GetAppData()->SetData(data);
+
 		auto modeServer = AppFrame::ModeServer::GetInstance();
 		//modeServer->Add(std::make_unique<ModeInGame>(TestDeck, TestDeck));
 		modeServer->Add(std::make_unique<ModeTitle>());
+		//modeServer->Add(std::make_unique<ModeHome>());
 		return true;
 	}
 	bool ApplicationMain::Input()

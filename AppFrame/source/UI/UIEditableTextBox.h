@@ -14,6 +14,7 @@ namespace AppFrame {
         {
         public:
             EditableTextBox(std::string text);
+            EditableTextBox(std::string text, int maxStrLength, int cancelValidFlag, int singleCharOnlyFlag, int numCharOnlyFlag);
             ~EditableTextBox();
             void Update(InputManager& input, float deltaSecond)override;
             void Render()override;

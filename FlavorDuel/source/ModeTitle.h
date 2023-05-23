@@ -1,7 +1,7 @@
 /*****************************************************************//**
  * \file   ModeTitle.h
  * \brief  タイトル画面、ログインあるいはユーザー登録してホーム画面に遷移
- * 
+ *
  * \author 土居将太郎
  * \date   May 2023
  *********************************************************************/
@@ -11,7 +11,7 @@ namespace Flavor {
 	using AppFrame::InputManager;
 	class CardFactory;
 	class MessageLog;
-
+	enum class TitleUI { Login, Register };
 	class ModeTitle : public AppFrame::ModeBase {
 	public:
 		ModeTitle();
@@ -21,11 +21,12 @@ namespace Flavor {
 		bool Render();
 		bool Debug();
 
-		void Login(std::string userName, std::string password);
-		void Register(std::string userName, std::string password);
-		void QuitGame();
+		void SetNextUI(TitleUI ui) { _nextUI = ui; _changeFlag = true; }
+		void ChangeModeHome();
 	private:
-
+		void ChangeUI();
+		bool _changeFlag;
+		TitleUI _nextUI;
 	};
 }
 

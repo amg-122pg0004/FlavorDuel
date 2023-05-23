@@ -12,10 +12,10 @@
 namespace Flavor {
 	struct UserData
 	{
-		std::string id;
-		std::string password;
-		int level;
-		int money;
-		int rank;
+		std::string id = "";
+		std::string password = "";
+		int level = 1;
+		int money = 0;
+		int rank = 1000;
 	};
 }
