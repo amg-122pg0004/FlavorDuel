@@ -1,7 +1,7 @@
 #include "RegisterUI.h"
 #include <map>
 #include "ModeTitle.h"
-#include "PostData.h"
+#include "RegisterThread.h"
 #include "UserDataStruct.h"
 using namespace Flavor;
 using Anchor = AppFrame::UIObjectBase::Anchor;

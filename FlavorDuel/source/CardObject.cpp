@@ -14,7 +14,7 @@ namespace {
 namespace Flavor {
 	CardObject::CardObject() :_selected{ false }, _attack{ -1 }, _defense{ -1 }, _tips{ "" }
 	{
-		_cg = AppFrame::ImageServer::LoadGraph(CardFrame);
+		_frameCG = AppFrame::ImageServer::LoadGraph(CardFrame);
 		_aabb = { {0,0},{0,0} };
 	}
 
@@ -70,7 +70,7 @@ namespace Flavor {
 		int positionX{ static_cast<int>(this->GetPosition().x) };
 		int positionY{ static_cast<int>(this->GetPosition().y) };
 		double scale{ static_cast<double>(this->GetScale().x) };
-		DrawRotaGraph(positionX, positionY, scale, 0.0f, _cg, true);
+		DrawRotaGraph(positionX, positionY, scale, 0.0f, _frameCG, true);
 
 		DrawString(positionX + NameOffset.x, positionY + NameOffset.y, _cardName.c_str(), AppFrame::Color::Red);
 

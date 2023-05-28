@@ -4,6 +4,7 @@
 #include "ModeInGame.h"
 #include "MessageWindow.h"
 #include "MessageLog.h"
+#include "CardFactory.h"
 using namespace Flavor;
 
 namespace {
@@ -38,6 +39,7 @@ void BattleField::Terminate()
 
 void BattleField::Update(InputManager& input)
 {
+	/*
 	if (_threadHolder != nullptr) {
 		if (!_threadHolder->IsThreadExec()) {
 			auto messageLogPtr = _modeInGame.GetMessageLog();
@@ -45,7 +47,6 @@ void BattleField::Update(InputManager& input)
 			_threadHolder.release();
 		}
 	}
-
 	if (input.GetMouseLeft(AppFrame::InputState::Pressed) && _threadHolder == nullptr) {
 		if (_myCard != nullptr && !_settMyCard) {
 			_threadHolder = std::make_unique<PostThread>(_myCard);
@@ -58,12 +59,13 @@ void BattleField::Update(InputManager& input)
 			_setOpponentCard = true;
 		}
 	}
+	*/
 }
 
 void BattleField::Render()
 {
-	auto renderCard = [](AppFrame::VECTOR2<int> position, CardObject* card) {
-		DrawRotaGraph(position.x, position.y, 0.8f, 0.0f, card->GetCGHandle(), true);
+	auto renderCard = [](AppFrame::VECTOR2<int> position, std::unique_ptr<CardObject>& card) {
+		DrawRotaGraph(position.x, position.y, 0.8f, 0.0f, card->GetFrameImage(), true);
 
 		DrawString(position.x - 130, position.y - 180, card->GetCardName().c_str(), AppFrame::Color::Red);
 		DrawString(position.x - 130, position.y - 20 + 25, card->GetCardText().c_str(), AppFrame::Color::Red);
@@ -75,12 +77,16 @@ void BattleField::Render()
 	};
 
 	if (_myCard != nullptr) {
-		renderCard(MyPosition, _myCard);
+		if (_myCard->GetCardName() != "") {
+			renderCard(MyPosition, _myCard);
+		}
+
 	}
 	if (_opponentCard != nullptr) {
-		renderCard(OpponentPosition, _opponentCard);
+		if (_opponentCard->GetCardName() != "") {
+			renderCard(OpponentPosition, _opponentCard);
+		}
 	}
-
 
 	std::string myResult{ "" };
 	std::string opponentResult{ "" };
@@ -106,4 +112,14 @@ void BattleField::Render()
 
 void BattleField::Debug()
 {
+}
+
+void BattleField::SetMyArea(CardData card)
+{
+	_myCard = CardFactory::CreateCard(card);
+}
+
+void BattleField::SetOpponentArea(CardData card)
+{
+	_opponentCard = CardFactory::CreateCard(card);
 }

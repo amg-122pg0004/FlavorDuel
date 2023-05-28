@@ -1,26 +1,27 @@
 /*****************************************************************//**
  * \file   PostData.h
  * \brief  httpでデータをPOSTする別スレッド処理クラス
- * 
+ *
  * \author 土居将太郎
  * \date   May 2023
  *********************************************************************/
 #pragma once
-#include "appframe.h"
-#include "Curl.h"
 #include "ThreadBase.h"
-#include "CardDataStruct.h"
 #include "UserDataStruct.h"
-
-namespace Flavor {
+namespace Flavor
+{
 	class CardObject;
-	class PostThread : public ThreadBase {
+	class RegisterThread : public ThreadBase {
 	public:
-		PostThread(CardObject* card);
+		RegisterThread(std::string id, std::string password);
 		bool ThreadProc()override;
-		CardObject* GetCard() { return _card; }
+		UserData GetUserData() { return _data; }
+		bool GetSuccess() { return _success; }
 	private:
-		CardObject* _card;
+		std::string _id;
+		std::string _password;
+		bool _success;
+		UserData _data;
 	};
+};
 
-}

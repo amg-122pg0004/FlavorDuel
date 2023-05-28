@@ -28,11 +28,8 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="source\ConvertJson.h" />
     <ClInclude Include="source\Curl.h" />
-    <ClInclude Include="source\Deck.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
     <ClInclude Include="source\Hand.h">
       <SubType>
       </SubType>
@@ -41,8 +38,15 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="source\InGameThread.h" />
     <ClInclude Include="source\IObserverSequence.h" />
     <ClInclude Include="source\ISubjectSequence.h" />
+    <ClInclude Include="source\LoginThread.h" />
+    <ClInclude Include="source\MatchingThread.h" />
+    <ClInclude Include="source\MatchingUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="source\MessageLog.h" />
     <ClInclude Include="source\MessageWindow.h" />
     <ClInclude Include="source\ModeDeckEdit.h" />
@@ -53,7 +57,9 @@
     <ClInclude Include="source\ModeTest.h" />
     <ClInclude Include="source\ModeTitle.h" />
     <ClInclude Include="source\PostData.h" />
+    <ClInclude Include="source\RegisterThread.h" />
     <ClInclude Include="source\RegisterUI.h" />
+    <ClInclude Include="source\RoomState.h" />
     <ClInclude Include="source\SequenceMessages.h" />
     <ClInclude Include="source\testUI.h" />
     <ClInclude Include="source\ThreadBase.h" />
@@ -69,16 +75,20 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="source\ConvertJson.cpp" />
     <ClCompile Include="source\Curl.cpp" />
-    <ClCompile Include="source\Deck.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
     <ClCompile Include="source\Hand.cpp">
       <SubType>
       </SubType>
     </ClCompile>
     <ClCompile Include="source\HomeUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="source\InGameThread.cpp" />
+    <ClCompile Include="source\LoginThread.cpp" />
+    <ClCompile Include="source\MatchingThread.cpp" />
+    <ClCompile Include="source\MatchingUI.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -92,6 +102,7 @@
     <ClCompile Include="source\ModeTest.cpp" />
     <ClCompile Include="source\ModeTitle.cpp" />
     <ClCompile Include="source\PostData.cpp" />
+    <ClCompile Include="source\RegisterThread.cpp" />
     <ClCompile Include="source\RegisterUI.cpp" />
     <ClCompile Include="source\testUI.cpp" />
     <ClCompile Include="source\ThreadBase.cpp" />

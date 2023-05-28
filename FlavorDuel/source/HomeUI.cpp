@@ -1,6 +1,7 @@
 #include "HomeUI.h"
 #include "PostData.h"
 #include "UserDataStruct.h"
+#include "ModeHome.h"
 
 namespace {
 	using namespace Flavor;
@@ -13,18 +14,17 @@ namespace {
 	AppFrame::VECTOR2<int> shopButtonPosition = { 960,600 };
 }
 
-HomeUI::HomeUI()
+HomeUI::HomeUI(ModeHome& home)
 	:AppFrame::UICanvas(CanvasSize)
+	, _modeHome{ home }
 {
 	auto casualBattleButton = std::make_unique<AppFrame::UI::Button>();
 	casualBattleButton->SetAnchor(Anchor::Center);
 	casualBattleButton->SetPosition(casualBattleButtonPosition);
 	auto casualText = std::make_unique<AppFrame::UI::TextBox>("カジュアル");
 	casualBattleButton->SetTextBox(std::move(casualText));
-	auto casualMatching = [&]() {
-		auto app = AppFrame::ApplicationBase::GetInstance();
-		_matchingThread.reset(new MatchingThread(app->GetAppData()->GetData<UserData>().id));
-		_matchingThread->ThreadStart();
+	auto casualMatching = [this]() {
+		_modeHome.OpenMatching();
 	};
 	casualBattleButton->SetFunction(std::move(casualMatching));
 	this->AddUIObject(std::move(casualBattleButton));
@@ -34,8 +34,8 @@ HomeUI::HomeUI()
 	rankBattleButton->SetPosition(rankBattleButtonPosition);
 	auto rankText = std::make_unique<AppFrame::UI::TextBox>("ランク");
 	rankBattleButton->SetTextBox(std::move(rankText));
-	auto rankMatching = []() {
-
+	auto rankMatching = [this]() {
+		_modeHome.OpenMatching();
 	};
 	rankBattleButton->SetFunction(std::move(rankMatching));
 	this->AddUIObject(std::move(rankBattleButton));

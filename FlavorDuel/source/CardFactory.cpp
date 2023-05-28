@@ -6,7 +6,11 @@ namespace Flavor {
 		auto card = std::make_unique<CardObject>();
 		card->Init();
 		card->SetCardName(data.name);
+		card->SetAttack(data.attack);
+		card->SetDefense(data.defence);
+		card->SetImage(data.cg);
 
+		//“K‹X‰üs
 		std::string setText{ data.flavorText };
 		int oneLineCharNumber = 16;
 		int countByte{ 0 };

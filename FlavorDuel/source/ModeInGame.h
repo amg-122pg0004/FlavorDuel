@@ -3,14 +3,16 @@
 #include "CardDataStruct.h"
 #include "ISubjectSequence.h"
 #include "CardFactory.h"
+#include "InGameThread.h"
 namespace Flavor {
 	using AppFrame::InputManager;
-	class CardFactory;
 	class MessageLog;
+	class Hand;
+	class BattleField;
 
 	class ModeInGame : public AppFrame::ModeBase, private ISubjectSequence {
 	public:
-		ModeInGame(DeckData myData, DeckData opponentData);
+		ModeInGame(RoomData data, int myPlayerNumber);
 		bool Initialize();
 		bool Terminate();
 		bool Update(InputManager& input);
@@ -19,12 +21,22 @@ namespace Flavor {
 		void Subscribe(IObserverSequence* observer)override;
 		void Notify(SequenceMessages message)override;
 
-		std::unique_ptr<CardFactory>& GetCardFactory() { return _cardFactory; }
 		MessageLog* GetMessageLog() { return _messageLog; }
+		RoomData GetRoomData() { return _room; }
+		PlayerData GetPlayerData();
+		PlayerData GetOpponentData();
+		void SetPlayerData(PlayerData data);
+		void SetRoomData(RoomData room);
 	private:
-		std::unique_ptr<CardFactory> _cardFactory;
+		std::unique_ptr<InGameThread> _ingameThread;
+
+
+		BattleField* _battleField;
+		Hand* _hand;
+
 		MessageLog* _messageLog;
-		DeckData _myData;
-		DeckData _opponentData;
+		RoomData _room;
+		int _myPlayerNumber;
+		float _timer;
 	};
 }

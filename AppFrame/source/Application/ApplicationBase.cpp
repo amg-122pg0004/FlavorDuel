@@ -41,7 +41,7 @@ namespace AppFrame {
 
         SetGraphMode(DispSizeW(), DispSizeH(), 32);
         SetAlwaysRunFlag(true);
-
+        SetDoubleStartValidFlag(TRUE);
         if (DxLib_Init() == -1)
         {   // エラーが起きたら直ちに終了
             return false;

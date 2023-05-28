@@ -1,7 +1,7 @@
 /*****************************************************************//**
- * \file   PostData.h
- * \brief  httpでデータをPOSTする別スレッド処理クラス
- * 
+ * \file   MatchingThread.h
+ * \brief  マッチングPOST用　別スレッド処理クラス
+ *
  * \author 土居将太郎
  * \date   May 2023
  *********************************************************************/
@@ -10,17 +10,17 @@
 #include "Curl.h"
 #include "ThreadBase.h"
 #include "CardDataStruct.h"
-#include "UserDataStruct.h"
-
 namespace Flavor {
 	class CardObject;
-	class PostThread : public ThreadBase {
+	class InGameThread : public ThreadBase {
 	public:
-		PostThread(CardObject* card);
+		InGameThread(RoomData postData);
 		bool ThreadProc()override;
-		CardObject* GetCard() { return _card; }
+		bool GetSuccess() { return _success; }
+		RoomData GetReceiveRoomData() { return _receiveData; }
 	private:
-		CardObject* _card;
+		bool _success;
+		RoomData _postData;
+		RoomData _receiveData;
 	};
-
 }

@@ -2,12 +2,13 @@
  * \file   BattleField.h
  * \brief  バトルフィールドのカード描画と
  *         ChatGPTによる能力値測定のため、データをポストする別スレッド作成
- * 
+ *
  * \author 土居将太郎
  * \date   May 2023
  *********************************************************************/
 #pragma once
 #include "appframe.h"
+#include "CardDataStruct.h"
 namespace Flavor {
 	using AppFrame::InputManager;
 	class CardObject;
@@ -26,13 +27,13 @@ namespace Flavor {
 		virtual void Render();
 		virtual void Debug();
 
-		void SetMyArea(CardObject* card) { _myCard = card; }
-		void SetEnemyArea(CardObject* card) { _opponentCard = card; }
+		void SetMyArea(CardData card);
+		void SetOpponentArea(CardData card);
 	private:
 		bool _settMyCard, _setOpponentCard;
 		ModeInGame& _modeInGame;
-		CardObject* _myCard;
-		CardObject* _opponentCard;
+		std::unique_ptr<CardObject> _myCard;
+		std::unique_ptr<CardObject> _opponentCard;
 		std::unique_ptr<PostThread> _threadHolder;
 		int _font;
 	};

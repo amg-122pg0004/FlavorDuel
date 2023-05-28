@@ -1,6 +1,6 @@
 /*****************************************************************//**
- * \file   HomeUI.h
- * \brief  ホーム画面UI
+ * \file   MatchingUI.h
+ * \brief  マッチングキャンセルボタンを表示するUIキャンバス
  * 
  * \author 土居将太郎
  * \date   May 2023
@@ -9,18 +9,17 @@
 #include "appframe.h"
 namespace Flavor {
 	using AppFrame::InputManager;
-	class MatchingThread;
-	class ModeHome;
-	class HomeUI :public AppFrame::UICanvas
+	class ModeMatching;
+	class MatchingUI :public AppFrame::UICanvas
 	{
 	public:
-		HomeUI(ModeHome& home);
-		~HomeUI();
+		MatchingUI(ModeMatching& mode);
+		~MatchingUI();
 		void Init();
 		void Terminate();
 		void Update(InputManager& input, float deltaSeconds);
 		void Render();
 	private:
-		ModeHome& _modeHome;
+		ModeMatching& _mode;
 	};
 }

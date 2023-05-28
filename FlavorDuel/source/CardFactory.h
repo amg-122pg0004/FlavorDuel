@@ -13,6 +13,6 @@ namespace Flavor {
 	class CardObject;
 	class CardFactory {
 	public:
-		std::unique_ptr<CardObject> CreateCard(CardData data);
+		static std::unique_ptr<CardObject> CreateCard(CardData data);
 	};
 }
