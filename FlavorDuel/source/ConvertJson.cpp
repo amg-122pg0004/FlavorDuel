@@ -64,6 +64,7 @@ picojson::object Flavor::ConvertJson::PlayerDataToJson(PlayerData playerData)
 	result.insert(std::make_pair("deck", DeckDataToJson(playerData.deck)));
 	result.insert(std::make_pair("hand", DeckDataToJson(playerData.hand)));
 	result.insert(std::make_pair("battle", CardDataToJson(playerData.battle)));
+	result.insert(std::make_pair("oldBattle", CardDataToJson(playerData.oldBattle)));
 	result.insert(std::make_pair("id", picojson::value(playerData.id)));
 	result.insert(std::make_pair("win", picojson::value(static_cast<double>(playerData.win))));
 
@@ -83,10 +84,13 @@ PlayerData Flavor::ConvertJson::JsonToPlayerData(picojson::object json)
 	if (json["battle"].is<picojson::object>()) {
 		result.battle = JsonToCardData(json["battle"].get<picojson::object>());
 	}
+	if (json["oldBattle"].is<picojson::object>()) {
+		result.oldBattle = JsonToCardData(json["oldBattle"].get<picojson::object>());
+	}
 	if (json["id"].is<std::string>()) {
 		result.id = json["id"].get<std::string>();
 	}
-	if (json["win"].is<std::string>()) {
+	if (json["win"].is<double>()) {
 		result.win = static_cast<int>(json["win"].get<double>());
 	}
 
@@ -123,6 +127,18 @@ RoomData ConvertJson::JsonToRoomData(picojson::object json)
 		}
 		else if (state == "waitAnalyze") {
 			result.state = RoomState::waitAnalyze;
+		}
+	}
+	
+	if (json["messageLog"].is<picojson::array>()) {
+		picojson::array messageLog = json["messageLog"].get<picojson::array>();
+		result.messageLog.clear();
+		for (int i = 0; i < messageLog.size(); ++i) {
+			if (messageLog[i].is<std::string>()) {
+				auto wideMessage = AppFrame::CharacterCodeConvert::ConvertUTF8ToWide(messageLog[i].get<std::string>());
+				auto shiftJisMessage = AppFrame::CharacterCodeConvert::ConvertWideToShiftJIS(wideMessage);
+				result.messageLog.push_back(shiftJisMessage);
+			}
 		}
 	}
 

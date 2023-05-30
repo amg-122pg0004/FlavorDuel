@@ -15,8 +15,8 @@ Flavor::MessageWindow::MessageWindow(std::string message)
 
 	int messageWidth = GetDrawStringWidth(message.c_str(), strlen(message.c_str()));
 
-	int lineNumber = std::ceil(static_cast<float>(messageWidth) / static_cast<float>(CanvasSize.x));
-	int oneLineCharNumber = std::ceil(static_cast<float>(message.size()) / static_cast<float>(lineNumber));
+	int lineNumber = static_cast<int>(std::ceil(static_cast<float>(messageWidth) / static_cast<float>(CanvasSize.x)));
+	int oneLineCharNumber = static_cast<int>(std::ceil(static_cast<float>(message.size()) / static_cast<float>(lineNumber)));
 	int countByte{ 0 };
 	for (int i = 0; i < static_cast<int>(message.size());) {
 		int checkByte = AppFrame::ShiftJISChecker::Check(message.at(i));

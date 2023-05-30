@@ -39,6 +39,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="source\InGameThread.h" />
+    <ClInclude Include="source\InGameUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="source\IObserverSequence.h" />
     <ClInclude Include="source\ISubjectSequence.h" />
     <ClInclude Include="source\LoginThread.h" />
@@ -86,6 +90,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="source\InGameThread.cpp" />
+    <ClCompile Include="source\InGameUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="source\LoginThread.cpp" />
     <ClCompile Include="source\MatchingThread.cpp" />
     <ClCompile Include="source\MatchingUI.cpp">

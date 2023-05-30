@@ -19,6 +19,7 @@ namespace AppFrame {
 			~Button();
 			void Update(InputManager& input, float deltaSecond)override;
 			void Render()override;
+
 			void SetFunction(std::function<void()> function) { _activate = function; }
 
 			void SetIdleColor(unsigned int color) { _idleColor = color; }

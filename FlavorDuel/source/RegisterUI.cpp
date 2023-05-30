@@ -6,7 +6,7 @@
 using namespace Flavor;
 using Anchor = AppFrame::UIObjectBase::Anchor;
 namespace {
-	constexpr AppFrame::VECTOR2<int> CanvasSize = { 1280,780 };
+	constexpr AppFrame::VECTOR2<int> CanvasSize = { 1280,720 };
 	const std::map<RegisterError, std::string> ErrorMessage = {
 		{RegisterError::None,""},
 		{RegisterError::TooShortID,"ユーザーIDは5文字以上で設定してください"},
@@ -37,6 +37,7 @@ RegisterUI::RegisterUI(ModeTitle& mode)
 	int centerX = static_cast<int>(windowWidth * 0.5f);
 	int centerY = static_cast<int>(windowHeight * 0.5f);
 
+	//ID入力テキストボックス
 	auto userNameBox = std::make_unique<AppFrame::UI::EditableTextBox>("", 200, true, true, false);
 	userNameBox->SetAnchor(Anchor::Center);
 	userNameBox->SetPosition({ centerX,centerY });

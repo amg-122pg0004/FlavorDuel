@@ -192,6 +192,7 @@
     <ClCompile Include="source\Resource\ImageServer.cpp" />
     <ClCompile Include="source\Resource\ModelServer.cpp" />
     <ClCompile Include="source\Resource\SoundServer.cpp" />
+    <ClCompile Include="source\UI\UIBox.cpp" />
     <ClCompile Include="source\UI\UIButton.cpp" />
     <ClCompile Include="source\UI\UICanvas.cpp" />
     <ClCompile Include="source\UI\UICanvasServer.cpp" />
@@ -233,6 +234,7 @@
     <ClInclude Include="source\Resource\ImageServer.h" />
     <ClInclude Include="source\Resource\ModelServer.h" />
     <ClInclude Include="source\Resource\SoundServer.h" />
+    <ClInclude Include="source\UI\UIBox.h" />
     <ClInclude Include="source\UI\UIButton.h" />
     <ClInclude Include="source\UI\UICanvas.h" />
     <ClInclude Include="source\UI\UICanvasServer.h" />

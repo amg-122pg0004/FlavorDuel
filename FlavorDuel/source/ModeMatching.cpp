@@ -87,6 +87,7 @@ bool ModeMatching::Render()
 	auto app = AppFrame::ApplicationBase::GetInstance();
 	DrawBox(0,0, app->DispSizeW(),app->DispSizeH(),AppFrame::Color::Black,true);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 255);
+
 	ModeBase::Render();
 	return false;
 }

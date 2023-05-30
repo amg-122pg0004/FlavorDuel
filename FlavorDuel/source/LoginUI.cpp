@@ -5,7 +5,10 @@
 using namespace Flavor;
 using Anchor = AppFrame::UIObjectBase::Anchor;
 namespace {
-	AppFrame::VECTOR2<int> CanvasSize = { 1280,780 };
+	AppFrame::VECTOR2<int> CanvasSize = { 1280,720 };
+	constexpr auto BackGroundImagePath = "res/background.png";
+
+	constexpr auto gothicFontPath = "res/font/GenshinGothic-monoB4S16.dft";
 }
 
 LoginUI::LoginUI(ModeTitle& mode)
@@ -17,6 +20,7 @@ LoginUI::LoginUI(ModeTitle& mode)
 	, _password{ nullptr }
 {
 	this->SetName("Login");
+	int fontHandle = AppFrame::FontServer::LoadFont(gothicFontPath);
 
 	auto app = AppFrame::ApplicationBase::GetInstance();
 	int windowWidth = app->DispSizeW();
@@ -30,6 +34,7 @@ LoginUI::LoginUI(ModeTitle& mode)
 	userNameBox->SetSize({ 200,20 });
 	userNameBox->SetDrawBox(true);
 	userNameBox->SetDefaultText("ユーザーID");
+	userNameBox->SetTextColor(AppFrame::Color::Black);
 	_name = userNameBox.get();
 	this->AddUIObject(std::move(userNameBox));
 
@@ -38,6 +43,7 @@ LoginUI::LoginUI(ModeTitle& mode)
 	passwordBox->SetSize({ 200,20 });
 	passwordBox->SetAnchor(Anchor::Center);
 	passwordBox->SetDrawBox(true);
+	passwordBox->SetTextColor(AppFrame::Color::Black);
 	passwordBox->SetSecret(true);
 	passwordBox->SetDefaultText("パスワード");
 	_password = passwordBox.get();
@@ -46,7 +52,9 @@ LoginUI::LoginUI(ModeTitle& mode)
 	auto loginButton = std::make_unique<AppFrame::UI::Button>();
 	loginButton->SetAnchor(Anchor::Center);
 	loginButton->SetPosition({ centerX,centerY + 160 });
-	loginButton->SetTextBox({ std::make_unique<AppFrame::UI::TextBox>("ログイン") });
+	auto loginText = std::make_unique<AppFrame::UI::TextBox>("ログイン");
+	loginText->SetFont(fontHandle);
+	loginButton->SetTextBox(std::move(loginText));
 	auto loginFunction = [&]() {
 		_loginThread.reset(new LoginThread(_name->GetText(), _password->GetText()));
 		_loginThread->ThreadStart();
@@ -59,6 +67,7 @@ LoginUI::LoginUI(ModeTitle& mode)
 	registerButton->SetPosition({ centerX + 200,centerY + 160 });
 	registerButton->SetSize({ 100,20 });
 	auto registerText = std::make_unique<AppFrame::UI::TextBox>("新規登録");
+	registerText->SetFont(fontHandle);
 	registerText->SetTextColor(AppFrame::Color::Black);
 	registerButton->SetTextBox(std::move(registerText));
 	auto changeUIFunction = [&]() {
@@ -66,6 +75,9 @@ LoginUI::LoginUI(ModeTitle& mode)
 	};
 	registerButton->SetFunction(changeUIFunction);
 	this->AddUIObject(std::move(registerButton));
+
+	auto backgroundImage = std::make_unique<AppFrame::UI::Image>(BackGroundImagePath);
+	this->AddUIObject(std::move(backgroundImage));
 }
 
 LoginUI::~LoginUI()

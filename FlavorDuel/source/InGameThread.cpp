@@ -9,7 +9,8 @@ namespace {
 	constexpr auto ingameURL = "http://localhost:9000/ingame";
 }
 
-InGameThread::InGameThread(RoomData postData) :_success{ false }, _postData{ postData }, _receiveData{ postData }
+InGameThread::InGameThread()
+	:_success{ false }
 {
 }
 
@@ -18,7 +19,15 @@ bool InGameThread::ThreadProc()
 	Curl* curl = new Curl();
 
 	picojson::object postJson;
-	postJson.insert(std::make_pair("room", ConvertJson::RoomDataToJson(_postData)));
+
+	std::string typeMessage{"CheckRoom"};
+	if (_playCard) {
+		typeMessage = "PlayCard";
+		postJson.insert(std::make_pair("play", ConvertJson::CardDataToJson(*_playCard.get())));
+	}
+	postJson.insert(std::make_pair("type", typeMessage));
+
+
 	std::string id = AppFrame::ApplicationBase::GetInstance()->GetAppData()->GetData<UserData>().id;
 	postJson.insert(std::make_pair("id", picojson::value(id)));
 	picojson::value value(postJson);

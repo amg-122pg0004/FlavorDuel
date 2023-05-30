@@ -2,7 +2,7 @@
 #include "ImageServer.h"
 namespace AppFrame {
 	namespace UI {
-		Image::Image(std::string path)
+		Image::Image(std::string path) :_angle{ 0.0f }, _update{ nullptr }
 		{
 			_image = ImageServer::LoadGraph(path);
 			int sizeX{ 0 }, sizeY{ 0 };
@@ -16,20 +16,18 @@ namespace AppFrame {
 
 		void Image::Update(InputManager& input, float deltaSecond)
 		{
+			if (_update) {
+				_update(*this);
+			}
 		}
 
 		void Image::Render()
 		{
-			auto aabb = GetAABB();
-
-			DrawExtendGraph(aabb.min.x, aabb.min.y, aabb.max.x, aabb.max.y, _image, true);
-		}
-		void Image::SetScale(float scale)
-		{
-			float sizeX = static_cast<float>(this->GetSize().x) * scale;
-			float sizeY = static_cast<float>(this->GetSize().y) * scale;
-			VECTOR2<int> setSize = { static_cast<int>(sizeX) ,static_cast<int>(sizeY) };
-			this->SetSize(setSize);
+			VECTOR2<int> renderPosition {this->GetPosition()};
+			if (this->GetAnchor() == Anchor::UpperLeft) {
+				renderPosition += GetHalfSize();
+			}
+			DrawRotaGraph(renderPosition.x, renderPosition.y, 1.0f, _angle, _image, true);
 		}
 	}
 }

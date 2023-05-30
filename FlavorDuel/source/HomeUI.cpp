@@ -1,4 +1,5 @@
 #include "HomeUI.h"
+#include <sstream>
 #include "PostData.h"
 #include "UserDataStruct.h"
 #include "ModeHome.h"
@@ -6,22 +7,51 @@
 namespace {
 	using namespace Flavor;
 	using Anchor = AppFrame::UIObjectBase::Anchor;
-	AppFrame::VECTOR2<int> CanvasSize = { 1280,780 };
+	constexpr AppFrame::VECTOR2<int> CanvasSize = { 1280,720 };
+	constexpr AppFrame::VECTOR2<int> ButtonSize = { 200,100 };
 
-	AppFrame::VECTOR2<int> casualBattleButtonPosition = { 320,290 };
-	AppFrame::VECTOR2<int> rankBattleButtonPosition = { 960,290 };
-	AppFrame::VECTOR2<int> deckEditButtonPosition = { 320,600 };
-	AppFrame::VECTOR2<int> shopButtonPosition = { 960,600 };
+	constexpr AppFrame::VECTOR2<int> casualBattleButtonPosition = { 320,200 };
+	constexpr AppFrame::VECTOR2<int> rankBattleButtonPosition = { 960,200 };
+	constexpr AppFrame::VECTOR2<int> deckEditButtonPosition = { 320,520 };
+	constexpr AppFrame::VECTOR2<int> shopButtonPosition = { 960,520 };
+
+	constexpr int TopBarHeight = 20;
+
+	constexpr auto BackGroundImagePath = "res/background.png";
+	constexpr auto gothicFontPath = "res/font/GenshinGothic-monoB4S32.dft";
+	constexpr auto smallGothicFontPath = "res/font/GenshinGothic-monoB4S16.dft";
 }
 
 HomeUI::HomeUI(ModeHome& home)
 	:AppFrame::UICanvas(CanvasSize)
 	, _modeHome{ home }
 {
+	auto backgroundImage = std::make_unique<AppFrame::UI::Image>(BackGroundImagePath);
+	this->AddUIObject(std::move(backgroundImage));
+	auto userData = AppFrame::ApplicationBase::GetInstance()->GetAppData()->GetData<UserData>();
+	
+	int fontHandle = AppFrame::FontServer::LoadFont(gothicFontPath);
+	int smallFontHandle = AppFrame::FontServer::LoadFont(smallGothicFontPath);
+
+	auto topBar = std::make_unique<AppFrame::UI::Box>();
+	topBar->SetSize({ CanvasSize.x, TopBarHeight });
+	topBar->SetColor(AppFrame::Color::Black);
+	this->AddUIObject(std::move(topBar));
+
+	std::stringstream topBatText;
+	topBatText << "ユーザーID:" << userData.id << "　レベル:" << userData.level << "　所持金:" << userData.money;
+	auto idText = std::make_unique<AppFrame::UI::TextBox>(topBatText.str());
+	idText->SetTextColor(AppFrame::Color::White);
+	idText->SetFont(smallFontHandle);
+	this->AddUIObject(std::move(idText));
+
 	auto casualBattleButton = std::make_unique<AppFrame::UI::Button>();
 	casualBattleButton->SetAnchor(Anchor::Center);
 	casualBattleButton->SetPosition(casualBattleButtonPosition);
+	casualBattleButton->SetSize(ButtonSize);
 	auto casualText = std::make_unique<AppFrame::UI::TextBox>("カジュアル");
+	casualText->SetFont(fontHandle);
+	casualText->SetTextColor(AppFrame::Color::Black);
 	casualBattleButton->SetTextBox(std::move(casualText));
 	auto casualMatching = [this]() {
 		_modeHome.OpenMatching();
@@ -31,8 +61,11 @@ HomeUI::HomeUI(ModeHome& home)
 
 	auto rankBattleButton = std::make_unique<AppFrame::UI::Button>();
 	rankBattleButton->SetAnchor(Anchor::Center);
+	rankBattleButton->SetSize(ButtonSize);
 	rankBattleButton->SetPosition(rankBattleButtonPosition);
 	auto rankText = std::make_unique<AppFrame::UI::TextBox>("ランク");
+	rankText->SetTextColor(AppFrame::Color::Black);
+	rankText->SetFont(fontHandle);
 	rankBattleButton->SetTextBox(std::move(rankText));
 	auto rankMatching = [this]() {
 		_modeHome.OpenMatching();
@@ -42,8 +75,11 @@ HomeUI::HomeUI(ModeHome& home)
 
 	auto deckEditButton = std::make_unique<AppFrame::UI::Button>();
 	deckEditButton->SetAnchor(Anchor::Center);
+	deckEditButton->SetSize(ButtonSize);
 	deckEditButton->SetPosition(deckEditButtonPosition);
 	auto deckEditText = std::make_unique<AppFrame::UI::TextBox>("デッキ編集");
+	deckEditText->SetTextColor(AppFrame::Color::Black);
+	deckEditText->SetFont(fontHandle);
 	deckEditButton->SetTextBox(std::move(deckEditText));
 	auto openDeckEdit = []() {
 
@@ -53,8 +89,11 @@ HomeUI::HomeUI(ModeHome& home)
 
 	auto shopButton = std::make_unique<AppFrame::UI::Button>();
 	shopButton->SetAnchor(Anchor::Center);
+	shopButton->SetSize(ButtonSize);
 	shopButton->SetPosition(shopButtonPosition);
 	auto shopText = std::make_unique<AppFrame::UI::TextBox>("ショップ");
+	shopText->SetTextColor(AppFrame::Color::Black);
+	shopText->SetFont(fontHandle);
 	shopButton->SetTextBox(std::move(shopText));
 	auto openShop = []() {
 

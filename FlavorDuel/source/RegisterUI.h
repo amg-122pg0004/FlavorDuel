@@ -1,6 +1,7 @@
 /*****************************************************************//**
  * \file   RegisterUI.h
  * \brief  ユーザー新規登録UI
+ *         IDとパスワード、パスワード再入力用のテキストボックス エラーメッセージ表示用テキスト
  *
  * \author 土居将太郎
  * \date   May 2023
@@ -12,6 +13,8 @@ namespace Flavor {
 	using AppFrame::InputManager;
 	class ModeTitle;
 	class RegisterThread;
+
+	//登録失敗の種類
 	enum class RegisterError { 
 		None,
 		TooShortID,//IDが短すぎる

@@ -31,6 +31,7 @@ namespace Flavor {
 		std::vector<CardData> deck;
 		std::vector<CardData> hand;
 		CardData battle;
+		CardData oldBattle;
 		int win;
 	};
 	struct RoomData {
@@ -38,5 +39,6 @@ namespace Flavor {
 		PlayerData player2;
 		JudgeType judgeType;
 		RoomState state;
+		std::vector<std::string> messageLog;
 	};
 }

@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   ModeInGame.h
+ * \brief  インゲーム　Sequenceの通知を行う
+ * 
+ * \author 土居将太郎
+ * \date   May 2023
+ *********************************************************************/
 #pragma once
 #include "appframe.h"
 #include "CardDataStruct.h"
@@ -27,16 +34,16 @@ namespace Flavor {
 		PlayerData GetOpponentData();
 		void SetPlayerData(PlayerData data);
 		void SetRoomData(RoomData room);
+		void SetPlayCard(std::unique_ptr<CardData> data);
 	private:
 		std::unique_ptr<InGameThread> _ingameThread;
-
-
 		BattleField* _battleField;
 		Hand* _hand;
-
 		MessageLog* _messageLog;
 		RoomData _room;
 		int _myPlayerNumber;
+		int _backgroundImage;
 		float _timer;
+		std::unique_ptr<CardData> _playCard;
 	};
 }

@@ -40,6 +40,7 @@ namespace AppFrame {
             std::string GetText() { return _text; }
 
             void SetDefaultText(std::string text) { _defaultText = text; }
+            void SetTextColor(unsigned int color) { _textColor = color; }
         private:
             std::string _defaultText;//入力が無い場合の表示テキスト
             std::string _text;

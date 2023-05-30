@@ -7,6 +7,7 @@
  *********************************************************************/
 #pragma once
 #include "appframe.h"
+#include "CardDataStruct.h"
 namespace Flavor {
 	using AppFrame::InputManager;
 	class CardObject;
@@ -21,36 +22,33 @@ namespace Flavor {
 		void Render()override;
 		void Debug()override;
 
-		void SetCardName(std::string name) { _cardName = name; }
-		std::string GetCardName() { return _cardName ; }
+		void SetCardName(std::string name) { _data.name = name; }
+		std::string GetCardName() { return _data.name; }
 
-		void SetCardText(std::string text) { _cardText = text; }
-		std::string GetCardText() { return _cardText; }
+		void SetCardText(std::string text) { _data.flavorText = text; }
+		std::string GetCardText() { return _data.flavorText; }
 
 		void SetSelected(bool flag) { _selected = flag; }
 		bool GetSelected() { return _selected; }
 
-		void SetAttack(int attack) { _attack = attack; }
-		int GetAttack() { return _attack; }
+		void SetAttack(int attack) { _data.attack = attack; }
+		int GetAttack() { return _data.attack; }
 
-		void SetDefense(int defense) { _defense = defense; }
-		int GetDefense() { return _defense; }
+		void SetDefense(int defense) { _data.defence = defense; }
+		int GetDefense() { return _data.defence; }
 
-		void SetTips(std::string tips) { _tips = tips; }
-		std::string GetTips() { return _tips; }
-
-		void SetImage(int cg) { _cg = cg; }
-		int GetImage() { return _cg; }
+		void SetImage(int cg) { _data.cg = cg; }
+		int GetImage() { return _data.cg; }
 
 		int GetFrameImage() { return _frameCG; }
+
+		void SetCardData(CardData data) { _data = data; }
+		CardData GetCardData() { return _data; }
 	private:
-		int _cg;
+		CardData _data;
 		int _frameCG;
-		std::string _cardName;
-		std::string _cardText;
-		int _attack,_defense;
-		std::string _tips;
 		bool _selected;
 		AppFrame::AABB2D<int> _aabb;
+		int _screen;
 	};
 }

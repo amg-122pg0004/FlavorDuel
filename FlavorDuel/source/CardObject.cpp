@@ -9,17 +9,19 @@ namespace {
 	constexpr AppFrame::VECTOR2<int> TextOffset = { -75,0 };
 
 	constexpr AppFrame::VECTOR2<int> ClickCollisionSize = { 150,180 };
+	constexpr AppFrame::VECTOR2<int> CardSize = { 400,500 };
 }
 
 namespace Flavor {
-	CardObject::CardObject() :_selected{ false }, _attack{ -1 }, _defense{ -1 }, _tips{ "" }
+	CardObject::CardObject() :_selected{ false }
 	{
+		_screen = MakeScreen(CardSize.x, CardSize.y);
 		_frameCG = AppFrame::ImageServer::LoadGraph(CardFrame);
 		_aabb = { {0,0},{0,0} };
 	}
 
 	CardObject::~CardObject() {
-
+		DeleteGraph(_screen);
 	}
 
 	void CardObject::Init() {
@@ -72,9 +74,9 @@ namespace Flavor {
 		double scale{ static_cast<double>(this->GetScale().x) };
 		DrawRotaGraph(positionX, positionY, scale, 0.0f, _frameCG, true);
 
-		DrawString(positionX + NameOffset.x, positionY + NameOffset.y, _cardName.c_str(), AppFrame::Color::Red);
+		DrawString(positionX + NameOffset.x, positionY + NameOffset.y, _data.name.c_str(), AppFrame::Color::Red);
 
-		DrawString(positionX + TextOffset.x, positionY + TextOffset.y, _cardText.c_str(), AppFrame::Color::Red);
+		DrawString(positionX + TextOffset.x, positionY + TextOffset.y, _data.flavorText.c_str(), AppFrame::Color::Red);
 	}
 
 	void CardObject::Debug() {

@@ -5,6 +5,7 @@
 #include "UserDataStruct.h"
 #include "CardDataStruct.h"
 
+
 namespace Flavor {
 	ApplicationMain g_oApplicationMain;
 

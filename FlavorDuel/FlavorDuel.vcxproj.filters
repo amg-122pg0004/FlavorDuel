@@ -118,6 +118,9 @@
     <Filter Include="Enum\RoomState">
       <UniqueIdentifier>{00781e41-ee21-41c3-a051-a04c0aa72d90}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UI\InGameUI">
+      <UniqueIdentifier>{59a7f39b-b5d0-49e1-98cc-88b2e4aad083}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\ApplicationMain.cpp">
@@ -203,6 +206,9 @@
     </ClCompile>
     <ClCompile Include="source\ThreadBase.cpp">
       <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="source\InGameUI.cpp">
+      <Filter>UI\InGameUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -307,6 +313,9 @@
     </ClInclude>
     <ClInclude Include="source\RoomState.h">
       <Filter>Enum\RoomState</Filter>
+    </ClInclude>
+    <ClInclude Include="source\InGameUI.h">
+      <Filter>UI\InGameUI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

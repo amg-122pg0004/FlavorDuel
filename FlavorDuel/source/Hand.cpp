@@ -9,7 +9,7 @@ namespace {
 	constexpr float CardsInterval = 180.0f;
 	constexpr float cardScale = 0.5f;
 }
-Hand::Hand(ModeInGame& modeInGame) : _modeInGame{ modeInGame }, _playCard{ false }
+Hand::Hand(ModeInGame& modeInGame) : _modeInGame{ modeInGame }, _canPlay{ true }
 {
 
 }
@@ -27,29 +27,26 @@ void Hand::Terminate() {
 }
 
 void Hand::Update(InputManager& input) {
-	if (_playCard) {
+	if (!_canPlay) {
 		return;
 	}
+
 	CardObject* selectCard{ nullptr };
 	for (auto&& card : _cards) {
 		card->Update(input);
 		if (card->GetSelected()) {
-			_playCard = true;
 			selectCard = card.get();
+			_canPlay = false;
 		}
 	}
 	if (selectCard) {
-		auto playerData = _modeInGame.GetPlayerData();
-		playerData.battle.cg = selectCard->GetImage();
-		playerData.battle.name = selectCard->GetCardName();
-		playerData.battle.flavorText = selectCard->GetCardText();
-		for (auto itr = _cards.begin(); itr != _cards.end(); ++itr) {
-			if ((*itr).get() == selectCard) {
-				_cards.erase(itr);
+		_modeInGame.SetPlayCard(std::make_unique<CardData>(selectCard->GetCardData()));
+		for (int i = 0; i < _cards.size(); ++i) {
+			if (_cards.at(i).get() == selectCard) {
+				_cards.erase(_cards.begin() + i);
 				break;
 			}
 		}
-		_modeInGame.SetPlayerData(playerData);
 	}
 }
 
@@ -72,22 +69,6 @@ void Hand::Debug() {
 }
 void Hand::ReceiveNotify(SequenceMessages sequence)
 {
-	switch (sequence)
-	{
-	case GameStart:
-		break;
-	case TurnStart:
-		_playCard = false;
-		break;
-	case CardSelect:
-		break;
-	case Battle:
-		break;
-	case TurnEnd:
-		break;
-	default:
-		break;
-	}
 }
 void Hand::SetCards(std::vector<CardData> data)
 {

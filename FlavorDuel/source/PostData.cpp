@@ -53,8 +53,5 @@ bool PostThread::ThreadProc()
 	if (response["defense"].is<double>()) {
 		_card->SetDefense(static_cast<int>(response["defense"].get<double>() * 100));
 	}
-	if (response["reason"].is<std::string>()) {
-		_card->SetTips(response["reason"].get<std::string>());
-	}
 	return true;
 }

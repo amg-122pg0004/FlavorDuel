@@ -37,6 +37,7 @@ namespace AppFrame {
 			bool _drawBox;
 			unsigned int _boxColor;
 			std::function<std::string()> _bind;
+			float _scale;//フォントサイズを_sizeに合わせる為のスケール値
 		};
 	}
 }
