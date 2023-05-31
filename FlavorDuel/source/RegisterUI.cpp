@@ -17,6 +17,7 @@ namespace {
 		{RegisterError::PasswordNotMach,"入力されたパスワードが一致していません"}
 	};
 	constexpr auto ForbiddenCharacter = "$\\\"'`;()[]{}|";
+	constexpr auto BackGroundImagePath = "res/background.png";
 }
 
 RegisterUI::RegisterUI(ModeTitle& mode)
@@ -36,6 +37,9 @@ RegisterUI::RegisterUI(ModeTitle& mode)
 	int windowHeight = app->DispSizeH();
 	int centerX = static_cast<int>(windowWidth * 0.5f);
 	int centerY = static_cast<int>(windowHeight * 0.5f);
+
+	auto backgroundImage = std::make_unique<AppFrame::UI::Image>(BackGroundImagePath);
+	this->AddUIObject(std::move(backgroundImage));
 
 	//ID入力テキストボックス
 	auto userNameBox = std::make_unique<AppFrame::UI::EditableTextBox>("", 200, true, true, false);

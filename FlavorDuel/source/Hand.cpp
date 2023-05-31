@@ -72,8 +72,25 @@ void Hand::ReceiveNotify(SequenceMessages sequence)
 }
 void Hand::SetCards(std::vector<CardData> data)
 {
+	//現在の手札とセットしようとしている手札が同じなら処理を行わない
+	bool refreshFlag{ false };
+	if (_cards.size() == data.size()) {
+		for (int i = 0; i < _cards.size(); ++i) {
+			if (_cards.at(i)->GetName() != data.at(i).name) {
+				refreshFlag = true;
+			}
+		}
+	}
+	else {
+		refreshFlag = true;
+	}
+
+	if (!refreshFlag) {
+		return;
+	}
+
 	_cards.clear();
 	for (auto&& card : data) {
-		_cards.emplace_back(CardFactory::CreateCard(card));
+		_cards.emplace_back(_modeInGame.GetCardFactory()->CreateCard(card));
 	}
 }

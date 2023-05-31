@@ -35,7 +35,10 @@ namespace Flavor {
 		void SetPlayerData(PlayerData data);
 		void SetRoomData(RoomData room);
 		void SetPlayCard(std::unique_ptr<CardData> data);
+
+		std::unique_ptr<CardFactory>& GetCardFactory() { return _cardFactory; }
 	private:
+		std::unique_ptr<CardFactory> _cardFactory;
 		std::unique_ptr<InGameThread> _ingameThread;
 		BattleField* _battleField;
 		Hand* _hand;

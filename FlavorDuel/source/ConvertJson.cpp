@@ -129,7 +129,7 @@ RoomData ConvertJson::JsonToRoomData(picojson::object json)
 			result.state = RoomState::waitAnalyze;
 		}
 	}
-	
+
 	if (json["messageLog"].is<picojson::array>()) {
 		picojson::array messageLog = json["messageLog"].get<picojson::array>();
 		result.messageLog.clear();
@@ -143,4 +143,16 @@ RoomData ConvertJson::JsonToRoomData(picojson::object json)
 	}
 
 	return result;
+}
+
+std::string ConvertJson::Escape0x5C(std::string text)
+{
+	for (int i = 0; i < text.size(); ++i) {
+		unsigned char chara = text.at(i);
+		if (chara == 0x5c) {
+			text.insert(i, "\\");
+			++i;
+		}
+	}
+	return text;
 }

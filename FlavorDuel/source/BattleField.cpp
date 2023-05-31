@@ -65,11 +65,14 @@ void BattleField::Update(InputManager& input)
 void BattleField::Render()
 {
 	auto renderCard = [](AppFrame::VECTOR2<int> position, std::unique_ptr<CardObject>& card) {
+		/*
+		DrawRotaGraph(position.x, position.y-80, 0.8f, 0.0f, card->GetImage(), true);
 		DrawRotaGraph(position.x, position.y, 0.8f, 0.0f, card->GetFrameImage(), true);
 
 		DrawString(position.x - 130, position.y - 180, card->GetCardName().c_str(), AppFrame::Color::Red);
 		DrawString(position.x - 130, position.y - 20 + 25, card->GetCardText().c_str(), AppFrame::Color::Red);
-
+		*/
+		DrawRotaGraph(position.x, position.y, 0.8f, 0.0f, card->GetScreen(), true);
 		if (card->GetAttack() != -1) {
 			DrawString(position.x - 80, position.y + 160, std::to_string(card->GetAttack()).c_str(), AppFrame::Color::Red);
 			DrawString(position.x + 60, position.y + 160, std::to_string(card->GetDefense()).c_str(), AppFrame::Color::Red);
@@ -116,10 +119,10 @@ void BattleField::Debug()
 
 void BattleField::SetMyArea(CardData card)
 {
-	_myCard = CardFactory::CreateCard(card);
+	_myCard = _modeInGame.GetCardFactory()->CreateCard(card);
 }
 
 void BattleField::SetOpponentArea(CardData card)
 {
-	_opponentCard = CardFactory::CreateCard(card);
+	_opponentCard = _modeInGame.GetCardFactory()->CreateCard(card);
 }

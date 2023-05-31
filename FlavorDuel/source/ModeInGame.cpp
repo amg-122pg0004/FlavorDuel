@@ -16,14 +16,19 @@ namespace {
 }
 
 ModeInGame::ModeInGame(RoomData data, int myPlayerNumber)
-	:_room{ data }, _messageLog{ nullptr }, _myPlayerNumber{ myPlayerNumber }, _timer{ 0.0f }, _playCard{ nullptr }
+	:_room{ data }
+	, _messageLog{ nullptr }
+	, _myPlayerNumber{ myPlayerNumber }
+	, _timer{ 0.0f }
+	, _playCard{ nullptr }
+	, _cardFactory{ nullptr }
 {
 	_backgroundImage = AppFrame::ImageServer::LoadGraph(BackgroundImagePath);
 }
 
 bool ModeInGame::Initialize() {
 	AppFrame::ModeBase::Initialize();
-
+	_cardFactory.reset(new CardFactory());
 	_ingameThread.reset(new InGameThread());
 	_ingameThread->ThreadStart();
 

@@ -1,7 +1,7 @@
 /*****************************************************************//**
  * \file   CardObject.h
  * \brief  カードオブジェクト
- * 
+ *
  * \author 土居将太郎
  * \date   May 2023
  *********************************************************************/
@@ -37,16 +37,19 @@ namespace Flavor {
 		void SetDefense(int defense) { _data.defence = defense; }
 		int GetDefense() { return _data.defence; }
 
-		void SetImage(int cg) { _data.cg = cg; }
-		int GetImage() { return _data.cg; }
+		void SetImage(int cg) { _cardCG = cg; }
+		int GetImage() { return _cardCG; }
 
 		int GetFrameImage() { return _frameCG; }
 
 		void SetCardData(CardData data) { _data = data; }
 		CardData GetCardData() { return _data; }
+
+		int GetScreen() { return _screen; }
 	private:
 		CardData _data;
 		int _frameCG;
+		int _cardCG;
 		bool _selected;
 		AppFrame::AABB2D<int> _aabb;
 		int _screen;

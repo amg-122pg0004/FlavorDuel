@@ -7,12 +7,16 @@
  *********************************************************************/
 #pragma once
 #include <memory>
+#include <map>
 #include "CardDataStruct.h"
 
 namespace Flavor {
 	class CardObject;
 	class CardFactory {
 	public:
-		static std::unique_ptr<CardObject> CreateCard(CardData data);
+		CardFactory();
+		std::unique_ptr<CardObject> CreateCard(CardData data);
+	private:
+		std::map<int, std::string> _cardImageMap;
 	};
 }

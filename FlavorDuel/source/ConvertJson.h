@@ -24,5 +24,12 @@ namespace Flavor {
 
 		static picojson::object RoomDataToJson(RoomData roomData);
 		static RoomData JsonToRoomData(picojson::object json);
+
+		/**
+		 * \brief 文字コード5Cによる文字化け回避用
+		 * \param text 処理前の文字列
+		 * \return 処理後の文字列
+		 */
+		static std::string Escape0x5C(std::string text);
 	};
 }
