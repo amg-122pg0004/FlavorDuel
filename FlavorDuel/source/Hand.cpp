@@ -67,7 +67,7 @@ void Hand::Render() {
 void Hand::Debug() {
 
 }
-void Hand::ReceiveNotify(SequenceMessages sequence)
+void Hand::ReceiveNotify(InGameSequence sequence)
 {
 }
 void Hand::SetCards(std::vector<CardData> data)

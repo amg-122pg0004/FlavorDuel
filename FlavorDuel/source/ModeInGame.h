@@ -26,7 +26,7 @@ namespace Flavor {
 		bool Render();
 		bool Debug();
 		void Subscribe(IObserverSequence* observer)override;
-		void Notify(SequenceMessages message)override;
+		void Notify(InGameSequence message)override;
 
 		MessageLog* GetMessageLog() { return _messageLog; }
 		RoomData GetRoomData() { return _room; }
@@ -38,6 +38,7 @@ namespace Flavor {
 
 		std::unique_ptr<CardFactory>& GetCardFactory() { return _cardFactory; }
 	private:
+		InGameSequence _sequence;
 		std::unique_ptr<CardFactory> _cardFactory;
 		std::unique_ptr<InGameThread> _ingameThread;
 		BattleField* _battleField;

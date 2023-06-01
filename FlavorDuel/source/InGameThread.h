@@ -14,12 +14,16 @@ namespace Flavor {
 	class CardObject;
 	class InGameThread : public ThreadBase {
 	public:
-		InGameThread();
+		enum class Type {
+			PlayCard, CheckRoom,ConfirmJudge
+		};
+		InGameThread(Type postType);
 		bool ThreadProc()override;
 		bool GetSuccess() { return _success; }
 		RoomData GetReceiveRoomData() { return _receiveData; }
 		void SetPlayCard(std::unique_ptr<CardData> data) { _playCard = std::move(data); }
 	private:
+		Type _type;
 		bool _success;
 		RoomData _receiveData;
 		std::unique_ptr<CardData> _playCard;

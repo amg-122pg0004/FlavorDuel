@@ -9,13 +9,13 @@ namespace Flavor {
 		ISubjectSequence() {}
 		virtual ~ISubjectSequence() {}
 		virtual void Subscribe(IObserverSequence* observer) = 0;
-		virtual void Notify(SequenceMessages message) = 0;
+		virtual void Notify(InGameSequence message) = 0;
 
 		std::vector<IObserverSequence*>& GetObserverList() { return _observerList; }
-		void SetSequence(SequenceMessages sequence) { _sequence = sequence; }
-		SequenceMessages GetSequence() { return _sequence; }
+		void SetSequence(InGameSequence sequence) { _sequence = sequence; }
+		InGameSequence GetSequence() { return _sequence; }
 	private:
 		std::vector<IObserverSequence*> _observerList;
-		SequenceMessages _sequence = GameStart;
+		InGameSequence _sequence = GameStart;
 	};
 }

@@ -9,7 +9,7 @@ namespace {
 	constexpr auto ingameURL = "http://localhost:9000/ingame";
 }
 
-InGameThread::InGameThread()
+InGameThread::InGameThread(Type postType)
 	:_success{ false }
 {
 }
@@ -24,6 +24,9 @@ bool InGameThread::ThreadProc()
 	if (_playCard) {
 		typeMessage = "PlayCard";
 		postJson.insert(std::make_pair("play", ConvertJson::CardDataToJson(*_playCard.get())));
+	}
+	else if(_type == Type::ConfirmJudge){
+		typeMessage = "ConfirmJudge";
 	}
 	postJson.insert(std::make_pair("type", typeMessage));
 

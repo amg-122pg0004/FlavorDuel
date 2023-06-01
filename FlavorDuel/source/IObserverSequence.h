@@ -4,7 +4,7 @@ namespace Flavor {
 	class IObserverSequence {
 	public:
 		virtual ~IObserverSequence() {}
-		virtual void ReceiveNotify(SequenceMessages message) = 0;
+		virtual void ReceiveNotify(InGameSequence message) = 0;
 	};
 }
 

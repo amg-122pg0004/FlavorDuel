@@ -96,7 +96,7 @@ void ModeInGame::Subscribe(IObserverSequence* observer)
 	this->GetObserverList().emplace_back(observer);
 }
 
-void ModeInGame::Notify(SequenceMessages message)
+void ModeInGame::Notify(InGameSequence message)
 {
 	for (auto&& observer : this->GetObserverList()) {
 		observer->ReceiveNotify(this->GetSequence());

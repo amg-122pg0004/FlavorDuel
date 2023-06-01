@@ -25,7 +25,7 @@ namespace Flavor {
 		void Render()override;
 		void Debug()override;
 
-		void ReceiveNotify(SequenceMessages sequence)override;
+		void ReceiveNotify(InGameSequence sequence)override;
 		void SetCards(std::vector<CardData> data);
 		void SetCanPlay(bool flag) { _canPlay = flag; }
 	private:
