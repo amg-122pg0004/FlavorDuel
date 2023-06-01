@@ -10,16 +10,16 @@ namespace {
 	constexpr AppFrame::VECTOR2<int> MessageTextPosition = { 640,100 };
 
 	constexpr auto loadingImagePath = "res/loading.png";
-	constexpr auto smallgothicFontPath = "res/font/GenshinGothic-monoB4S16.dft";
-	constexpr auto gothicFontPath = "res/font/GenshinGothic-monoB4S32.dft";
+	constexpr auto GothicFont32 = "GGothic32";
+	constexpr auto GothicFont16 = "GGothic16";
 }
 
 MatchingUI::MatchingUI(ModeMatching& mode)
 	:AppFrame::UICanvas(CanvasSize)
 	, _mode{ mode }
 {
-	int smallFontHandle = AppFrame::FontServer::LoadFont(smallgothicFontPath);
-	int fontHandle = AppFrame::FontServer::LoadFont(gothicFontPath);
+	int smallFontHandle = AppFrame::FontServer::Find(GothicFont16);
+	int fontHandle = AppFrame::FontServer::Find(GothicFont32);
 
 	auto messageText = std::make_unique<AppFrame::UI::TextBox>("‘Îí‘ŠŽè‚ðŒŸõ’†");
 	messageText->SetAnchor(Anchor::Center);

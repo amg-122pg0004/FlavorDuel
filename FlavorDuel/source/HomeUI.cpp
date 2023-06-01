@@ -18,8 +18,8 @@ namespace {
 	constexpr int TopBarHeight = 20;
 
 	constexpr auto BackGroundImagePath = "res/background.png";
-	constexpr auto gothicFontPath = "res/font/GenshinGothic-monoB4S32.dft";
-	constexpr auto smallGothicFontPath = "res/font/GenshinGothic-monoB4S16.dft";
+	constexpr auto GothicFont32 = "GGothic32";
+	constexpr auto GothicFont16 = "GGothic16";
 }
 
 HomeUI::HomeUI(ModeHome& home)
@@ -30,8 +30,8 @@ HomeUI::HomeUI(ModeHome& home)
 	this->AddUIObject(std::move(backgroundImage));
 	auto userData = AppFrame::ApplicationBase::GetInstance()->GetAppData()->GetData<UserData>();
 	
-	int fontHandle = AppFrame::FontServer::LoadFont(gothicFontPath);
-	int smallFontHandle = AppFrame::FontServer::LoadFont(smallGothicFontPath);
+	int fontHandle = AppFrame::FontServer::Find(GothicFont32);
+	int smallFontHandle = AppFrame::FontServer::Find(GothicFont16);
 
 	auto topBar = std::make_unique<AppFrame::UI::Box>();
 	topBar->SetSize({ CanvasSize.x, TopBarHeight });

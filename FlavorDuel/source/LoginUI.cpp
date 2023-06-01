@@ -8,7 +8,7 @@ namespace {
 	AppFrame::VECTOR2<int> CanvasSize = { 1280,720 };
 	constexpr auto BackGroundImagePath = "res/background.png";
 
-	constexpr auto gothicFontPath = "res/font/GenshinGothic-monoB4S16.dft";
+	constexpr auto GothicFont16 = "GGothic16";
 }
 
 LoginUI::LoginUI(ModeTitle& mode)
@@ -20,7 +20,7 @@ LoginUI::LoginUI(ModeTitle& mode)
 	, _password{ nullptr }
 {
 	this->SetName("Login");
-	int fontHandle = AppFrame::FontServer::LoadFont(gothicFontPath);
+	int fontHandle = AppFrame::FontServer::Find(GothicFont16);
 
 	auto app = AppFrame::ApplicationBase::GetInstance();
 	int windowWidth = app->DispSizeW();
@@ -117,7 +117,7 @@ void LoginUI::Render()
 {
 	AppFrame::UICanvas::Render();
 	if (_loginState != LoginState::Idle) {
-		std::string message{"LoginSuccess!"};
+		std::string message{ "LoginSuccess!" };
 		if (_loginState == LoginState::Fail) {
 			message = "LoginFail";
 		}

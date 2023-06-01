@@ -11,7 +11,8 @@ namespace {
 
 	constexpr AppFrame::VECTOR2<int> ClickCollisionSize = { 150,180 };
 	constexpr AppFrame::VECTOR2<int> CardSize = { 400,500 };
-	constexpr auto DartsFontPath = "res/font/GenshinGothic-monoB4S32.dft";
+
+	constexpr auto DartsFont = "DartsFont32";
 }
 
 namespace Flavor {
@@ -29,7 +30,7 @@ namespace Flavor {
 	void CardObject::Init() {
 		this->SetScale({ Scale, Scale, Scale });
 
-		auto font = AppFrame::FontServer::LoadFont(DartsFontPath);
+		auto font = AppFrame::FontServer::Find(DartsFont);
 		SetDrawScreen(_screen);
 		DrawGraph(ImageOffset.x, ImageOffset.y, _cardCG, true);
 		DrawGraph(0, 0, _frameCG, true);
