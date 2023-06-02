@@ -33,10 +33,14 @@ namespace AppFrame {
 		const Anchor GetAnchor() { return _anchor; }
 
 		const AABB2D<int> GetAABB();
+
+		const bool GetVisible() { return _visible; }
+		void SetVisible(bool flag) { _visible = flag; }
 	private:
 		bool _needUpdatePerFrame;
 		VECTOR2<int> _position;
 		VECTOR2<int> _size;
 		Anchor _anchor;
+		bool _visible;
 	};
 }

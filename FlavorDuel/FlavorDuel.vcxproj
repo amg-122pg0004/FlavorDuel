@@ -57,12 +57,20 @@
     <ClInclude Include="source\ModeHome.h" />
     <ClInclude Include="source\ModeInGame.h" />
     <ClInclude Include="source\ModeMatching.h" />
+    <ClInclude Include="source\ModeResult.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="source\ModeShop.h" />
     <ClInclude Include="source\ModeTest.h" />
     <ClInclude Include="source\ModeTitle.h" />
     <ClInclude Include="source\PostData.h" />
     <ClInclude Include="source\RegisterThread.h" />
     <ClInclude Include="source\RegisterUI.h" />
+    <ClInclude Include="source\ResultUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="source\RoomState.h" />
     <ClInclude Include="source\SequenceMessages.h" />
     <ClInclude Include="source\testUI.h" />
@@ -106,12 +114,20 @@
     <ClCompile Include="source\ModeHome.cpp" />
     <ClCompile Include="source\ModeInGame.cpp" />
     <ClCompile Include="source\ModeMatching.cpp" />
+    <ClCompile Include="source\ModeResult.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="source\ModeShop.cpp" />
     <ClCompile Include="source\ModeTest.cpp" />
     <ClCompile Include="source\ModeTitle.cpp" />
     <ClCompile Include="source\PostData.cpp" />
     <ClCompile Include="source\RegisterThread.cpp" />
     <ClCompile Include="source\RegisterUI.cpp" />
+    <ClCompile Include="source\ResultUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="source\testUI.cpp" />
     <ClCompile Include="source\ThreadBase.cpp" />
     <ClCompile Include="source\LoginUI.cpp" />

@@ -26,6 +26,9 @@ namespace AppFrame {
 
 		void TextBox::Render()
 		{
+			if (!(this->GetVisible())) {
+				return;
+			}
 			auto aabb = this->GetAABB();
 			if (_drawBox) {
 				DrawBox(aabb.min.x, aabb.min.y, aabb.max.x, aabb.max.y, _boxColor, true);

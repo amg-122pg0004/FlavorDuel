@@ -5,6 +5,7 @@ namespace AppFrame {
 		, _position{ 0,0 }
 		, _size{ 100,70 }
 		, _anchor{ Anchor::UpperLeft }
+		, _visible{ true }
 	{
 	}
 
