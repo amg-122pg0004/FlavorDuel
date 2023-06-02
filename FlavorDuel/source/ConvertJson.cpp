@@ -64,7 +64,6 @@ picojson::object Flavor::ConvertJson::PlayerDataToJson(PlayerData playerData)
 	result.insert(std::make_pair("deck", DeckDataToJson(playerData.deck)));
 	result.insert(std::make_pair("hand", DeckDataToJson(playerData.hand)));
 	result.insert(std::make_pair("battle", CardDataToJson(playerData.battle)));
-	result.insert(std::make_pair("oldBattle", CardDataToJson(playerData.oldBattle)));
 	result.insert(std::make_pair("id", picojson::value(playerData.id)));
 	result.insert(std::make_pair("win", picojson::value(static_cast<double>(playerData.win))));
 
@@ -84,9 +83,6 @@ PlayerData Flavor::ConvertJson::JsonToPlayerData(picojson::object json)
 	if (json["battle"].is<picojson::object>()) {
 		result.battle = JsonToCardData(json["battle"].get<picojson::object>());
 	}
-	if (json["oldBattle"].is<picojson::object>()) {
-		result.oldBattle = JsonToCardData(json["oldBattle"].get<picojson::object>());
-	}
 	if (json["id"].is<std::string>()) {
 		result.id = json["id"].get<std::string>();
 	}
@@ -103,7 +99,7 @@ picojson::object ConvertJson::RoomDataToJson(RoomData roomData)
 	result.insert(std::make_pair("player1Data", PlayerDataToJson(roomData.player1)));
 	result.insert(std::make_pair("player2Data", PlayerDataToJson(roomData.player2)));
 	std::string setState{ "waitAnalyze" };
-	if (roomData.state == RoomState::waitAnalyze) {
+	if (roomData.state == RoomState::WaitAnalyze) {
 		setState = "waitAnalyze";
 	}
 	result.insert(std::make_pair("state", picojson::value(setState)));
@@ -120,13 +116,16 @@ RoomData ConvertJson::JsonToRoomData(picojson::object json)
 	if (json["player2Data"].is<picojson::object>()) {
 		result.player2 = JsonToPlayerData(json["player2Data"].get<picojson::object>());
 	}
-	if (json["state"].is<picojson::object>()) {
-		std::string state = json["state"].get<std::string>();
-		if (state == "waitPlay") {
+	if (json["state"].is<double>()) {
+		int state = static_cast<int>(json["state"].get<double>());
+		if (state == 3) {
 			result.state = RoomState::WaitPlay;
 		}
-		else if (state == "waitAnalyze") {
-			result.state = RoomState::waitAnalyze;
+		else if (state == 4) {
+			result.state = RoomState::WaitAnalyze;
+		}
+		else if (state == 7) {
+			result.state = RoomState::FinishGame;
 		}
 	}
 

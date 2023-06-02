@@ -10,15 +10,16 @@ using namespace Flavor;
 namespace {
 	AppFrame::VECTOR2<int> MyPosition = { 400,350 };
 	AppFrame::VECTOR2<int> OpponentPosition = { 750,300 };
+
+	constexpr float JudgeConfirmTime = 2.0f;
 }
 
 BattleField::BattleField(ModeInGame& mode)
 	:_modeInGame{ mode }
 	, _myCard{ nullptr }
 	, _opponentCard{ nullptr }
-	, _settMyCard{ false }
-	, _setOpponentCard{ false }
 	, _threadHolder{ nullptr }
+	, _confirm{ false }
 {
 	_font = CreateFontToHandle("result", 60, 8, DX_FONTTYPE_ANTIALIASING);
 }
@@ -39,39 +40,29 @@ void BattleField::Terminate()
 
 void BattleField::Update(InputManager& input)
 {
-	/*
-	if (_threadHolder != nullptr) {
-		if (!_threadHolder->IsThreadExec()) {
-			auto messageLogPtr = _modeInGame.GetMessageLog();
-			messageLogPtr->AddChildCanvas(std::make_unique<MessageWindow>(_threadHolder->GetCard()->GetTips()));
-			_threadHolder.release();
+	//両者カードを出しているか
+	if (!(_myCard && _opponentCard)) {
+		return;
+	}
+	//両者のカードに攻撃力が設定されているか
+	int myPower = _myCard->GetAttack();
+	int opponentPower = _opponentCard->GetAttack();
+	if (myPower == -1 || opponentPower == -1) {
+		return;
+	}
+	_JudgeCompleteTimer += _modeInGame.GetStepTime() * 0.001f;
+	if (_JudgeCompleteTimer > JudgeConfirmTime) {
+		_JudgeCompleteTimer = 0.0f;
+		if (!_confirm) {
+			_confirm = true;
+			_modeInGame.SetJudgeConfirm();
 		}
 	}
-	if (input.GetMouseLeft(AppFrame::InputState::Pressed) && _threadHolder == nullptr) {
-		if (_myCard != nullptr && !_settMyCard) {
-			_threadHolder = std::make_unique<PostThread>(_myCard);
-			_threadHolder->ThreadStart();
-			_settMyCard = true;
-		}
-		if (_opponentCard != nullptr && !_setOpponentCard) {
-			_threadHolder = std::make_unique<PostThread>(_opponentCard);
-			_threadHolder->ThreadStart();
-			_setOpponentCard = true;
-		}
-	}
-	*/
 }
 
 void BattleField::Render()
 {
 	auto renderCard = [](AppFrame::VECTOR2<int> position, std::unique_ptr<CardObject>& card) {
-		/*
-		DrawRotaGraph(position.x, position.y-80, 0.8f, 0.0f, card->GetImage(), true);
-		DrawRotaGraph(position.x, position.y, 0.8f, 0.0f, card->GetFrameImage(), true);
-
-		DrawString(position.x - 130, position.y - 180, card->GetCardName().c_str(), AppFrame::Color::Red);
-		DrawString(position.x - 130, position.y - 20 + 25, card->GetCardText().c_str(), AppFrame::Color::Red);
-		*/
 		DrawRotaGraph(position.x, position.y, 0.8f, 0.0f, card->GetScreen(), true);
 		if (card->GetAttack() != -1) {
 			DrawString(position.x - 80, position.y + 160, std::to_string(card->GetAttack()).c_str(), AppFrame::Color::Red);
@@ -93,9 +84,14 @@ void BattleField::Render()
 
 	std::string myResult{ "" };
 	std::string opponentResult{ "" };
-	if (_settMyCard && _setOpponentCard) {
-		int myPower = _myCard->GetAttack() + _myCard->GetDefense();
-		int opponentPower = _opponentCard->GetAttack() + _opponentCard->GetDefense();
+	if (_myCard && _opponentCard) {
+		int myPower = _myCard->GetAttack();
+		int opponentPower = _opponentCard->GetAttack();
+
+		if (myPower == -1 || opponentPower == -1) {
+			return;
+		}
+
 		if (myPower == opponentPower) {
 			myResult = "引き分け";
 			opponentResult = "引き分け";

@@ -29,12 +29,14 @@ namespace Flavor {
 
 		void SetMyArea(CardData card);
 		void SetOpponentArea(CardData card);
+		void SetComfirm(bool flag) { _confirm = flag; }
 	private:
-		bool _settMyCard, _setOpponentCard;
 		ModeInGame& _modeInGame;
 		std::unique_ptr<CardObject> _myCard;
 		std::unique_ptr<CardObject> _opponentCard;
 		std::unique_ptr<PostThread> _threadHolder;
 		int _font;
+		float _JudgeCompleteTimer;
+		bool _confirm;
 	};
 }

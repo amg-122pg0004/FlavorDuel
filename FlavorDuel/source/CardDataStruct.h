@@ -31,7 +31,6 @@ namespace Flavor {
 		std::vector<CardData> deck;
 		std::vector<CardData> hand;
 		CardData battle;
-		CardData oldBattle;
 		int win;
 	};
 	struct RoomData {

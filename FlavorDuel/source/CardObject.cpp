@@ -12,7 +12,7 @@ namespace {
 	constexpr AppFrame::VECTOR2<int> ClickCollisionSize = { 150,180 };
 	constexpr AppFrame::VECTOR2<int> CardSize = { 400,500 };
 
-	constexpr auto DartsFont = "DartsFont32";
+	constexpr auto DartsFont = "GGothic32";
 }
 
 namespace Flavor {

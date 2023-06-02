@@ -10,6 +10,7 @@
 namespace Flavor {
 	enum class RoomState {
 		WaitPlay,//クライアントからのカード選択を受け付ける
-		waitAnalyze//ChatGPTの処理待ち
+		WaitAnalyze,//ChatGPTの処理待ち
+		FinishGame
 	};
 }

@@ -16,6 +16,6 @@ namespace Flavor {
 		InGameSequence GetSequence() { return _sequence; }
 	private:
 		std::vector<IObserverSequence*> _observerList;
-		InGameSequence _sequence = GameStart;
+		InGameSequence _sequence;
 	};
 }

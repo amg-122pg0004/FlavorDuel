@@ -10,7 +10,7 @@ namespace {
 }
 
 InGameThread::InGameThread(Type postType)
-	:_success{ false }
+	:_success{ false }, _type{ postType }
 {
 }
 
@@ -25,11 +25,10 @@ bool InGameThread::ThreadProc()
 		typeMessage = "PlayCard";
 		postJson.insert(std::make_pair("play", ConvertJson::CardDataToJson(*_playCard.get())));
 	}
-	else if(_type == Type::ConfirmJudge){
+	else if (_type == Type::ConfirmJudge) {
 		typeMessage = "ConfirmJudge";
 	}
 	postJson.insert(std::make_pair("type", typeMessage));
-
 
 	std::string id = AppFrame::ApplicationBase::GetInstance()->GetAppData()->GetData<UserData>().id;
 	postJson.insert(std::make_pair("id", picojson::value(id)));

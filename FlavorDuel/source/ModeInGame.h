@@ -35,8 +35,10 @@ namespace Flavor {
 		void SetPlayerData(PlayerData data);
 		void SetRoomData(RoomData room);
 		void SetPlayCard(std::unique_ptr<CardData> data);
-
+		void SetJudgeConfirm();
 		std::unique_ptr<CardFactory>& GetCardFactory() { return _cardFactory; }
+
+		void EndMatch(bool win);
 	private:
 		InGameSequence _sequence;
 		std::unique_ptr<CardFactory> _cardFactory;
@@ -47,7 +49,9 @@ namespace Flavor {
 		RoomData _room;
 		int _myPlayerNumber;
 		int _backgroundImage;
-		float _timer;
+		float _checkServerTimer;
 		std::unique_ptr<CardData> _playCard;
+		bool _judgeConfirm;
+		bool _endMatch;
 	};
 }

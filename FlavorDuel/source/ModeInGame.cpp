@@ -6,12 +6,14 @@
 #include "MessageLog.h"
 #include "InGameThread.h"
 #include "InGameUI.h"
+#include "RoomState.h"
+#include "ModeResult.h"
 using namespace Flavor;
 
 namespace {
 	constexpr VECTOR MyHandPosition = { 640.0f,650.0f };
 	constexpr VECTOR OpponentHandPosition = { 640.0f,50.0f };
-	constexpr float PostInterval = 2.0f;
+	constexpr float PostInterval = 1.0f;
 	constexpr auto BackgroundImagePath = "res/background2.png";
 }
 
@@ -19,9 +21,10 @@ ModeInGame::ModeInGame(RoomData data, int myPlayerNumber)
 	:_room{ data }
 	, _messageLog{ nullptr }
 	, _myPlayerNumber{ myPlayerNumber }
-	, _timer{ 0.0f }
+	, _checkServerTimer{ 0.0f }
 	, _playCard{ nullptr }
 	, _cardFactory{ nullptr }
+	, _judgeConfirm{ false }
 {
 	_backgroundImage = AppFrame::ImageServer::LoadGraph(BackgroundImagePath);
 }
@@ -29,7 +32,7 @@ ModeInGame::ModeInGame(RoomData data, int myPlayerNumber)
 bool ModeInGame::Initialize() {
 	AppFrame::ModeBase::Initialize();
 	_cardFactory.reset(new CardFactory());
-	_ingameThread.reset(new InGameThread());
+	_ingameThread.reset(new InGameThread(InGameThread::Type::CheckRoom));
 	_ingameThread->ThreadStart();
 
 	auto battlefield = std::make_unique<BattleField>(*this);
@@ -56,6 +59,10 @@ bool ModeInGame::Terminate() {
 }
 
 bool ModeInGame::Update(InputManager& input) {
+	if (_endMatch) {
+		return false;
+	}
+
 	ModeBase::Update(input);
 
 	if (_ingameThread) {
@@ -67,10 +74,19 @@ bool ModeInGame::Update(InputManager& input) {
 		}
 	}
 	else {
-		_timer += this->GetStepTime() * 0.001f;
-		if (_timer > PostInterval) {
-			_timer = 0.0f;
-			_ingameThread.reset(new InGameThread());
+		_checkServerTimer += this->GetStepTime() * 0.001f;
+		if (_checkServerTimer > PostInterval) {
+			_checkServerTimer = 0.0f;
+			InGameThread::Type threadType{InGameThread::Type::CheckRoom};
+			if (_playCard) {
+				threadType = InGameThread::Type::PlayCard;
+				_battleField->SetComfirm(false);
+			}
+			else if (_judgeConfirm) {
+				threadType = InGameThread::Type::ConfirmJudge;
+				_judgeConfirm = false;
+			}
+			_ingameThread.reset(new InGameThread(threadType));
 			if (_playCard) {
 				_ingameThread->SetPlayCard(std::move(_playCard));
 			}
@@ -105,21 +121,37 @@ void ModeInGame::Notify(InGameSequence message)
 
 void ModeInGame::SetRoomData(RoomData room)
 {
+
 	auto preRoom = _room;
 	_room = room;
-	if (preRoom.player1.win + preRoom.player2.win != _room.player1.win + _room.player2.win) {
-		_hand->SetCanPlay(true);
+
+	if (_room.state == RoomState::FinishGame) {
+		bool result{ GetPlayerData().win >= 3 };
+		EndMatch(result);
 	}
 
 	auto playerData = GetPlayerData();
 	_hand->SetCards(playerData.hand);
 	_battleField->SetMyArea(playerData.battle);
 	_battleField->SetOpponentArea(GetOpponentData().battle);
+
 }
 
 void ModeInGame::SetPlayCard(std::unique_ptr<CardData> data)
 {
+	_battleField->SetMyArea(*data);
 	_playCard = std::move(data);
+}
+
+void Flavor::ModeInGame::SetJudgeConfirm()
+{
+	_judgeConfirm = true;
+}
+
+void Flavor::ModeInGame::EndMatch(bool win)
+{
+	_endMatch = true;
+	AppFrame::ModeServer::GetInstance()->Add(std::make_unique<ModeResult>(*this, win));
 }
 
 PlayerData ModeInGame::GetPlayerData()

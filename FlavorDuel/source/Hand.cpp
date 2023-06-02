@@ -9,7 +9,7 @@ namespace {
 	constexpr float CardsInterval = 180.0f;
 	constexpr float cardScale = 0.5f;
 }
-Hand::Hand(ModeInGame& modeInGame) : _modeInGame{ modeInGame }, _canPlay{ true }
+Hand::Hand(ModeInGame& modeInGame) : _modeInGame{ modeInGame }
 {
 
 }
@@ -27,7 +27,7 @@ void Hand::Terminate() {
 }
 
 void Hand::Update(InputManager& input) {
-	if (!_canPlay) {
+	if (_modeInGame.GetPlayerData().battle.name != "") {
 		return;
 	}
 
@@ -36,7 +36,6 @@ void Hand::Update(InputManager& input) {
 		card->Update(input);
 		if (card->GetSelected()) {
 			selectCard = card.get();
-			_canPlay = false;
 		}
 	}
 	if (selectCard) {
