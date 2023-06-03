@@ -7,6 +7,7 @@ using namespace Flavor;
 using Anchor = AppFrame::UIObjectBase::Anchor;
 namespace {
 	constexpr AppFrame::VECTOR2<int> CanvasSize = { 1280,720 };
+	AppFrame::VECTOR2<int> TitlePosition = { 640,250 };
 	const std::map<RegisterError, std::string> ErrorMessage = {
 		{RegisterError::None,""},
 		{RegisterError::TooShortID,"ƒ†[ƒU[ID‚Í5•¶ŽšˆÈã‚ÅÝ’è‚µ‚Ä‚­‚¾‚³‚¢"},
@@ -18,6 +19,7 @@ namespace {
 	};
 	constexpr auto ForbiddenCharacter = "$\\\"'`;()[]{}|";
 	constexpr auto BackGroundImagePath = "res/background.png";
+	constexpr auto TitleImagePath = "res/Title.png";
 }
 
 RegisterUI::RegisterUI(ModeTitle& mode)
@@ -104,6 +106,11 @@ RegisterUI::RegisterUI(ModeTitle& mode)
 	errorMessage->SetPosition({ centerX,centerY-20 });
 	_errorText = errorMessage.get();
 	this->AddUIObject(std::move(errorMessage));
+
+	auto title = std::make_unique<AppFrame::UI::Image>(TitleImagePath);
+	title->SetAnchor(Anchor::Center);
+	title->SetPosition(TitlePosition);
+	this->AddUIObject(std::move(title));
 }
 
 void RegisterUI::Init()

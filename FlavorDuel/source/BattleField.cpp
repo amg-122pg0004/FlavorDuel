@@ -2,8 +2,6 @@
 #include "CardObject.h"
 #include "PostData.h"
 #include "ModeInGame.h"
-#include "MessageWindow.h"
-#include "MessageLog.h"
 #include "CardFactory.h"
 using namespace Flavor;
 

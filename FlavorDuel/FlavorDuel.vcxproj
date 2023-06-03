@@ -51,8 +51,6 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="source\MessageLog.h" />
-    <ClInclude Include="source\MessageWindow.h" />
     <ClInclude Include="source\ModeDeckEdit.h" />
     <ClInclude Include="source\ModeHome.h" />
     <ClInclude Include="source\ModeInGame.h" />
@@ -73,6 +71,7 @@
     </ClInclude>
     <ClInclude Include="source\RoomState.h" />
     <ClInclude Include="source\SequenceMessages.h" />
+    <ClInclude Include="source\StringFitting.h" />
     <ClInclude Include="source\testUI.h" />
     <ClInclude Include="source\ThreadBase.h" />
     <ClInclude Include="source\LoginUI.h" />
@@ -108,8 +107,6 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="source\MessageLog.cpp" />
-    <ClCompile Include="source\MessageWindow.cpp" />
     <ClCompile Include="source\ModeDeckEdit.cpp" />
     <ClCompile Include="source\ModeHome.cpp" />
     <ClCompile Include="source\ModeInGame.cpp" />
@@ -128,6 +125,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="source\StringFitting.cpp" />
     <ClCompile Include="source\testUI.cpp" />
     <ClCompile Include="source\ThreadBase.cpp" />
     <ClCompile Include="source\LoginUI.cpp" />

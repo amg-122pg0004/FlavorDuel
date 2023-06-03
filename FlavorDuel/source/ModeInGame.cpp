@@ -11,7 +11,7 @@
 using namespace Flavor;
 
 namespace {
-	constexpr VECTOR MyHandPosition = { 640.0f,650.0f };
+	constexpr VECTOR MyHandPosition = { 600.0f,650.0f };
 	constexpr VECTOR OpponentHandPosition = { 640.0f,50.0f };
 	constexpr float PostInterval = 1.0f;
 	constexpr auto BackgroundImagePath = "res/background2.png";
@@ -19,7 +19,6 @@ namespace {
 
 ModeInGame::ModeInGame(RoomData data, int myPlayerNumber)
 	:_room{ data }
-	, _messageLog{ nullptr }
 	, _myPlayerNumber{ myPlayerNumber }
 	, _checkServerTimer{ 0.0f }
 	, _playCard{ nullptr }
@@ -46,10 +45,6 @@ bool ModeInGame::Initialize() {
 
 	auto winNumUI = std::make_unique<InGameUI>(*this);
 	this->GetUICanvasServer()->Add(std::move(winNumUI));
-
-	auto messageLog = std::make_unique<MessageLog>();
-	_messageLog = messageLog.get();
-	this->GetUICanvasServer()->Add(std::move(messageLog));
 
 	return false;
 }

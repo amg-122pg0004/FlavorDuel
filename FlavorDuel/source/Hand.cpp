@@ -6,7 +6,7 @@ using namespace Flavor;
 
 namespace {
 	constexpr int StartHandNumber = 5;
-	constexpr float CardsInterval = 180.0f;
+	constexpr float CardsInterval = 160.0f;
 	constexpr float cardScale = 0.5f;
 }
 Hand::Hand(ModeInGame& modeInGame) : _modeInGame{ modeInGame }

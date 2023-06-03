@@ -6,8 +6,10 @@ using namespace Flavor;
 using Anchor = AppFrame::UIObjectBase::Anchor;
 namespace {
 	AppFrame::VECTOR2<int> CanvasSize = { 1280,720 };
-	constexpr auto BackGroundImagePath = "res/background.png";
+	AppFrame::VECTOR2<int> TitlePosition = { 640,250 };
 
+	constexpr auto BackGroundImagePath = "res/background.png";
+	constexpr auto TitleImagePath = "res/Title.png";
 	constexpr auto GothicFont16 = "GGothic16";
 }
 
@@ -78,6 +80,11 @@ LoginUI::LoginUI(ModeTitle& mode)
 
 	auto backgroundImage = std::make_unique<AppFrame::UI::Image>(BackGroundImagePath);
 	this->AddUIObject(std::move(backgroundImage));
+
+	auto title = std::make_unique<AppFrame::UI::Image>(TitleImagePath);
+	title->SetAnchor(Anchor::Center);
+	title->SetPosition(TitlePosition);
+	this->AddUIObject(std::move(title));
 }
 
 LoginUI::~LoginUI()

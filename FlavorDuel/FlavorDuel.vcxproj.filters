@@ -61,12 +61,6 @@
     <Filter Include="Network">
       <UniqueIdentifier>{a1b1cc77-095d-4eca-8cb0-2341cbed9c18}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UI\MessageLog">
-      <UniqueIdentifier>{1944d760-303c-4ebb-926b-e072ac7367db}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\MessageWindow">
-      <UniqueIdentifier>{df6a52c9-c7ca-4290-a67d-895e5a10f1ed}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Mode\ModeTitle">
       <UniqueIdentifier>{11d199d8-a15a-4037-b800-936f4ca31fba}</UniqueIdentifier>
     </Filter>
@@ -127,6 +121,9 @@
     <Filter Include="UI\ResultUI">
       <UniqueIdentifier>{b856be29-c92b-4d16-89ee-b67d7abb485b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utillity\StringFitting">
+      <UniqueIdentifier>{9a26c623-87ce-473e-b9f6-643d1f6fdb5b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\ApplicationMain.cpp">
@@ -161,12 +158,6 @@
     </ClCompile>
     <ClCompile Include="source\PostData.cpp">
       <Filter>Network\PostThread</Filter>
-    </ClCompile>
-    <ClCompile Include="source\MessageLog.cpp">
-      <Filter>UI\MessageLog</Filter>
-    </ClCompile>
-    <ClCompile Include="source\MessageWindow.cpp">
-      <Filter>UI\MessageWindow</Filter>
     </ClCompile>
     <ClCompile Include="source\ModeShop.cpp">
       <Filter>Mode\ModeShop</Filter>
@@ -222,6 +213,9 @@
     <ClCompile Include="source\ResultUI.cpp">
       <Filter>UI\ResultUI</Filter>
     </ClCompile>
+    <ClCompile Include="source\StringFitting.cpp">
+      <Filter>Utillity\StringFitting</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\ApplicationMain.h">
@@ -268,12 +262,6 @@
     </ClInclude>
     <ClInclude Include="source\PostData.h">
       <Filter>Network\PostThread</Filter>
-    </ClInclude>
-    <ClInclude Include="source\MessageLog.h">
-      <Filter>UI\MessageLog</Filter>
-    </ClInclude>
-    <ClInclude Include="source\MessageWindow.h">
-      <Filter>UI\MessageWindow</Filter>
     </ClInclude>
     <ClInclude Include="source\ModeShop.h">
       <Filter>Mode\ModeShop</Filter>
@@ -334,6 +322,9 @@
     </ClInclude>
     <ClInclude Include="source\ResultUI.h">
       <Filter>UI\ResultUI</Filter>
+    </ClInclude>
+    <ClInclude Include="source\StringFitting.h">
+      <Filter>Utillity\StringFitting</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

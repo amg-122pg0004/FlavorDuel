@@ -1,5 +1,6 @@
 #include "CardObject.h"
 #include "BattleField.h"
+#include "StringFitting.h"
 
 namespace {
 	constexpr auto CardFrame = "res/CardFrame.png";
@@ -35,23 +36,8 @@ namespace Flavor {
 		DrawGraph(ImageOffset.x, ImageOffset.y, _cardCG, true);
 		DrawGraph(0, 0, _frameCG, true);
 		DrawStringToHandle(10, 10, _data.name.c_str(), AppFrame::Color::Black, font);
-		//ìKãXâ¸çs
-		int oneLineCharNumber = 18;
-		int countByte{ 0 };
-		std::vector<int> insertIndex;
-		for (int i = 0; i < static_cast<int>(_data.flavorText.size());) {
-			int checkByte = AppFrame::ShiftJISChecker::Check(_data.flavorText.at(i));
-			countByte += checkByte;
-			i += checkByte;
-			if (countByte > oneLineCharNumber) {
-				insertIndex.emplace_back(i);
-				countByte = 0;
-			}
-		}
-		std::string setText{  _data.flavorText };
-		for (auto itr = insertIndex.rbegin(); itr != insertIndex.rend(); ++itr) {
-			setText.insert((*itr), "\n");
-		}
+
+		std::string setText = StringFitting::InsertLineBreak(_data.flavorText,18);
 		DrawStringToHandle(10, 260, setText.c_str(), AppFrame::Color::Black, font);
 
 		SetDrawScreen(DX_SCREEN_BACK);

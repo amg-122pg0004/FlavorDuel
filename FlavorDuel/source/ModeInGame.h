@@ -28,7 +28,6 @@ namespace Flavor {
 		void Subscribe(IObserverSequence* observer)override;
 		void Notify(InGameSequence message)override;
 
-		MessageLog* GetMessageLog() { return _messageLog; }
 		RoomData GetRoomData() { return _room; }
 		PlayerData GetPlayerData();
 		PlayerData GetOpponentData();
@@ -45,7 +44,6 @@ namespace Flavor {
 		std::unique_ptr<InGameThread> _ingameThread;
 		BattleField* _battleField;
 		Hand* _hand;
-		MessageLog* _messageLog;
 		RoomData _room;
 		int _myPlayerNumber;
 		int _backgroundImage;
