@@ -87,15 +87,6 @@ namespace Flavor {
 		int positionX{ static_cast<int>(this->GetPosition().x) };
 		int positionY{ static_cast<int>(this->GetPosition().y) };
 		double scale{ static_cast<double>(this->GetScale().x) };
-		/*
-		DrawRotaGraph(positionX + ImageOffset.x, positionY + ImageOffset.y, scale, 0.0f, _cardCG, true);
-		DrawRotaGraph(positionX, positionY, scale, 0.0f, _frameCG, true);
-
-
-		DrawString(positionX + NameOffset.x, positionY + NameOffset.y, _data.name.c_str(), AppFrame::Color::Red);
-
-		DrawString(positionX + TextOffset.x, positionY + TextOffset.y, _data.flavorText.c_str(), AppFrame::Color::Red);
-		*/
 		DrawRotaGraph(positionX, positionY, scale, 0.0f, _screen, true);
 	}
 

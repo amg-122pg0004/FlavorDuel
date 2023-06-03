@@ -9,7 +9,10 @@ namespace {
 	AppFrame::VECTOR2<int> MyPosition = { 400,350 };
 	AppFrame::VECTOR2<int> OpponentPosition = { 750,300 };
 
-	constexpr float JudgeConfirmTime = 2.0f;
+	constexpr float JudgeConfirmTime = 5.0f;
+
+	constexpr auto Font32Name = "GGothic32";
+	constexpr auto Font16Name = "GGothic16";
 }
 
 BattleField::BattleField(ModeInGame& mode)
@@ -19,7 +22,8 @@ BattleField::BattleField(ModeInGame& mode)
 	, _threadHolder{ nullptr }
 	, _confirm{ false }
 {
-	_font = CreateFontToHandle("result", 60, 8, DX_FONTTYPE_ANTIALIASING);
+	_font = AppFrame::FontServer::Find(Font32Name);
+	_fontSmall = AppFrame::FontServer::Find(Font16Name);
 }
 
 BattleField::~BattleField()
@@ -60,11 +64,11 @@ void BattleField::Update(InputManager& input)
 
 void BattleField::Render()
 {
-	auto renderCard = [](AppFrame::VECTOR2<int> position, std::unique_ptr<CardObject>& card) {
+	auto renderCard = [this](AppFrame::VECTOR2<int> position, std::unique_ptr<CardObject>& card) {
 		DrawRotaGraph(position.x, position.y, 0.8f, 0.0f, card->GetScreen(), true);
 		if (card->GetAttack() != -1) {
-			DrawString(position.x - 80, position.y + 160, std::to_string(card->GetAttack()).c_str(), AppFrame::Color::Red);
-			DrawString(position.x + 60, position.y + 160, std::to_string(card->GetDefense()).c_str(), AppFrame::Color::Red);
+			DrawStringToHandle(position.x - 90, position.y + 150, std::to_string(card->GetAttack()).c_str(), AppFrame::Color::Black, _font);
+			DrawStringToHandle(position.x + 50, position.y + 150, std::to_string(card->GetDefense()).c_str(), AppFrame::Color::Black, _font);
 		}
 	};
 

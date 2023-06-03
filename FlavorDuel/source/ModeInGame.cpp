@@ -3,7 +3,6 @@
 #include "BattleField.h"
 #include "Hand.h"
 #include "SequenceMessages.h"
-#include "MessageLog.h"
 #include "InGameThread.h"
 #include "InGameUI.h"
 #include "RoomState.h"
