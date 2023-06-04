@@ -26,25 +26,26 @@ HomeUI::HomeUI(ModeHome& home)
 	:AppFrame::UICanvas(CanvasSize)
 	, _modeHome{ home }
 {
+	//背景画像
 	auto backgroundImage = std::make_unique<AppFrame::UI::Image>(BackGroundImagePath);
 	this->AddUIObject(std::move(backgroundImage));
+
 	auto userData = AppFrame::ApplicationBase::GetInstance()->GetAppData()->GetData<UserData>();
 	
 	int fontHandle = AppFrame::FontServer::Find(GothicFont32);
 	int smallFontHandle = AppFrame::FontServer::Find(GothicFont16);
-
+	//画面上部のユーザー情報
 	auto topBar = std::make_unique<AppFrame::UI::Box>();
 	topBar->SetSize({ CanvasSize.x, TopBarHeight });
 	topBar->SetColor(AppFrame::Color::Black);
 	this->AddUIObject(std::move(topBar));
-
 	std::stringstream topBatText;
 	topBatText << "ユーザーID:" << userData.id << "　レベル:" << userData.level << "　所持金:" << userData.money;
 	auto idText = std::make_unique<AppFrame::UI::TextBox>(topBatText.str());
 	idText->SetTextColor(AppFrame::Color::White);
 	idText->SetFont(smallFontHandle);
 	this->AddUIObject(std::move(idText));
-
+	//カジュアルマッチ検索ボタン
 	auto casualBattleButton = std::make_unique<AppFrame::UI::Button>();
 	casualBattleButton->SetAnchor(Anchor::Center);
 	casualBattleButton->SetPosition(casualBattleButtonPosition);
@@ -58,7 +59,7 @@ HomeUI::HomeUI(ModeHome& home)
 	};
 	casualBattleButton->SetFunction(std::move(casualMatching));
 	this->AddUIObject(std::move(casualBattleButton));
-
+	//ランクマッチ検索ボタン
 	auto rankBattleButton = std::make_unique<AppFrame::UI::Button>();
 	rankBattleButton->SetAnchor(Anchor::Center);
 	rankBattleButton->SetSize(ButtonSize);
@@ -72,7 +73,7 @@ HomeUI::HomeUI(ModeHome& home)
 	};
 	rankBattleButton->SetFunction(std::move(rankMatching));
 	this->AddUIObject(std::move(rankBattleButton));
-
+	//デッキ編集ボタン
 	auto deckEditButton = std::make_unique<AppFrame::UI::Button>();
 	deckEditButton->SetAnchor(Anchor::Center);
 	deckEditButton->SetSize(ButtonSize);
@@ -81,12 +82,12 @@ HomeUI::HomeUI(ModeHome& home)
 	deckEditText->SetTextColor(AppFrame::Color::Black);
 	deckEditText->SetFont(fontHandle);
 	deckEditButton->SetTextBox(std::move(deckEditText));
-	auto openDeckEdit = []() {
-
+	auto openDeckEdit = [this]() {
+		_modeHome.ChangeModeDeckEdit();
 	};
 	deckEditButton->SetFunction(std::move(openDeckEdit));
 	this->AddUIObject(std::move(deckEditButton));
-
+	//ショップボタン
 	auto shopButton = std::make_unique<AppFrame::UI::Button>();
 	shopButton->SetAnchor(Anchor::Center);
 	shopButton->SetSize(ButtonSize);

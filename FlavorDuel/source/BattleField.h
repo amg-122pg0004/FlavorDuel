@@ -37,7 +37,7 @@ namespace Flavor {
 		std::unique_ptr<PostThread> _threadHolder;
 		int _font;
 		int _fontSmall;
-		float _JudgeCompleteTimer;
+		float _judgeCompleteTimer;
 		bool _confirm;
 	};
 }

@@ -2,6 +2,7 @@
 #include "HomeUI.h"
 #include "ModeMatching.h"
 #include "ApplicationMain.h"
+#include "ModeDeckEdit.h"
 using namespace Flavor;
 ModeHome::ModeHome()
 {
@@ -41,6 +42,13 @@ bool ModeHome::Debug()
 
 void ModeHome::OpenMatching()
 {
-	
-	AppFrame::ModeServer::GetInstance()->Add(std::make_unique<ModeMatching>(MatchType::Casual, TestDeck,*this));
+	auto app = AppFrame::ApplicationBase::GetInstance();
+	std::vector<CardData> deckData = app->GetAppData()->GetData<UserData>().deck;
+	AppFrame::ModeServer::GetInstance()->Add(std::make_unique<ModeMatching>(MatchType::Casual, deckData, *this));
+}
+
+void Flavor::ModeHome::ChangeModeDeckEdit()
+{
+	AppFrame::ModeServer::GetInstance()->Del(this);
+	AppFrame::ModeServer::GetInstance()->Add(std::make_unique<ModeDeckEdit>());
 }

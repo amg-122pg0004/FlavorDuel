@@ -124,6 +124,15 @@
     <Filter Include="Utillity\StringFitting">
       <UniqueIdentifier>{9a26c623-87ce-473e-b9f6-643d1f6fdb5b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UI\DeckEditUI">
+      <UniqueIdentifier>{ffbf2721-1c3a-4b12-8e84-71489fa9be19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utillity\CardImagePathLoader">
+      <UniqueIdentifier>{099e39db-bfc4-42f3-80c7-5f879f93365a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\DeckEditThread">
+      <UniqueIdentifier>{9aee8783-ae7b-4888-ac70-43616cd0ac4f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\ApplicationMain.cpp">
@@ -215,6 +224,15 @@
     </ClCompile>
     <ClCompile Include="source\StringFitting.cpp">
       <Filter>Utillity\StringFitting</Filter>
+    </ClCompile>
+    <ClCompile Include="source\DeckEditUI.cpp">
+      <Filter>UI\DeckEditUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CardImagePathLoader.cpp">
+      <Filter>Utillity\CardImagePathLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="source\DeckEditThread.cpp">
+      <Filter>Network\DeckEditThread</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -325,6 +343,15 @@
     </ClInclude>
     <ClInclude Include="source\StringFitting.h">
       <Filter>Utillity\StringFitting</Filter>
+    </ClInclude>
+    <ClInclude Include="source\DeckEditUI.h">
+      <Filter>UI\DeckEditUI</Filter>
+    </ClInclude>
+    <ClInclude Include="source\CardImagePathLoader.h">
+      <Filter>Utillity\CardImagePathLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="source\DeckEditThread.h">
+      <Filter>Network\DeckEditThread</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

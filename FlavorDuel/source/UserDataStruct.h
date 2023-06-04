@@ -9,6 +9,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include "CardDataStruct.h"
 namespace Flavor {
 	struct UserData
 	{
@@ -17,5 +18,6 @@ namespace Flavor {
 		int level = 1;
 		int money = 0;
 		int rank = 1000;
+		std::vector<Flavor::CardData> deck;
 	};
 }

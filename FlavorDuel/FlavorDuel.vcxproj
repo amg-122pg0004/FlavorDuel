@@ -23,6 +23,7 @@
     <ClInclude Include="source\BattleField.h" />
     <ClInclude Include="source\CardFactory.h" />
     <ClInclude Include="source\CardDataStruct.h" />
+    <ClInclude Include="source\CardImagePathLoader.h" />
     <ClInclude Include="source\CardJudge.h" />
     <ClInclude Include="source\CardObject.h">
       <SubType>
@@ -30,6 +31,11 @@
     </ClInclude>
     <ClInclude Include="source\ConvertJson.h" />
     <ClInclude Include="source\Curl.h" />
+    <ClInclude Include="source\DeckEditThread.h" />
+    <ClInclude Include="source\DeckEditUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="source\Hand.h">
       <SubType>
       </SubType>
@@ -81,6 +87,7 @@
     <ClCompile Include="source\ApplicationMain.cpp" />
     <ClCompile Include="source\BattleField.cpp" />
     <ClCompile Include="source\CardFactory.cpp" />
+    <ClCompile Include="source\CardImagePathLoader.cpp" />
     <ClCompile Include="source\CardJudge.cpp" />
     <ClCompile Include="source\CardObject.cpp">
       <SubType>
@@ -88,6 +95,11 @@
     </ClCompile>
     <ClCompile Include="source\ConvertJson.cpp" />
     <ClCompile Include="source\Curl.cpp" />
+    <ClCompile Include="source\DeckEditThread.cpp" />
+    <ClCompile Include="source\DeckEditUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="source\Hand.cpp">
       <SubType>
       </SubType>

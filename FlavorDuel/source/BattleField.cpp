@@ -21,6 +21,7 @@ BattleField::BattleField(ModeInGame& mode)
 	, _opponentCard{ nullptr }
 	, _threadHolder{ nullptr }
 	, _confirm{ false }
+	, _judgeCompleteTimer{ 0.0f }
 {
 	_font = AppFrame::FontServer::Find(Font32Name);
 	_fontSmall = AppFrame::FontServer::Find(Font16Name);
@@ -28,7 +29,6 @@ BattleField::BattleField(ModeInGame& mode)
 
 BattleField::~BattleField()
 {
-	DeleteFontToHandle(_font);
 }
 
 void BattleField::Init()
@@ -52,9 +52,9 @@ void BattleField::Update(InputManager& input)
 	if (myPower == -1 || opponentPower == -1) {
 		return;
 	}
-	_JudgeCompleteTimer += _modeInGame.GetStepTime() * 0.001f;
-	if (_JudgeCompleteTimer > JudgeConfirmTime) {
-		_JudgeCompleteTimer = 0.0f;
+	_judgeCompleteTimer += _modeInGame.GetStepTime() * 0.001f;
+	if (_judgeCompleteTimer > JudgeConfirmTime) {
+		_judgeCompleteTimer = 0.0f;
 		if (!_confirm) {
 			_confirm = true;
 			_modeInGame.SetJudgeConfirm();

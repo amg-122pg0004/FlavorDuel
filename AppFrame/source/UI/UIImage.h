@@ -26,11 +26,15 @@ namespace AppFrame {
 			void SetAngle(float angle) { _angle = angle; }
 			float GetAngle() { return _angle; }
 
+			void SetTransparent(bool flag) { _transparent = flag; }
+			float GetTransparent() { return _transparent; }
+
 			void SetUpdateFunction(std::function<void(Image& self)> function) { _update = function; }
 		private:
 			int _image;
 			float _scale;
 			float _angle;
+			bool _transparent;
 			std::function<void(Image& self)> _update;
 		};
 	}

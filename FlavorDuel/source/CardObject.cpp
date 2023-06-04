@@ -31,16 +31,7 @@ namespace Flavor {
 	void CardObject::Init() {
 		this->SetScale({ Scale, Scale, Scale });
 
-		auto font = AppFrame::FontServer::Find(DartsFont);
-		SetDrawScreen(_screen);
-		DrawGraph(ImageOffset.x, ImageOffset.y, _cardCG, true);
-		DrawGraph(0, 0, _frameCG, true);
-		DrawStringToHandle(10, 10, _data.name.c_str(), AppFrame::Color::Black, font);
-
-		std::string setText = StringFitting::InsertLineBreak(_data.flavorText,18);
-		DrawStringToHandle(10, 260, setText.c_str(), AppFrame::Color::Black, font);
-
-		SetDrawScreen(DX_SCREEN_BACK);
+		ReworkScreenImage();
 	}
 
 	void CardObject::Terminate() {
@@ -92,5 +83,28 @@ namespace Flavor {
 
 	void CardObject::Debug() {
 
+	}
+	void CardObject::SetCardName(std::string name)
+	{
+		_data.name = name;
+		ReworkScreenImage();
+	}
+	void CardObject::SetCardText(std::string text)
+	{
+		_data.flavorText = text;
+		ReworkScreenImage();
+	}
+	void CardObject::ReworkScreenImage()
+	{
+		auto font = AppFrame::FontServer::Find(DartsFont);
+		SetDrawScreen(_screen);
+		DrawGraph(ImageOffset.x, ImageOffset.y, _cardCG, true);
+		DrawGraph(0, 0, _frameCG, true);
+		DrawStringToHandle(10, 10, _data.name.c_str(), AppFrame::Color::Black, font);
+
+		std::string setText = StringFitting::InsertLineBreak(_data.flavorText, 18);
+		DrawStringToHandle(10, 260, setText.c_str(), AppFrame::Color::Black, font);
+
+		SetDrawScreen(DX_SCREEN_BACK);
 	}
 }

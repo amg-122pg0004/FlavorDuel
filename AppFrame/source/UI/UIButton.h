@@ -31,14 +31,21 @@ namespace AppFrame {
 			void SetClickedColor(unsigned int color) { _clickedColor = color; }
 			unsigned int GetClickedColor() { return _clickedColor; }
 
+			void SetFill(bool flag) { _fill = flag; }
+			bool GetFill() { return _fill; }
+
 			void SetTextBox(std::unique_ptr<UI::TextBox> textBox);
+
+			void SetUpdateFunction(std::function<void(Button&)> function) { _update = function; }
 		private:
+			std::function<void(Button&)> _update;//アップデート毎に呼ばれる関数
 			std::function<void()> _activate;//クリック時に呼ばれる関数
 			enum State { Idle, Hover, Clicked };//待機状態、マウスオーバー状態、マウスクリック状態
 			State _state;
 			unsigned int _idleColor;//待機状態の色
 			unsigned int _hoverColor;//マウスオーバー状態の色
 			unsigned int _clickedColor;//マウスクリック状態の色
+			bool _fill;//ボックスを塗りつぶすか
 
 			std::unique_ptr<TextBox> _textBox;//所有テキストボックス
 		};

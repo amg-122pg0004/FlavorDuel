@@ -17,9 +17,9 @@ ResultUI::ResultUI(ModeResult& mode, bool win)
 
 	int font = AppFrame::FontServer::Find(GothicFont32);
 
-	std::string setText{"勝ち！"};
+	std::string setText{"あなたの負け！"};
 	if (win) {
-		setText = "負け！";
+		setText = "あなたの勝ち！！";
 	}
 	auto titleText = std::make_unique<AppFrame::UI::TextBox>(setText);
 	titleText->SetAnchor(Anchor::Center);

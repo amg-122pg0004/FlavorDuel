@@ -22,10 +22,10 @@ namespace Flavor {
 		void Render()override;
 		void Debug()override;
 
-		void SetCardName(std::string name) { _data.name = name; }
+		void SetCardName(std::string name);
 		std::string GetCardName() { return _data.name; }
 
-		void SetCardText(std::string text) { _data.flavorText = text; }
+		void SetCardText(std::string text);
 		std::string GetCardText() { return _data.flavorText; }
 
 		void SetSelected(bool flag) { _selected = flag; }
@@ -47,6 +47,10 @@ namespace Flavor {
 
 		int GetScreen() { return _screen; }
 	private:
+		/**
+		 * \brief カード情報を再度_screenに描画する
+		 */
+		void ReworkScreenImage();
 		CardData _data;
 		int _frameCG;
 		int _cardCG;

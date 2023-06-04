@@ -18,6 +18,7 @@ Button::Button()
 	, _hoverColor{ Color::Gray }
 	, _clickedColor{ Color::Yellow }
 	, _textBox{ nullptr }
+	, _fill{ true }
 {
 	this->SetNeedUpdate(true);
 }
@@ -28,6 +29,9 @@ Button::~Button()
 
 void Button::Update(InputManager& input, float deltaSecond)
 {
+	if (_update) {
+		_update(*this);
+	}
 	if (_textBox) {
 		_textBox->Update(input, deltaSecond);
 	}
@@ -72,7 +76,7 @@ void Button::Render()
 	};
 
 	auto aabb = this->GetAABB();
-	DxLib::DrawBox(aabb.min.x, aabb.min.y, aabb.max.x, aabb.max.y, stateColor(), true);
+	DxLib::DrawBox(aabb.min.x, aabb.min.y, aabb.max.x, aabb.max.y, stateColor(), _fill);
 	if (_textBox) {
 		_textBox->Render();
 	}

@@ -20,6 +20,8 @@ namespace Flavor {
 
 		//マッチングモードを作成する
 		void OpenMatching();
+		//デッキ編集モードに移動する
+		void ChangeModeDeckEdit();
 	private:
 	};
 }
