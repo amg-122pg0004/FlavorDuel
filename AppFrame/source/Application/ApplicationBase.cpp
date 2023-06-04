@@ -24,6 +24,7 @@ namespace AppFrame {
         _modeServer = nullptr;
         _inputManager = nullptr;
         _appEnd = false;
+        _appData = nullptr;
     }
 
     ApplicationBase::~ApplicationBase() {
@@ -40,7 +41,7 @@ namespace AppFrame {
 
         SetGraphMode(DispSizeW(), DispSizeH(), 32);
         SetAlwaysRunFlag(true);
-
+        SetDoubleStartValidFlag(TRUE);
         if (DxLib_Init() == -1)
         {   // エラーが起きたら直ちに終了
             return false;
@@ -56,8 +57,7 @@ namespace AppFrame {
         //インプットマネージャーの初期化
         _inputManager.reset(new InputManager);
         _vibration.reset(new Vibration);
-
-
+        _appData.reset(new DataHolder);
 
         return true;
     }

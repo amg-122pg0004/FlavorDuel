@@ -124,6 +124,12 @@
     <Filter Include="UI\UICanvasExport">
       <UniqueIdentifier>{8d433bfa-e417-48b2-85ae-ce375e700947}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DataHolder">
+      <UniqueIdentifier>{2296528c-b2e7-4534-8250-6b25af46c0b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\UIObject\UIBox">
+      <UniqueIdentifier>{06975792-c657-4d41-b187-0f8ba92cfbbe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Application\ApplicationBase.cpp">
@@ -234,6 +240,12 @@
     </ClCompile>
     <ClCompile Include="source\UI\UIEditableTextBox.cpp">
       <Filter>UI\UIObject\UIEditableTextBox</Filter>
+    </ClCompile>
+    <ClCompile Include="source\AppData\DataHolder.cpp">
+      <Filter>DataHolder</Filter>
+    </ClCompile>
+    <ClCompile Include="source\UI\UIBox.cpp">
+      <Filter>UI\UIObject\UIBox</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -348,6 +360,12 @@
     </ClInclude>
     <ClInclude Include="source\UI\UIEditableTextBox.h">
       <Filter>UI\UIObject\UIEditableTextBox</Filter>
+    </ClInclude>
+    <ClInclude Include="source\AppData\DataHolder.h">
+      <Filter>DataHolder</Filter>
+    </ClInclude>
+    <ClInclude Include="source\UI\UIBox.h">
+      <Filter>UI\UIObject\UIBox</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

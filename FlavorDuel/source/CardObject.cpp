@@ -1,5 +1,6 @@
 #include "CardObject.h"
 #include "BattleField.h"
+#include "StringFitting.h"
 
 namespace {
 	constexpr auto CardFrame = "res/CardFrame.png";
@@ -7,23 +8,30 @@ namespace {
 	constexpr float Scale = 0.38f;
 	constexpr AppFrame::VECTOR2<int> NameOffset = { -75,-95 };
 	constexpr AppFrame::VECTOR2<int> TextOffset = { -75,0 };
+	constexpr AppFrame::VECTOR2<int> ImageOffset = { 20,45 };
 
 	constexpr AppFrame::VECTOR2<int> ClickCollisionSize = { 150,180 };
+	constexpr AppFrame::VECTOR2<int> CardSize = { 400,500 };
+
+	constexpr auto DartsFont = "GGothic32";
 }
 
 namespace Flavor {
-	CardObject::CardObject() :_selected{ false }, _attack{ -1 }, _defense{ -1 }, _tips{ "" }
+	CardObject::CardObject() :_selected{ false }
 	{
-		_cg = AppFrame::ImageServer::LoadGraph(CardFrame);
+		_screen = MakeScreen(CardSize.x, CardSize.y);
+		_frameCG = AppFrame::ImageServer::LoadGraph(CardFrame);
 		_aabb = { {0,0},{0,0} };
 	}
 
 	CardObject::~CardObject() {
-
+		DeleteGraph(_screen);
 	}
 
 	void CardObject::Init() {
 		this->SetScale({ Scale, Scale, Scale });
+
+		ReworkScreenImage();
 	}
 
 	void CardObject::Terminate() {
@@ -70,14 +78,33 @@ namespace Flavor {
 		int positionX{ static_cast<int>(this->GetPosition().x) };
 		int positionY{ static_cast<int>(this->GetPosition().y) };
 		double scale{ static_cast<double>(this->GetScale().x) };
-		DrawRotaGraph(positionX, positionY, scale, 0.0f, _cg, true);
-
-		DrawString(positionX + NameOffset.x, positionY + NameOffset.y, _cardName.c_str(), AppFrame::Color::Red);
-
-		DrawString(positionX + TextOffset.x, positionY + TextOffset.y, _cardText.c_str(), AppFrame::Color::Red);
+		DrawRotaGraph(positionX, positionY, scale, 0.0f, _screen, true);
 	}
 
 	void CardObject::Debug() {
 
+	}
+	void CardObject::SetCardName(std::string name)
+	{
+		_data.name = name;
+		ReworkScreenImage();
+	}
+	void CardObject::SetCardText(std::string text)
+	{
+		_data.flavorText = text;
+		ReworkScreenImage();
+	}
+	void CardObject::ReworkScreenImage()
+	{
+		auto font = AppFrame::FontServer::Find(DartsFont);
+		SetDrawScreen(_screen);
+		DrawGraph(ImageOffset.x, ImageOffset.y, _cardCG, true);
+		DrawGraph(0, 0, _frameCG, true);
+		DrawStringToHandle(10, 10, _data.name.c_str(), AppFrame::Color::Black, font);
+
+		std::string setText = StringFitting::InsertLineBreak(_data.flavorText, 18);
+		DrawStringToHandle(10, 260, setText.c_str(), AppFrame::Color::Black, font);
+
+		SetDrawScreen(DX_SCREEN_BACK);
 	}
 }

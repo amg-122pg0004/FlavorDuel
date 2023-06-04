@@ -8,16 +8,16 @@
 #pragma once
 #include "appframe.h"
 #include "IObserverSequence.h"
+#include "CardDataStruct.h"
+
 namespace Flavor {
 	using AppFrame::InputManager;
 	class CardObject;
-	class Deck;
-	class BattleField;
+	class ModeInGame;
 
 	class Hand : public AppFrame::ObjectBase, public IObserverSequence {
 	public:
-		enum class  Owner { Self, Opponent };
-		Hand(BattleField* battleField, Owner owner);
+		Hand(ModeInGame& modeInGame);
 		~Hand();
 		void Init()override;
 		void Terminate()override;
@@ -25,15 +25,10 @@ namespace Flavor {
 		void Render()override;
 		void Debug()override;
 
-		void ReceiveNotify(SequenceMessages sequence)override;
-
-		void SetDeck(Deck* deckPointer) { _deck = deckPointer; }
+		void ReceiveNotify(InGameSequence sequence)override;
+		void SetCards(std::vector<CardData> data);
 	private:
-		bool _playCard;
-		Owner _owner;
-		Deck* _deck;
+		ModeInGame& _modeInGame;
 		std::vector<std::unique_ptr<CardObject>> _cards;
-		bool _adjustHands;
-		BattleField* _battleField;
 	};
 }

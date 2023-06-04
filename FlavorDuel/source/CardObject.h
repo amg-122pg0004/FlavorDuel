@@ -1,5 +1,13 @@
+/*****************************************************************//**
+ * \file   CardObject.h
+ * \brief  カードオブジェクト
+ *
+ * \author 土居将太郎
+ * \date   May 2023
+ *********************************************************************/
 #pragma once
 #include "appframe.h"
+#include "CardDataStruct.h"
 namespace Flavor {
 	using AppFrame::InputManager;
 	class CardObject;
@@ -14,27 +22,40 @@ namespace Flavor {
 		void Render()override;
 		void Debug()override;
 
-		void SetCardName(std::string name) { _cardName = name; }
-		std::string GetCardName() { return _cardName ; }
-		void SetCardText(std::string text) { _cardText = text; }
-		std::string GetCardText() { return _cardText; }
+		void SetCardName(std::string name);
+		std::string GetCardName() { return _data.name; }
+
+		void SetCardText(std::string text);
+		std::string GetCardText() { return _data.flavorText; }
+
 		void SetSelected(bool flag) { _selected = flag; }
 		bool GetSelected() { return _selected; }
-		int GetCGHandle() { return _cg; }
 
-		void SetAttack(int attack) { _attack = attack; }
-		int GetAttack() { return _attack; }
-		void SetDefense(int defense) { _defense = defense; }
-		int GetDefense() { return _defense; }
-		void SetTips(std::string tips) { _tips = tips; }
-		std::string GetTips() { return _tips; }
+		void SetAttack(int attack) { _data.attack = attack; }
+		int GetAttack() { return _data.attack; }
+
+		void SetDefense(int defense) { _data.defence = defense; }
+		int GetDefense() { return _data.defence; }
+
+		void SetImage(int cg) { _cardCG = cg; }
+		int GetImage() { return _cardCG; }
+
+		int GetFrameImage() { return _frameCG; }
+
+		void SetCardData(CardData data) { _data = data; }
+		CardData GetCardData() { return _data; }
+
+		int GetScreen() { return _screen; }
 	private:
-		int _cg;
-		std::string _cardName;
-		std::string _cardText;
-		int _attack,_defense;
-		std::string _tips;
+		/**
+		 * \brief カード情報を再度_screenに描画する
+		 */
+		void ReworkScreenImage();
+		CardData _data;
+		int _frameCG;
+		int _cardCG;
 		bool _selected;
 		AppFrame::AABB2D<int> _aabb;
+		int _screen;
 	};
 }

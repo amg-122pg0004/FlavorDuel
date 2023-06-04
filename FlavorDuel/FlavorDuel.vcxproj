@@ -23,13 +23,16 @@
     <ClInclude Include="source\BattleField.h" />
     <ClInclude Include="source\CardFactory.h" />
     <ClInclude Include="source\CardDataStruct.h" />
+    <ClInclude Include="source\CardImagePathLoader.h" />
     <ClInclude Include="source\CardJudge.h" />
     <ClInclude Include="source\CardObject.h">
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="source\ConvertJson.h" />
     <ClInclude Include="source\Curl.h" />
-    <ClInclude Include="source\Deck.h">
+    <ClInclude Include="source\DeckEditThread.h" />
+    <ClInclude Include="source\DeckEditUI.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -37,28 +40,63 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="source\HomeUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="source\InGameThread.h" />
+    <ClInclude Include="source\InGameUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="source\IObserverSequence.h" />
     <ClInclude Include="source\ISubjectSequence.h" />
-    <ClInclude Include="source\MessageLog.h" />
-    <ClInclude Include="source\MessageWindow.h" />
+    <ClInclude Include="source\LoginThread.h" />
+    <ClInclude Include="source\MatchingThread.h" />
+    <ClInclude Include="source\MatchingUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="source\ModeDeckEdit.h" />
+    <ClInclude Include="source\ModeHome.h" />
     <ClInclude Include="source\ModeInGame.h" />
+    <ClInclude Include="source\ModeMatching.h" />
+    <ClInclude Include="source\ModeResult.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="source\ModeShop.h" />
     <ClInclude Include="source\ModeTest.h" />
+    <ClInclude Include="source\ModeTitle.h" />
     <ClInclude Include="source\PostData.h" />
+    <ClInclude Include="source\RegisterThread.h" />
+    <ClInclude Include="source\RegisterUI.h" />
+    <ClInclude Include="source\ResultUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="source\RoomState.h" />
     <ClInclude Include="source\SequenceMessages.h" />
+    <ClInclude Include="source\StringFitting.h" />
     <ClInclude Include="source\testUI.h" />
     <ClInclude Include="source\ThreadBase.h" />
+    <ClInclude Include="source\LoginUI.h" />
+    <ClInclude Include="source\UserDataStruct.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\ApplicationMain.cpp" />
     <ClCompile Include="source\BattleField.cpp" />
     <ClCompile Include="source\CardFactory.cpp" />
+    <ClCompile Include="source\CardImagePathLoader.cpp" />
     <ClCompile Include="source\CardJudge.cpp" />
     <ClCompile Include="source\CardObject.cpp">
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="source\ConvertJson.cpp" />
     <ClCompile Include="source\Curl.cpp" />
-    <ClCompile Include="source\Deck.cpp">
+    <ClCompile Include="source\DeckEditThread.cpp" />
+    <ClCompile Include="source\DeckEditUI.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -66,13 +104,43 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="source\MessageLog.cpp" />
-    <ClCompile Include="source\MessageWindow.cpp" />
+    <ClCompile Include="source\HomeUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="source\InGameThread.cpp" />
+    <ClCompile Include="source\InGameUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="source\LoginThread.cpp" />
+    <ClCompile Include="source\MatchingThread.cpp" />
+    <ClCompile Include="source\MatchingUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="source\ModeDeckEdit.cpp" />
+    <ClCompile Include="source\ModeHome.cpp" />
     <ClCompile Include="source\ModeInGame.cpp" />
+    <ClCompile Include="source\ModeMatching.cpp" />
+    <ClCompile Include="source\ModeResult.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="source\ModeShop.cpp" />
     <ClCompile Include="source\ModeTest.cpp" />
+    <ClCompile Include="source\ModeTitle.cpp" />
     <ClCompile Include="source\PostData.cpp" />
+    <ClCompile Include="source\RegisterThread.cpp" />
+    <ClCompile Include="source\RegisterUI.cpp" />
+    <ClCompile Include="source\ResultUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="source\StringFitting.cpp" />
     <ClCompile Include="source\testUI.cpp" />
     <ClCompile Include="source\ThreadBase.cpp" />
+    <ClCompile Include="source\LoginUI.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

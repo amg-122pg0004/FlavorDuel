@@ -1,29 +1,37 @@
 #include "ApplicationMain.h"
 #include "ModeInGame.h"
+#include "ModeTitle.h"
+#include "ModeHome.h"
+#include "UserDataStruct.h"
 #include "CardDataStruct.h"
+
 namespace {
-	Flavor::DeckData TestDeck = {
-		"test",
-		{{"ƒhƒ‰ƒSƒ“","‰Š‚ð“f‚­"},
-		{"‘å‚«‚È‹T","Šæä‚Èb—…‚É‚±‚à‚Á‚Ä•é‚ç‚µ‚Ä‚¢‚é"},
-		{"•ºŽm","ŠZ‚ðg‚É’…‚¯A‘å‚«‚È‘„‚ðŽ‚Â"},
-		{"–‚–@Žg‚¢","5‘®«‚Ì–‚–@‚ð‘€‚é"},
-		{"“VŽg","‰_‚Ìã‚ÉZ‚Þ‘¶Ý"},
-		{"ƒgƒŒƒ“ƒg","X‚É—§‚¿“ü‚Á‚½lŠÔ‚ðUŒ‚‚·‚é"},
-		{"‘m—µ","‰ñ•œ–‚–@‚ð“¾ˆÓ‚Æ‚·‚é"},
-		{"ƒSƒuƒŠƒ“","‚¸‚éŒ«‚­AW’c‚Ås“®‚·‚é"},
-		{"ƒXƒ‰ƒCƒ€","‰J‚ð‹zŽû‚µ‚Ä¶‚«‚Ä‚¢‚é"},
-		{"”L","–Â‚«º‚Íu‚É‚á[‚ñv"}}
-	};
+	constexpr auto GenshinGothic16Path = "res/font/GenshinGothic-monoB4S16.dft";
+	constexpr auto GenshinGothic32Path = "res/font/GenshinGothic-monoB4S32.dft";
+	constexpr auto DartsFontPath = "res/font/GenshinGothic-monoB4S32.dft";
 }
+
 namespace Flavor {
 	ApplicationMain g_oApplicationMain;
+
+	ApplicationMain::ApplicationMain() :_debug{ false }
+	{
+	}
 
 	bool ApplicationMain::Initialize(HINSTANCE hInstance)
 	{
 		if (!ApplicationBase::Initialize(hInstance)) { return false; }
+		UserData data;
+		this->GetAppData()->SetData(data);
+
+		AppFrame::FontServer::LoadFont("GGothic16",GenshinGothic16Path);
+		AppFrame::FontServer::LoadFont("GGothic32",GenshinGothic32Path);
+		AppFrame::FontServer::LoadFont("Darts32", DartsFontPath);
+
 		auto modeServer = AppFrame::ModeServer::GetInstance();
-		modeServer->Add(std::make_unique<ModeInGame>(TestDeck, TestDeck));
+		//modeServer->Add(std::make_unique<ModeInGame>(TestDeck, TestDeck));
+		modeServer->Add(std::make_unique<ModeTitle>());
+		//modeServer->Add(std::make_unique<ModeHome>());
 		return true;
 	}
 	bool ApplicationMain::Input()

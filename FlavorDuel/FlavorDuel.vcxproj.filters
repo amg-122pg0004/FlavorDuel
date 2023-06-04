@@ -34,9 +34,6 @@
     <Filter Include="Mode\ModeInGame">
       <UniqueIdentifier>{439e7c91-922d-4974-91c1-475ae715ecb8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object\Deck">
-      <UniqueIdentifier>{6a4ecfd6-cf3f-470e-b0cc-b63bc79b9770}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Object\Hand">
       <UniqueIdentifier>{1eba6b97-edef-403d-8d7d-27cc667d531d}</UniqueIdentifier>
     </Filter>
@@ -64,20 +61,77 @@
     <Filter Include="Network">
       <UniqueIdentifier>{a1b1cc77-095d-4eca-8cb0-2341cbed9c18}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Network\PostData">
+    <Filter Include="Mode\ModeTitle">
+      <UniqueIdentifier>{11d199d8-a15a-4037-b800-936f4ca31fba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mode\ModeShop">
+      <UniqueIdentifier>{4c469196-adc9-4646-955b-8911b625ab52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mode\ModeDeckEdit">
+      <UniqueIdentifier>{e24b04c4-4ea3-440c-9990-029401d4bd26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mode\ModeMatching">
+      <UniqueIdentifier>{13be78d4-0250-453a-a703-11cc501f50d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\RegisterUI">
+      <UniqueIdentifier>{4f1fb4ef-caf1-46b7-b360-68e5fd232017}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\LoginUI">
+      <UniqueIdentifier>{f589d2e1-a24e-445a-9b93-52be32e4e752}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mode\ModeHome">
+      <UniqueIdentifier>{95604793-0d84-4f3a-93b6-867407dee839}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\HomeUI">
+      <UniqueIdentifier>{493093e4-2bb4-4f19-88cd-c43d87217e1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\PostThread">
       <UniqueIdentifier>{ff8734f7-fda0-4580-8740-121fac09dde0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UI\MessageLog">
-      <UniqueIdentifier>{1944d760-303c-4ebb-926b-e072ac7367db}</UniqueIdentifier>
+    <Filter Include="Network\MathcingThread">
+      <UniqueIdentifier>{03eac8e5-c798-4314-a677-0af13ad79142}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UI\MessageWindow">
-      <UniqueIdentifier>{df6a52c9-c7ca-4290-a67d-895e5a10f1ed}</UniqueIdentifier>
+    <Filter Include="Network\LoginThread">
+      <UniqueIdentifier>{43b10645-2a06-42cb-9542-651d0feda987}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Interface\NewFilter1">
-      <UniqueIdentifier>{f06950df-d9dd-4a5d-85ff-8e211bf91ab7}</UniqueIdentifier>
+    <Filter Include="Network\RegisterThread">
+      <UniqueIdentifier>{15b377c0-4ad9-43aa-8fa9-1cf0f73db6ee}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Thread">
-      <UniqueIdentifier>{dc6c4e98-2c60-4c35-8d69-a423f13e5d13}</UniqueIdentifier>
+    <Filter Include="UI\MatchingUI">
+      <UniqueIdentifier>{9ceb5b7d-f9ec-4852-ad2b-8868431680e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\InGameThread">
+      <UniqueIdentifier>{02e960ff-93b8-4316-b634-b04f7c527b7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utillity">
+      <UniqueIdentifier>{3ce09432-b0e8-4abc-8499-884cf4037f72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utillity\ConvertJson">
+      <UniqueIdentifier>{e9da967f-2465-47ce-be26-268d245407e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enum\RoomState">
+      <UniqueIdentifier>{00781e41-ee21-41c3-a051-a04c0aa72d90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\InGameUI">
+      <UniqueIdentifier>{59a7f39b-b5d0-49e1-98cc-88b2e4aad083}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mode\ModeResult">
+      <UniqueIdentifier>{60669b24-3a85-4917-adb6-d00b006bc5b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\ResultUI">
+      <UniqueIdentifier>{b856be29-c92b-4d16-89ee-b67d7abb485b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utillity\StringFitting">
+      <UniqueIdentifier>{9a26c623-87ce-473e-b9f6-643d1f6fdb5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\DeckEditUI">
+      <UniqueIdentifier>{ffbf2721-1c3a-4b12-8e84-71489fa9be19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utillity\CardImagePathLoader">
+      <UniqueIdentifier>{099e39db-bfc4-42f3-80c7-5f879f93365a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\DeckEditThread">
+      <UniqueIdentifier>{9aee8783-ae7b-4888-ac70-43616cd0ac4f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -99,9 +153,6 @@
     <ClCompile Include="source\ModeInGame.cpp">
       <Filter>Mode\ModeInGame</Filter>
     </ClCompile>
-    <ClCompile Include="source\Deck.cpp">
-      <Filter>Object\Deck</Filter>
-    </ClCompile>
     <ClCompile Include="source\Hand.cpp">
       <Filter>Object\Hand</Filter>
     </ClCompile>
@@ -115,16 +166,73 @@
       <Filter>Object\BattleField</Filter>
     </ClCompile>
     <ClCompile Include="source\PostData.cpp">
-      <Filter>Network\PostData</Filter>
+      <Filter>Network\PostThread</Filter>
     </ClCompile>
-    <ClCompile Include="source\MessageLog.cpp">
-      <Filter>UI\MessageLog</Filter>
+    <ClCompile Include="source\ModeShop.cpp">
+      <Filter>Mode\ModeShop</Filter>
     </ClCompile>
-    <ClCompile Include="source\MessageWindow.cpp">
-      <Filter>UI\MessageWindow</Filter>
+    <ClCompile Include="source\ModeTitle.cpp">
+      <Filter>Mode\ModeTitle</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ModeDeckEdit.cpp">
+      <Filter>Mode\ModeDeckEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ModeMatching.cpp">
+      <Filter>Mode\ModeMatching</Filter>
+    </ClCompile>
+    <ClCompile Include="source\LoginUI.cpp">
+      <Filter>UI\LoginUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\RegisterUI.cpp">
+      <Filter>UI\RegisterUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ModeHome.cpp">
+      <Filter>Mode\ModeHome</Filter>
+    </ClCompile>
+    <ClCompile Include="source\HomeUI.cpp">
+      <Filter>UI\HomeUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\MatchingThread.cpp">
+      <Filter>Network\MathcingThread</Filter>
+    </ClCompile>
+    <ClCompile Include="source\LoginThread.cpp">
+      <Filter>Network\LoginThread</Filter>
+    </ClCompile>
+    <ClCompile Include="source\RegisterThread.cpp">
+      <Filter>Network\RegisterThread</Filter>
+    </ClCompile>
+    <ClCompile Include="source\MatchingUI.cpp">
+      <Filter>UI\MatchingUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\InGameThread.cpp">
+      <Filter>Network\InGameThread</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ConvertJson.cpp">
+      <Filter>Utillity\ConvertJson</Filter>
     </ClCompile>
     <ClCompile Include="source\ThreadBase.cpp">
-      <Filter>Thread</Filter>
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="source\InGameUI.cpp">
+      <Filter>UI\InGameUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ModeResult.cpp">
+      <Filter>Mode\ModeResult</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ResultUI.cpp">
+      <Filter>UI\ResultUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\StringFitting.cpp">
+      <Filter>Utillity\StringFitting</Filter>
+    </ClCompile>
+    <ClCompile Include="source\DeckEditUI.cpp">
+      <Filter>UI\DeckEditUI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CardImagePathLoader.cpp">
+      <Filter>Utillity\CardImagePathLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="source\DeckEditThread.cpp">
+      <Filter>Network\DeckEditThread</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -149,9 +257,6 @@
     <ClInclude Include="source\ModeInGame.h">
       <Filter>Mode\ModeInGame</Filter>
     </ClInclude>
-    <ClInclude Include="source\Deck.h">
-      <Filter>Object\Deck</Filter>
-    </ClInclude>
     <ClInclude Include="source\Hand.h">
       <Filter>Object\Hand</Filter>
     </ClInclude>
@@ -174,16 +279,79 @@
       <Filter>Object\BattleField</Filter>
     </ClInclude>
     <ClInclude Include="source\PostData.h">
-      <Filter>Network\PostData</Filter>
+      <Filter>Network\PostThread</Filter>
     </ClInclude>
-    <ClInclude Include="source\MessageLog.h">
-      <Filter>UI\MessageLog</Filter>
+    <ClInclude Include="source\ModeShop.h">
+      <Filter>Mode\ModeShop</Filter>
     </ClInclude>
-    <ClInclude Include="source\MessageWindow.h">
-      <Filter>UI\MessageWindow</Filter>
+    <ClInclude Include="source\ModeTitle.h">
+      <Filter>Mode\ModeTitle</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ModeDeckEdit.h">
+      <Filter>Mode\ModeDeckEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ModeMatching.h">
+      <Filter>Mode\ModeMatching</Filter>
+    </ClInclude>
+    <ClInclude Include="source\LoginUI.h">
+      <Filter>UI\LoginUI</Filter>
+    </ClInclude>
+    <ClInclude Include="source\UserDataStruct.h">
+      <Filter>DataStruct</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ModeHome.h">
+      <Filter>Mode\ModeHome</Filter>
+    </ClInclude>
+    <ClInclude Include="source\HomeUI.h">
+      <Filter>UI\HomeUI</Filter>
+    </ClInclude>
+    <ClInclude Include="source\MatchingThread.h">
+      <Filter>Network\MathcingThread</Filter>
+    </ClInclude>
+    <ClInclude Include="source\LoginThread.h">
+      <Filter>Network\LoginThread</Filter>
+    </ClInclude>
+    <ClInclude Include="source\RegisterThread.h">
+      <Filter>Network\RegisterThread</Filter>
+    </ClInclude>
+    <ClInclude Include="source\RegisterUI.h">
+      <Filter>UI\RegisterUI</Filter>
+    </ClInclude>
+    <ClInclude Include="source\MatchingUI.h">
+      <Filter>UI\MatchingUI</Filter>
+    </ClInclude>
+    <ClInclude Include="source\InGameThread.h">
+      <Filter>Network\InGameThread</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ConvertJson.h">
+      <Filter>Utillity\ConvertJson</Filter>
     </ClInclude>
     <ClInclude Include="source\ThreadBase.h">
-      <Filter>Thread</Filter>
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="source\RoomState.h">
+      <Filter>Enum\RoomState</Filter>
+    </ClInclude>
+    <ClInclude Include="source\InGameUI.h">
+      <Filter>UI\InGameUI</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ModeResult.h">
+      <Filter>Mode\ModeResult</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ResultUI.h">
+      <Filter>UI\ResultUI</Filter>
+    </ClInclude>
+    <ClInclude Include="source\StringFitting.h">
+      <Filter>Utillity\StringFitting</Filter>
+    </ClInclude>
+    <ClInclude Include="source\DeckEditUI.h">
+      <Filter>UI\DeckEditUI</Filter>
+    </ClInclude>
+    <ClInclude Include="source\CardImagePathLoader.h">
+      <Filter>Utillity\CardImagePathLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="source\DeckEditThread.h">
+      <Filter>Network\DeckEditThread</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

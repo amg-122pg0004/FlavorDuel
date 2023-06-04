@@ -101,7 +101,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\AppFrame\source\Input\;$(SolutionDir)..\AppFrame\source\Utility\;$(SolutionDir)..\AppFrame\source\PostProccess\;$(SolutionDir)..\AppFrame\source\Application\;$(SolutionDir)..\AppFrame\source\Resource\;$(SolutionDir)..\AppFrame\source\Object\;$(SolutionDir)..\AppFrame\source\UI\;$(SolutionDir)..\AppFrame\source\Mode\;$(SolutionDir)..\AppFrame\source\Math\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\AppFrame\source\Input\;$(SolutionDir)..\AppFrame\source\Utility\;$(SolutionDir)..\AppFrame\source\PostProccess\;$(SolutionDir)..\AppFrame\source\Application\;$(SolutionDir)..\AppFrame\source\Resource\;$(SolutionDir)..\AppFrame\source\Object\;$(SolutionDir)..\AppFrame\source\UI\;$(SolutionDir)..\AppFrame\source\Mode\;$(SolutionDir)..\AppFrame\source\Math\;$(SolutionDir)..\AppFrame\source\AppData\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -137,7 +137,7 @@
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\AppFrame\source\Input\;$(SolutionDir)..\AppFrame\source\Utility\;$(SolutionDir)..\AppFrame\source\PostProccess\;$(SolutionDir)..\AppFrame\source\Application\;$(SolutionDir)..\AppFrame\source\Resource\;$(SolutionDir)..\AppFrame\source\Object\;$(SolutionDir)..\AppFrame\source\UI\;$(SolutionDir)..\AppFrame\source\Mode\;$(SolutionDir)..\AppFrame\source\Math\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\AppFrame\source\Input\;$(SolutionDir)..\AppFrame\source\Utility\;$(SolutionDir)..\AppFrame\source\PostProccess\;$(SolutionDir)..\AppFrame\source\Application\;$(SolutionDir)..\AppFrame\source\Resource\;$(SolutionDir)..\AppFrame\source\Object\;$(SolutionDir)..\AppFrame\source\UI\;$(SolutionDir)..\AppFrame\source\Mode\;$(SolutionDir)..\AppFrame\source\Math\;$(SolutionDir)..\AppFrame\source\AppData\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -169,6 +169,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\AppData\DataHolder.cpp" />
     <ClCompile Include="source\Application\ApplicationBase.cpp" />
     <ClCompile Include="source\Application\WinMain.cpp" />
     <ClCompile Include="source\CFile\CFile.cpp" />
@@ -191,6 +192,7 @@
     <ClCompile Include="source\Resource\ImageServer.cpp" />
     <ClCompile Include="source\Resource\ModelServer.cpp" />
     <ClCompile Include="source\Resource\SoundServer.cpp" />
+    <ClCompile Include="source\UI\UIBox.cpp" />
     <ClCompile Include="source\UI\UIButton.cpp" />
     <ClCompile Include="source\UI\UICanvas.cpp" />
     <ClCompile Include="source\UI\UICanvasServer.cpp" />
@@ -208,6 +210,7 @@
     <ClCompile Include="UITextBox.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\AppData\DataHolder.h" />
     <ClInclude Include="source\appframe.h" />
     <ClInclude Include="source\Application\ApplicationBase.h" />
     <ClInclude Include="source\Application\UtilMacro.h" />
@@ -231,6 +234,7 @@
     <ClInclude Include="source\Resource\ImageServer.h" />
     <ClInclude Include="source\Resource\ModelServer.h" />
     <ClInclude Include="source\Resource\SoundServer.h" />
+    <ClInclude Include="source\UI\UIBox.h" />
     <ClInclude Include="source\UI\UIButton.h" />
     <ClInclude Include="source\UI\UICanvas.h" />
     <ClInclude Include="source\UI\UICanvasServer.h" />

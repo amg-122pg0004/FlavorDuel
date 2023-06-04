@@ -7,21 +7,35 @@
  *********************************************************************/
 #pragma once
 #include <string>
+#include <functional>
 #include "UIObjectBase.h"
 
 namespace AppFrame {
-    namespace UI {
-        class Image : public UIObjectBase
-        {
-        public:
-            Image(std::string path);
-            ~Image();
-            void Update(InputManager& input, float deltaSecond)override;
-            void Render()override;
+	namespace UI {
+		class Image : public UIObjectBase
+		{
+		public:
+			Image(std::string path);
+			~Image();
+			void Update(InputManager& input, float deltaSecond)override;
+			void Render()override;
 
-            void SetScale(float scale);
-        private:
-            int _image;
-        };
-    }
+			void SetScale(float scale) { _scale = scale; }
+			float getScale() { return _scale; }
+
+			void SetAngle(float angle) { _angle = angle; }
+			float GetAngle() { return _angle; }
+
+			void SetTransparent(bool flag) { _transparent = flag; }
+			float GetTransparent() { return _transparent; }
+
+			void SetUpdateFunction(std::function<void(Image& self)> function) { _update = function; }
+		private:
+			int _image;
+			float _scale;
+			float _angle;
+			bool _transparent;
+			std::function<void(Image& self)> _update;
+		};
+	}
 }
