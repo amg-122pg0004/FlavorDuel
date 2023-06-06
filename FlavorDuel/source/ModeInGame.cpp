@@ -120,7 +120,13 @@ void ModeInGame::SetRoomData(RoomData room)
 	_room = room;
 
 	if (_room.state == RoomState::FinishGame) {
-		bool result{ GetPlayerData().win >= 3 };
+		ResultType result{ ResultType::Draw };
+		if (GetPlayerData().win > GetOpponentData().win) {
+			result = ResultType::Win;
+		}
+		else {
+			result = ResultType::Lose;
+		}
 		EndMatch(result);
 	}
 
@@ -142,10 +148,10 @@ void Flavor::ModeInGame::SetJudgeConfirm()
 	_judgeConfirm = true;
 }
 
-void Flavor::ModeInGame::EndMatch(bool win)
+void Flavor::ModeInGame::EndMatch(ResultType type)
 {
 	_endMatch = true;
-	AppFrame::ModeServer::GetInstance()->Add(std::make_unique<ModeResult>(*this, win));
+	AppFrame::ModeServer::GetInstance()->Add(std::make_unique<ModeResult>(*this, type));
 }
 
 PlayerData ModeInGame::GetPlayerData()

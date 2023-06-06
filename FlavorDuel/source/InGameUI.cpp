@@ -5,7 +5,8 @@
 namespace {
 	using namespace Flavor;
 	using Anchor = AppFrame::UIObjectBase::Anchor;
-
+	constexpr AppFrame::VECTOR2<int> OpponentIDPosition = { 50,150 };
+	constexpr AppFrame::VECTOR2<int> MyIDPosition = { 50,470 };
 	constexpr AppFrame::VECTOR2<int> OpponentWinNumberPosition = { 50,180 };
 	constexpr AppFrame::VECTOR2<int> MyWinNumberPosition = { 50,500 };
 	constexpr AppFrame::VECTOR2<int> MessageWindowPosition = { 960,10 };
@@ -35,6 +36,9 @@ InGameUI::InGameUI(ModeInGame& mode)
 	messageText->SetTextColor(AppFrame::Color::White);
 	auto getMessage = [this]() {
 		std::vector<std::string> message = _modeInGame.GetRoomData().messageLog;
+		while (message.size() > 8) {
+			message.erase(message.begin());
+		}
 		std::string result;
 		for (auto&& line : message) {
 			std::string setText = StringFitting::InsertLineBreak(line, 32);
@@ -77,6 +81,18 @@ InGameUI::InGameUI(ModeInGame& mode)
 		opponentWinStar->SetUpdateFunction(update);
 		this->AddUIObject(std::move(opponentWinStar));
 	}
+	//Ž©•ª‚ÌID•\Ž¦
+	auto myIdText = std::make_unique<AppFrame::UI::TextBox>(_modeInGame.GetPlayerData().id);
+	myIdText->SetPosition(MyIDPosition);
+	myIdText->SetTextColor(AppFrame::Color::Black);
+	myIdText->SetFont(font);
+	this->AddUIObject(std::move(myIdText));
+	//‘ŠŽè‚ÌID•\Ž¦
+	auto opponentIdText = std::make_unique<AppFrame::UI::TextBox>(_modeInGame.GetOpponentData().id);
+	opponentIdText->SetPosition(OpponentIDPosition);
+	opponentIdText->SetTextColor(AppFrame::Color::Black);
+	opponentIdText->SetFont(font);
+	this->AddUIObject(std::move(opponentIdText));
 }
 
 InGameUI::~InGameUI()

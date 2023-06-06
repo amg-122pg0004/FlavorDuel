@@ -3,8 +3,8 @@
 #include "ModeHome.h"
 #include "ModeInGame.h"
 using namespace Flavor;
-ModeResult::ModeResult(ModeInGame& modeInGmame, bool win)
-	:_win{ win }
+ModeResult::ModeResult(ModeInGame& modeInGmame, ResultType type)
+	:_type{ type }
 	, _modeInGame{ modeInGmame }
 {
 }
@@ -12,7 +12,7 @@ ModeResult::ModeResult(ModeInGame& modeInGmame, bool win)
 bool ModeResult::Initialize()
 {
 	ModeBase::Initialize();
-	auto resultUI = std::make_unique<ResultUI>(*this, _win);
+	auto resultUI = std::make_unique<ResultUI>(*this, _type);
 	this->GetUICanvasServer()->Add(std::move(resultUI));
 	return false;
 }

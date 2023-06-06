@@ -1,11 +1,12 @@
 #pragma once
 #include "appframe.h"
+#include "ResultType.h"
 namespace Flavor {
 	using AppFrame::InputManager;
 	class ModeInGame;
 	class ModeResult :public AppFrame::ModeBase {
 	public:
-		ModeResult(ModeInGame& modeInGmame,bool win);
+		ModeResult(ModeInGame& modeInGmame, ResultType type);
 		bool Initialize()override;
 		bool Terminate()override;
 		bool Update(InputManager& input)override;
@@ -15,6 +16,6 @@ namespace Flavor {
 		void ChangeModeHome();
 	private:
 		ModeInGame& _modeInGame;
-		bool _win;
+		ResultType _type;
 	};
 }

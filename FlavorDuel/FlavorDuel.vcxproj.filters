@@ -133,6 +133,9 @@
     <Filter Include="Network\DeckEditThread">
       <UniqueIdentifier>{9aee8783-ae7b-4888-ac70-43616cd0ac4f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Enum\ResultType">
+      <UniqueIdentifier>{1f9825fc-c626-45f8-ad1b-e920e2e364ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\ApplicationMain.cpp">
@@ -352,6 +355,9 @@
     </ClInclude>
     <ClInclude Include="source\DeckEditThread.h">
       <Filter>Network\DeckEditThread</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ResultType.h">
+      <Filter>Enum\ResultType</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

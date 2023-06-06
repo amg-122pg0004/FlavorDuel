@@ -11,6 +11,8 @@
 #include "ISubjectSequence.h"
 #include "CardFactory.h"
 #include "InGameThread.h"
+#include "ResultType.h"
+
 namespace Flavor {
 	using AppFrame::InputManager;
 	class MessageLog;
@@ -37,7 +39,7 @@ namespace Flavor {
 		void SetJudgeConfirm();
 		std::unique_ptr<CardFactory>& GetCardFactory() { return _cardFactory; }
 
-		void EndMatch(bool win);
+		void EndMatch(ResultType type);
 	private:
 		InGameSequence _sequence;
 		std::unique_ptr<CardFactory> _cardFactory;

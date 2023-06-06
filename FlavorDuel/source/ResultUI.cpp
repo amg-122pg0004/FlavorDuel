@@ -1,27 +1,37 @@
 #include "ResultUI.h"
 #include "ModeResult.h"
-
 namespace {
 	using namespace Flavor;
 	using Anchor = AppFrame::UIObjectBase::Anchor;
 	AppFrame::VECTOR2<int> CanvasSize = { 1280,720 };
 	constexpr AppFrame::VECTOR2<int> EndButtonPosition = { 640,500 };
 	constexpr AppFrame::VECTOR2<int> TextPosition = { 640,300 };
+	constexpr AppFrame::VECTOR2<int> TextSize = { 260,70 };
 	constexpr auto GothicFont32 = "GGothic32";
 }
 
-ResultUI::ResultUI(ModeResult& mode, bool win)
+ResultUI::ResultUI(ModeResult& mode, ResultType type)
 	:AppFrame::UICanvas(CanvasSize)
 	, _modeResult{ mode }
 {
 
 	int font = AppFrame::FontServer::Find(GothicFont32);
 
-	std::string setText{"あなたの負け！"};
-	if (win) {
+	std::string setText{""};
+	switch (type)
+	{
+	case ResultType::Win:
 		setText = "あなたの勝ち！！";
+		break;
+	case ResultType::Lose:
+		setText = "あなたの負け！";
+		break;
+	case ResultType::Draw:
+		setText = "引き分け！！";
+		break;
 	}
 	auto titleText = std::make_unique<AppFrame::UI::TextBox>(setText);
+	titleText->SetSize(TextSize);
 	titleText->SetAnchor(Anchor::Center);
 	titleText->SetPosition(TextPosition);
 	titleText->SetFont(font);

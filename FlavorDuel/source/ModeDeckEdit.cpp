@@ -53,7 +53,7 @@ bool ModeDeckEdit::Update(InputManager& input)
 		if (activate) {
 			int text = CheckKeyInput(inputHandle);
 			if (CheckKeyInput(inputHandle) != 0) {
-				char input[NameCharacterMax];
+				char input[100];
 				GetKeyInputString(input, inputHandle);
 				setter(input);
 				activate = false;

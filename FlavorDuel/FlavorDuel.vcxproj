@@ -71,6 +71,7 @@
     <ClInclude Include="source\PostData.h" />
     <ClInclude Include="source\RegisterThread.h" />
     <ClInclude Include="source\RegisterUI.h" />
+    <ClInclude Include="source\ResultType.h" />
     <ClInclude Include="source\ResultUI.h">
       <SubType>
       </SubType>

@@ -39,5 +39,7 @@ namespace Flavor {
 		int _fontSmall;
 		float _judgeCompleteTimer;
 		bool _confirm;
+		int _myRandom, _opponentRandom;//能力値判定中に使用する乱数
+		float _randomTimer;//乱数の再設定に使用するタイマー
 	};
 }
