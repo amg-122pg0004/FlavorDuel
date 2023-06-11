@@ -29,9 +29,7 @@ namespace Flavor {
 		AppFrame::FontServer::LoadFont("Darts32", DartsFontPath);
 
 		auto modeServer = AppFrame::ModeServer::GetInstance();
-		//modeServer->Add(std::make_unique<ModeInGame>(TestDeck, TestDeck));
 		modeServer->Add(std::make_unique<ModeTitle>());
-		//modeServer->Add(std::make_unique<ModeHome>());
 		return true;
 	}
 	bool ApplicationMain::Input()

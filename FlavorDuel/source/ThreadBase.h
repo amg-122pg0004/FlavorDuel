@@ -8,6 +8,11 @@
 #include <process.h>
 
 #pragma once
+
+namespace URL {
+	constexpr auto Server = "http://54.238.204.140:9000/";
+}
+
 class ThreadBase
 {
 public:

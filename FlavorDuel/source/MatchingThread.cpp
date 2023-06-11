@@ -4,7 +4,7 @@
 
 using namespace Flavor;
 namespace {
-	constexpr auto matchingURL = "http://localhost:9000/matching";
+	constexpr auto endpoint = "matching";
 }
 
 MatchingThread::MatchingThread(std::string id, std::string type, std::vector<CardData> deck)

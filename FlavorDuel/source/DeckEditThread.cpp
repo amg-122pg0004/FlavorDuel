@@ -4,7 +4,7 @@
 
 using namespace Flavor;
 namespace {
-	constexpr auto editURL = "http://localhost:9000/edit";
+	constexpr auto endpoint = "edit";
 }
 
 DeckEditThread::DeckEditThread(std::string id, std::vector<CardData> deck)
@@ -25,7 +25,9 @@ bool DeckEditThread::ThreadProc()
 
 	std::string error{""};
 	std::string body{""};
-	curl->Post(editURL, jsonString, error, body);
+	std::string url{URL::Server};
+	url += endpoint;
+	curl->Post(url, jsonString, error, body);
 	if (error != "") {
 		return false;
 	}

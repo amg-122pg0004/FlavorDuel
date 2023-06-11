@@ -6,7 +6,7 @@
 
 using namespace Flavor;
 namespace {
-	constexpr auto ingameURL = "http://localhost:9000/ingame";
+	constexpr auto endpoint = "ingame";
 }
 
 InGameThread::InGameThread(Type postType)
@@ -37,7 +37,9 @@ bool InGameThread::ThreadProc()
 
 	std::string error{""};
 	std::string body{""};
-	curl->Post(ingameURL, jsonString, error, body);
+	std::string url{URL::Server};
+	url += endpoint;
+	curl->Post(url, jsonString, error, body);
 	if (error != "") {
 		return false;
 	}

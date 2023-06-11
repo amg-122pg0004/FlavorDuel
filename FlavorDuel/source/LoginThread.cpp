@@ -6,7 +6,7 @@
 #include "ConvertJson.h"
 using namespace Flavor;
 namespace {
-	constexpr auto LoginURL = "http://localhost:9000/login";
+	constexpr auto Endpoint = "login";
 }
 LoginThread::LoginThread(std::string id, std::string password)
 	:_id{ id }, _password{ password }, _success{ false }
@@ -24,7 +24,9 @@ bool LoginThread::ThreadProc()
 
 	std::string error{""};
 	std::string body{""};
-	curl->Post(LoginURL, jsonString, error, body);
+	std::string url{URL::Server};
+	url += Endpoint;
+	curl->Post(url, jsonString, error, body);
 	if (error != "") {
 		return false;
 	}
